@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF0A86962A0A6CDC00FD4EB2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86952A0A6CDC00FD4EB2 /* AppDelegate.m */; };
+		BF0A86992A0A6CDC00FD4EB2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86982A0A6CDC00FD4EB2 /* SceneDelegate.m */; };
+		BF0A869C2A0A6CDC00FD4EB2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A869B2A0A6CDC00FD4EB2 /* ViewController.m */; };
+		BF0A869F2A0A6CDC00FD4EB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF0A869D2A0A6CDC00FD4EB2 /* Main.storyboard */; };
+		BF0A86A12A0A6CDD00FD4EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF0A86A02A0A6CDD00FD4EB2 /* Assets.xcassets */; };
+		BF0A86A42A0A6CDD00FD4EB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF0A86A22A0A6CDD00FD4EB2 /* LaunchScreen.storyboard */; };
+		BF0A86A72A0A6CDD00FD4EB2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86A62A0A6CDD00FD4EB2 /* main.m */; };
+		BF0A86B12A0A6CDD00FD4EB2 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86B02A0A6CDD00FD4EB2 /* ____Tests.m */; };
+		BF0A86BB2A0A6CDD00FD4EB2 /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86BA2A0A6CDD00FD4EB2 /* ____UITests.m */; };
+		BF0A86BD2A0A6CDD00FD4EB2 /* ____UITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86BC2A0A6CDD00FD4EB2 /* ____UITestsLaunchTests.m */; };
+		BF0A86E02A0A9E4B00FD4EB2 /* rootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86DF2A0A9E4B00FD4EB2 /* rootViewController.m */; };
+		BF0A86E62A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86E52A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m */; };
+		BF0A86E92A0AB78200FD4EB2 /* CostomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86E82A0AB78200FD4EB2 /* CostomScrollView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF0A86AD2A0A6CDD00FD4EB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF0A86892A0A6CDC00FD4EB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF0A86902A0A6CDC00FD4EB2;
+			remoteInfo = "迷你微博";
+		};
+		BF0A86B72A0A6CDD00FD4EB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF0A86892A0A6CDC00FD4EB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF0A86902A0A6CDC00FD4EB2;
+			remoteInfo = "迷你微博";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF0A86912A0A6CDC00FD4EB2 /* 迷你微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "迷你微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF0A86942A0A6CDC00FD4EB2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BF0A86952A0A6CDC00FD4EB2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BF0A86972A0A6CDC00FD4EB2 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		BF0A86982A0A6CDC00FD4EB2 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		BF0A869A2A0A6CDC00FD4EB2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BF0A869B2A0A6CDC00FD4EB2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BF0A869E2A0A6CDC00FD4EB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF0A86A02A0A6CDD00FD4EB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF0A86A32A0A6CDD00FD4EB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF0A86A52A0A6CDD00FD4EB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF0A86A62A0A6CDD00FD4EB2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BF0A86AC2A0A6CDD00FD4EB2 /* 迷你微博Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "迷你微博Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF0A86B02A0A6CDD00FD4EB2 /* ____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____Tests.m"; sourceTree = "<group>"; };
+		BF0A86B62A0A6CDD00FD4EB2 /* 迷你微博UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "迷你微博UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF0A86BA2A0A6CDD00FD4EB2 /* ____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UITests.m"; sourceTree = "<group>"; };
+		BF0A86BC2A0A6CDD00FD4EB2 /* ____UITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UITestsLaunchTests.m"; sourceTree = "<group>"; };
+		BF0A86DE2A0A9E4B00FD4EB2 /* rootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rootViewController.h; sourceTree = "<group>"; };
+		BF0A86DF2A0A9E4B00FD4EB2 /* rootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rootViewController.m; sourceTree = "<group>"; };
+		BF0A86E42A0AB74800FD4EB2 /* ScrollableWithTitleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollableWithTitleViewController.h; sourceTree = "<group>"; };
+		BF0A86E52A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollableWithTitleViewController.m; sourceTree = "<group>"; };
+		BF0A86E72A0AB78200FD4EB2 /* CostomScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CostomScrollView.h; sourceTree = "<group>"; };
+		BF0A86E82A0AB78200FD4EB2 /* CostomScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CostomScrollView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF0A868E2A0A6CDC00FD4EB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF0A86A92A0A6CDD00FD4EB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF0A86B32A0A6CDD00FD4EB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF0A86882A0A6CDC00FD4EB2 = {
+			isa = PBXGroup;
+			children = (
+				BF0A86932A0A6CDC00FD4EB2 /* 迷你微博 */,
+				BF0A86AF2A0A6CDD00FD4EB2 /* 迷你微博Tests */,
+				BF0A86B92A0A6CDD00FD4EB2 /* 迷你微博UITests */,
+				BF0A86922A0A6CDC00FD4EB2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF0A86922A0A6CDC00FD4EB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF0A86912A0A6CDC00FD4EB2 /* 迷你微博.app */,
+				BF0A86AC2A0A6CDD00FD4EB2 /* 迷你微博Tests.xctest */,
+				BF0A86B62A0A6CDD00FD4EB2 /* 迷你微博UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF0A86932A0A6CDC00FD4EB2 /* 迷你微博 */ = {
+			isa = PBXGroup;
+			children = (
+				BF0A86D82A0A71BF00FD4EB2 /* controller */,
+				BF0A86942A0A6CDC00FD4EB2 /* AppDelegate.h */,
+				BF0A86952A0A6CDC00FD4EB2 /* AppDelegate.m */,
+				BF0A86972A0A6CDC00FD4EB2 /* SceneDelegate.h */,
+				BF0A86982A0A6CDC00FD4EB2 /* SceneDelegate.m */,
+				BF0A869A2A0A6CDC00FD4EB2 /* ViewController.h */,
+				BF0A869B2A0A6CDC00FD4EB2 /* ViewController.m */,
+				BF0A869D2A0A6CDC00FD4EB2 /* Main.storyboard */,
+				BF0A86A02A0A6CDD00FD4EB2 /* Assets.xcassets */,
+				BF0A86A22A0A6CDD00FD4EB2 /* LaunchScreen.storyboard */,
+				BF0A86A52A0A6CDD00FD4EB2 /* Info.plist */,
+				BF0A86A62A0A6CDD00FD4EB2 /* main.m */,
+			);
+			path = "迷你微博";
+			sourceTree = "<group>";
+		};
+		BF0A86AF2A0A6CDD00FD4EB2 /* 迷你微博Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BF0A86B02A0A6CDD00FD4EB2 /* ____Tests.m */,
+			);
+			path = "迷你微博Tests";
+			sourceTree = "<group>";
+		};
+		BF0A86B92A0A6CDD00FD4EB2 /* 迷你微博UITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF0A86BA2A0A6CDD00FD4EB2 /* ____UITests.m */,
+				BF0A86BC2A0A6CDD00FD4EB2 /* ____UITestsLaunchTests.m */,
+			);
+			path = "迷你微博UITests";
+			sourceTree = "<group>";
+		};
+		BF0A86D82A0A71BF00FD4EB2 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF0A86E72A0AB78200FD4EB2 /* CostomScrollView.h */,
+				BF0A86E82A0AB78200FD4EB2 /* CostomScrollView.m */,
+				BF0A86E42A0AB74800FD4EB2 /* ScrollableWithTitleViewController.h */,
+				BF0A86E52A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m */,
+				BF0A86DE2A0A9E4B00FD4EB2 /* rootViewController.h */,
+				BF0A86DF2A0A9E4B00FD4EB2 /* rootViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF0A86902A0A6CDC00FD4EB2 /* 迷你微博 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF0A86C02A0A6CDD00FD4EB2 /* Build configuration list for PBXNativeTarget "迷你微博" */;
+			buildPhases = (
+				BF0A868D2A0A6CDC00FD4EB2 /* Sources */,
+				BF0A868E2A0A6CDC00FD4EB2 /* Frameworks */,
+				BF0A868F2A0A6CDC00FD4EB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "迷你微博";
+			productName = "迷你微博";
+			productReference = BF0A86912A0A6CDC00FD4EB2 /* 迷你微博.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF0A86AB2A0A6CDD00FD4EB2 /* 迷你微博Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF0A86C32A0A6CDD00FD4EB2 /* Build configuration list for PBXNativeTarget "迷你微博Tests" */;
+			buildPhases = (
+				BF0A86A82A0A6CDD00FD4EB2 /* Sources */,
+				BF0A86A92A0A6CDD00FD4EB2 /* Frameworks */,
+				BF0A86AA2A0A6CDD00FD4EB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF0A86AE2A0A6CDD00FD4EB2 /* PBXTargetDependency */,
+			);
+			name = "迷你微博Tests";
+			productName = "迷你微博Tests";
+			productReference = BF0A86AC2A0A6CDD00FD4EB2 /* 迷你微博Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF0A86B52A0A6CDD00FD4EB2 /* 迷你微博UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF0A86C62A0A6CDD00FD4EB2 /* Build configuration list for PBXNativeTarget "迷你微博UITests" */;
+			buildPhases = (
+				BF0A86B22A0A6CDD00FD4EB2 /* Sources */,
+				BF0A86B32A0A6CDD00FD4EB2 /* Frameworks */,
+				BF0A86B42A0A6CDD00FD4EB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF0A86B82A0A6CDD00FD4EB2 /* PBXTargetDependency */,
+			);
+			name = "迷你微博UITests";
+			productName = "迷你微博UITests";
+			productReference = BF0A86B62A0A6CDD00FD4EB2 /* 迷你微博UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF0A86892A0A6CDC00FD4EB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					BF0A86902A0A6CDC00FD4EB2 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					BF0A86AB2A0A6CDD00FD4EB2 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = BF0A86902A0A6CDC00FD4EB2;
+					};
+					BF0A86B52A0A6CDD00FD4EB2 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = BF0A86902A0A6CDC00FD4EB2;
+					};
+				};
+			};
+			buildConfigurationList = BF0A868C2A0A6CDC00FD4EB2 /* Build configuration list for PBXProject "迷你微博" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF0A86882A0A6CDC00FD4EB2;
+			productRefGroup = BF0A86922A0A6CDC00FD4EB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF0A86902A0A6CDC00FD4EB2 /* 迷你微博 */,
+				BF0A86AB2A0A6CDD00FD4EB2 /* 迷你微博Tests */,
+				BF0A86B52A0A6CDD00FD4EB2 /* 迷你微博UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF0A868F2A0A6CDC00FD4EB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF0A86A42A0A6CDD00FD4EB2 /* LaunchScreen.storyboard in Resources */,
+				BF0A86A12A0A6CDD00FD4EB2 /* Assets.xcassets in Resources */,
+				BF0A869F2A0A6CDC00FD4EB2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF0A86AA2A0A6CDD00FD4EB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF0A86B42A0A6CDD00FD4EB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF0A868D2A0A6CDC00FD4EB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF0A869C2A0A6CDC00FD4EB2 /* ViewController.m in Sources */,
+				BF0A86962A0A6CDC00FD4EB2 /* AppDelegate.m in Sources */,
+				BF0A86A72A0A6CDD00FD4EB2 /* main.m in Sources */,
+				BF0A86E02A0A9E4B00FD4EB2 /* rootViewController.m in Sources */,
+				BF0A86E62A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m in Sources */,
+				BF0A86992A0A6CDC00FD4EB2 /* SceneDelegate.m in Sources */,
+				BF0A86E92A0AB78200FD4EB2 /* CostomScrollView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF0A86A82A0A6CDD00FD4EB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF0A86B12A0A6CDD00FD4EB2 /* ____Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF0A86B22A0A6CDD00FD4EB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF0A86BD2A0A6CDD00FD4EB2 /* ____UITestsLaunchTests.m in Sources */,
+				BF0A86BB2A0A6CDD00FD4EB2 /* ____UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF0A86AE2A0A6CDD00FD4EB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF0A86902A0A6CDC00FD4EB2 /* 迷你微博 */;
+			targetProxy = BF0A86AD2A0A6CDD00FD4EB2 /* PBXContainerItemProxy */;
+		};
+		BF0A86B82A0A6CDD00FD4EB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF0A86902A0A6CDC00FD4EB2 /* 迷你微博 */;
+			targetProxy = BF0A86B72A0A6CDD00FD4EB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF0A869D2A0A6CDC00FD4EB2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF0A869E2A0A6CDC00FD4EB2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF0A86A22A0A6CDD00FD4EB2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF0A86A32A0A6CDD00FD4EB2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF0A86BE2A0A6CDD00FD4EB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BF0A86BF2A0A6CDD00FD4EB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF0A86C12A0A6CDD00FD4EB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "迷你微博/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jimmyczh.jimmy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF0A86C22A0A6CDD00FD4EB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "迷你微博/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jimmyczh.jimmy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BF0A86C42A0A6CDD00FD4EB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.----Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/迷你微博.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/迷你微博";
+			};
+			name = Debug;
+		};
+		BF0A86C52A0A6CDD00FD4EB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.----Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/迷你微博.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/迷你微博";
+			};
+			name = Release;
+		};
+		BF0A86C72A0A6CDD00FD4EB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.----UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "迷你微博";
+			};
+			name = Debug;
+		};
+		BF0A86C82A0A6CDD00FD4EB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.----UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "迷你微博";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF0A868C2A0A6CDC00FD4EB2 /* Build configuration list for PBXProject "迷你微博" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF0A86BE2A0A6CDD00FD4EB2 /* Debug */,
+				BF0A86BF2A0A6CDD00FD4EB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF0A86C02A0A6CDD00FD4EB2 /* Build configuration list for PBXNativeTarget "迷你微博" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF0A86C12A0A6CDD00FD4EB2 /* Debug */,
+				BF0A86C22A0A6CDD00FD4EB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF0A86C32A0A6CDD00FD4EB2 /* Build configuration list for PBXNativeTarget "迷你微博Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF0A86C42A0A6CDD00FD4EB2 /* Debug */,
+				BF0A86C52A0A6CDD00FD4EB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF0A86C62A0A6CDD00FD4EB2 /* Build configuration list for PBXNativeTarget "迷你微博UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF0A86C72A0A6CDD00FD4EB2 /* Debug */,
+				BF0A86C82A0A6CDD00FD4EB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF0A86892A0A6CDC00FD4EB2 /* Project object */;
+}
