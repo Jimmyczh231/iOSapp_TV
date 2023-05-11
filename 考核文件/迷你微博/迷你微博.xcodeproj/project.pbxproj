@@ -20,6 +20,11 @@
 		BF0A86E02A0A9E4B00FD4EB2 /* rootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86DF2A0A9E4B00FD4EB2 /* rootViewController.m */; };
 		BF0A86E62A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86E52A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m */; };
 		BF0A86E92A0AB78200FD4EB2 /* CostomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86E82A0AB78200FD4EB2 /* CostomScrollView.m */; };
+		BF4FA4062A0CB4F7007098E1 /* WeiboOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4052A0CB4F7007098E1 /* WeiboOAuthHelper.m */; };
+		BF4FA40A2A0CB684007098E1 /* AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4092A0CB684007098E1 /* AccessToken.m */; };
+		BF4FA4112A0D11DE007098E1 /* WeiboAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4102A0D11DE007098E1 /* WeiboAPIManager.m */; };
+		BF4FA4142A0D13A4007098E1 /* testviewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4132A0D13A4007098E1 /* testviewcontroller.m */; };
+		BF4FA41A2A0D24DB007098E1 /* WeiboOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4192A0D24DB007098E1 /* WeiboOAuthViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +68,16 @@
 		BF0A86E52A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollableWithTitleViewController.m; sourceTree = "<group>"; };
 		BF0A86E72A0AB78200FD4EB2 /* CostomScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CostomScrollView.h; sourceTree = "<group>"; };
 		BF0A86E82A0AB78200FD4EB2 /* CostomScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CostomScrollView.m; sourceTree = "<group>"; };
+		BF4FA4042A0CB4F7007098E1 /* WeiboOAuthHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboOAuthHelper.h; sourceTree = "<group>"; };
+		BF4FA4052A0CB4F7007098E1 /* WeiboOAuthHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboOAuthHelper.m; sourceTree = "<group>"; };
+		BF4FA4082A0CB684007098E1 /* AccessToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessToken.h; sourceTree = "<group>"; };
+		BF4FA4092A0CB684007098E1 /* AccessToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessToken.m; sourceTree = "<group>"; };
+		BF4FA40F2A0D11DE007098E1 /* WeiboAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboAPIManager.h; sourceTree = "<group>"; };
+		BF4FA4102A0D11DE007098E1 /* WeiboAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboAPIManager.m; sourceTree = "<group>"; };
+		BF4FA4122A0D13A4007098E1 /* testviewcontroller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testviewcontroller.h; sourceTree = "<group>"; };
+		BF4FA4132A0D13A4007098E1 /* testviewcontroller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testviewcontroller.m; sourceTree = "<group>"; };
+		BF4FA4182A0D24DB007098E1 /* WeiboOAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboOAuthViewController.h; sourceTree = "<group>"; };
+		BF4FA4192A0D24DB007098E1 /* WeiboOAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboOAuthViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				BF0A86D82A0A71BF00FD4EB2 /* controller */,
+				BF4FA4072A0CB669007098E1 /* model */,
+				BF4FA40B2A0D0B78007098E1 /* constants */,
 				BF0A86942A0A6CDC00FD4EB2 /* AppDelegate.h */,
 				BF0A86952A0A6CDC00FD4EB2 /* AppDelegate.m */,
 				BF0A86972A0A6CDC00FD4EB2 /* SceneDelegate.h */,
@@ -155,8 +172,32 @@
 				BF0A86E52A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m */,
 				BF0A86DE2A0A9E4B00FD4EB2 /* rootViewController.h */,
 				BF0A86DF2A0A9E4B00FD4EB2 /* rootViewController.m */,
+				BF4FA4122A0D13A4007098E1 /* testviewcontroller.h */,
+				BF4FA4132A0D13A4007098E1 /* testviewcontroller.m */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		BF4FA4072A0CB669007098E1 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				BF4FA4042A0CB4F7007098E1 /* WeiboOAuthHelper.h */,
+				BF4FA4052A0CB4F7007098E1 /* WeiboOAuthHelper.m */,
+				BF4FA4082A0CB684007098E1 /* AccessToken.h */,
+				BF4FA4092A0CB684007098E1 /* AccessToken.m */,
+				BF4FA40F2A0D11DE007098E1 /* WeiboAPIManager.h */,
+				BF4FA4102A0D11DE007098E1 /* WeiboAPIManager.m */,
+				BF4FA4182A0D24DB007098E1 /* WeiboOAuthViewController.h */,
+				BF4FA4192A0D24DB007098E1 /* WeiboOAuthViewController.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		BF4FA40B2A0D0B78007098E1 /* constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,13 +330,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF4FA4062A0CB4F7007098E1 /* WeiboOAuthHelper.m in Sources */,
 				BF0A869C2A0A6CDC00FD4EB2 /* ViewController.m in Sources */,
+				BF4FA4142A0D13A4007098E1 /* testviewcontroller.m in Sources */,
 				BF0A86962A0A6CDC00FD4EB2 /* AppDelegate.m in Sources */,
 				BF0A86A72A0A6CDD00FD4EB2 /* main.m in Sources */,
 				BF0A86E02A0A9E4B00FD4EB2 /* rootViewController.m in Sources */,
+				BF4FA4112A0D11DE007098E1 /* WeiboAPIManager.m in Sources */,
 				BF0A86E62A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m in Sources */,
+				BF4FA40A2A0CB684007098E1 /* AccessToken.m in Sources */,
 				BF0A86992A0A6CDC00FD4EB2 /* SceneDelegate.m in Sources */,
 				BF0A86E92A0AB78200FD4EB2 /* CostomScrollView.m in Sources */,
+				BF4FA41A2A0D24DB007098E1 /* WeiboOAuthViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

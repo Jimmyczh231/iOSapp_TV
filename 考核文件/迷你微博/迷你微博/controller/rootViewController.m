@@ -7,12 +7,12 @@
 
 #import "rootViewController.h"
 #import "ScrollableWithTitleViewController.h"
-
+#import "testviewcontroller.h"
 
 @interface rootViewController ()
 
 @end
-
+ 
 @implementation rootViewController
 
 - (void)viewDidLoad {
@@ -20,9 +20,10 @@
     self.rootTabbar = [[UITabBarController alloc] init];
     
     ScrollableWithTitleViewController *viewController1 = [[ScrollableWithTitleViewController alloc] init];
+    testviewcontroller *viewController4 = [[testviewcontroller alloc] init];
+    
     // 创建 ViewController1
 
-    viewController1.tabBarItem.image = [UIImage imageNamed:@"图标1"];
     viewController1.tabBarItem.title = @"图标1";
     viewController1.tabBarItem.image = [UIImage imageNamed:@"图标1"];
 
@@ -37,7 +38,7 @@
     viewController3.tabBarItem.image = [UIImage imageNamed:@"图标3"];
 
     // 创建 ViewController4
-    UIViewController *viewController4 = [[UIViewController alloc] init];
+
     viewController4.tabBarItem.title = @"图标4";
     viewController4.tabBarItem.image = [UIImage imageNamed:@"图标4"];
 
