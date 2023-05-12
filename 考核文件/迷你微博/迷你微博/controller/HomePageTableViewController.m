@@ -69,7 +69,7 @@
     cell.textContentLabel.text = [status objectForKey:@"text"];
     cell.nameLabel.text = [[status objectForKey:@"user"] objectForKey:@"name"];
     cell.imagesUrl = [self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]];
-    [cell layoutSubviewwith:[status objectForKey:@"text"] andwith:[[status objectForKey:@"user"] objectForKey:@"name"] andwith:cell.imagesUrl];
+    [cell layoutSubviewwith:[status objectForKey:@"text"] andwith:[[status objectForKey:@"user"] objectForKey:@"name"] andwith:cell.imagesUrl andwith:[NSURL URLWithString:[[status objectForKey:@"user"] objectForKey:@"profile_image_url"]]];
     return cell;
 }
 
@@ -95,7 +95,7 @@
     if (picNumber == 0) {
         height += 20;
     }else if (picNumber == 1){
-        height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * 2;
+        height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * 1.5;
     }else if (picNumber <= 3) {
         height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * ((picNumber - 1) / 2 + 1);
     } else if (picNumber<= 6) {
@@ -105,7 +105,7 @@
         picNumber = picNum.intValue;
         height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * 3;
     }
-    height += 40.0;
+    height += 45.0;
     return height;
 }
 

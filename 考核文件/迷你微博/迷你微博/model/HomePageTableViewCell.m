@@ -86,21 +86,34 @@
     return self;
 }
 
-- (void)layoutSubviewwith:(NSString*)text andwith:(NSString*)name andwith:(NSMutableArray*)picUrlArray{
+- (void)layoutSubviewwith:(NSString*)text andwith:(NSString *)name andwith:(NSMutableArray*)picUrlArray andwith:(NSURL*)profileImageUrl{
     for (UIView *subview in self.contentView.subviews) {
         [subview removeFromSuperview];
     }
     [super layoutSubviews];
     
+    self.profileImageUrl = profileImageUrl;
     self.userProfileImageView = [[UIImageView alloc] init];
+    [[ImageLoader sharedInstance] loadImageWithURL:self.profileImageUrl completion:^(UIImage * _Nonnull image) {
+        if (image) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.userProfileImageView.image = image;
+            });
+        } else {
+            NSLog(@"Failed to load image");
+        }
+    }];
     self.userProfileImageView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.userProfileImageView.layer.cornerRadius = 15.0;
+    self.userProfileImageView.layer.cornerRadius = 20.0;
     self.userProfileImageView.layer.masksToBounds = YES;
+   
+    NSLayoutConstraint *profileImageLeft = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:13];
+    NSLayoutConstraint *profileImageTop = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:13];
+    NSLayoutConstraint *profileImagewidth = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:40];
+    NSLayoutConstraint *profileImageheight = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:40];
     [self.contentView addSubview:self.userProfileImageView];
-    NSLayoutConstraint *profileImageLeft = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-    NSLayoutConstraint *profileImageTop = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:15];
-    [self.contentView addConstraints:@[profileImageLeft, profileImageLeft]];
-    
+    [self.contentView addConstraints:@[profileImageLeft, profileImageTop]];
+    [ self.userProfileImageView addConstraints:@[profileImagewidth, profileImageheight]];
     
     
     
@@ -109,7 +122,7 @@
     self.nameLabel.font = [UIFont systemFontOfSize:14.0];
     [self.contentView addSubview:self.nameLabel];
     [self.nameLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    NSLayoutConstraint *nameLabelLeft = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+    NSLayoutConstraint *nameLabelLeft = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.userProfileImageView attribute:NSLayoutAttributeRight multiplier:1 constant:13];
     NSLayoutConstraint *nameLabelTop = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:15];
     [self.contentView addConstraints:@[nameLabelLeft, nameLabelTop]];
 //        [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -125,7 +138,7 @@
     [self.textContentLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSLayoutConstraint *textLabelLeft = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
     NSLayoutConstraint *textLabelRight = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
-    NSLayoutConstraint *textLabelTop = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:25];
+    NSLayoutConstraint *textLabelTop = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:35];
     [self.contentView addConstraints:@[textLabelLeft, textLabelRight, textLabelTop]];
     
 //        [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
