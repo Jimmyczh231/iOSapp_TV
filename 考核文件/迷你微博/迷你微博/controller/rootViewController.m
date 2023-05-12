@@ -8,6 +8,7 @@
 #import "rootViewController.h"
 #import "ScrollableWithTitleViewController.h"
 #import "testviewcontroller.h"
+#import "HomePageTableViewController.h"
 
 @interface rootViewController ()
 
@@ -21,14 +22,14 @@
     
     ScrollableWithTitleViewController *viewController1 = [[ScrollableWithTitleViewController alloc] init];
     testviewcontroller *viewController4 = [[testviewcontroller alloc] init];
-    
+    HomePageTableViewController *viewController2 = [[HomePageTableViewController alloc] init];
     // 创建 ViewController1
 
     viewController1.tabBarItem.title = @"图标1";
     viewController1.tabBarItem.image = [UIImage imageNamed:@"图标1"];
 
     // 创建 ViewController2
-    UIViewController *viewController2 = [[UIViewController alloc] init];
+
     viewController2.tabBarItem.title = @"图标2";
     viewController2.tabBarItem.image = [UIImage imageNamed:@"图标2"];
 

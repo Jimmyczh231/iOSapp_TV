@@ -25,6 +25,9 @@
 		BF4FA4112A0D11DE007098E1 /* WeiboAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4102A0D11DE007098E1 /* WeiboAPIManager.m */; };
 		BF4FA4142A0D13A4007098E1 /* testviewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4132A0D13A4007098E1 /* testviewcontroller.m */; };
 		BF4FA41A2A0D24DB007098E1 /* WeiboOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4192A0D24DB007098E1 /* WeiboOAuthViewController.m */; };
+		BF4FA4262A0D43E8007098E1 /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4252A0D43E8007098E1 /* ImageLoader.m */; };
+		BF4FA4292A0D4BAE007098E1 /* WeiboHomePageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */; };
+		BF4FA42C2A0D55A5007098E1 /* HomePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,12 @@
 		BF4FA4132A0D13A4007098E1 /* testviewcontroller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testviewcontroller.m; sourceTree = "<group>"; };
 		BF4FA4182A0D24DB007098E1 /* WeiboOAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboOAuthViewController.h; sourceTree = "<group>"; };
 		BF4FA4192A0D24DB007098E1 /* WeiboOAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboOAuthViewController.m; sourceTree = "<group>"; };
+		BF4FA4242A0D43E8007098E1 /* ImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
+		BF4FA4252A0D43E8007098E1 /* ImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageLoader.m; sourceTree = "<group>"; };
+		BF4FA4272A0D4BAE007098E1 /* WeiboHomePageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboHomePageManager.h; sourceTree = "<group>"; };
+		BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboHomePageManager.m; sourceTree = "<group>"; };
+		BF4FA42A2A0D55A5007098E1 /* HomePageTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageTableViewController.h; sourceTree = "<group>"; };
+		BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,12 +177,16 @@
 			children = (
 				BF0A86E72A0AB78200FD4EB2 /* CostomScrollView.h */,
 				BF0A86E82A0AB78200FD4EB2 /* CostomScrollView.m */,
+				BF4FA42A2A0D55A5007098E1 /* HomePageTableViewController.h */,
+				BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */,
 				BF0A86E42A0AB74800FD4EB2 /* ScrollableWithTitleViewController.h */,
 				BF0A86E52A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m */,
 				BF0A86DE2A0A9E4B00FD4EB2 /* rootViewController.h */,
 				BF0A86DF2A0A9E4B00FD4EB2 /* rootViewController.m */,
 				BF4FA4122A0D13A4007098E1 /* testviewcontroller.h */,
 				BF4FA4132A0D13A4007098E1 /* testviewcontroller.m */,
+				BF4FA4182A0D24DB007098E1 /* WeiboOAuthViewController.h */,
+				BF4FA4192A0D24DB007098E1 /* WeiboOAuthViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -187,8 +200,10 @@
 				BF4FA4092A0CB684007098E1 /* AccessToken.m */,
 				BF4FA40F2A0D11DE007098E1 /* WeiboAPIManager.h */,
 				BF4FA4102A0D11DE007098E1 /* WeiboAPIManager.m */,
-				BF4FA4182A0D24DB007098E1 /* WeiboOAuthViewController.h */,
-				BF4FA4192A0D24DB007098E1 /* WeiboOAuthViewController.m */,
+				BF4FA4242A0D43E8007098E1 /* ImageLoader.h */,
+				BF4FA4252A0D43E8007098E1 /* ImageLoader.m */,
+				BF4FA4272A0D4BAE007098E1 /* WeiboHomePageManager.h */,
+				BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -330,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF4FA42C2A0D55A5007098E1 /* HomePageTableViewController.m in Sources */,
 				BF4FA4062A0CB4F7007098E1 /* WeiboOAuthHelper.m in Sources */,
 				BF0A869C2A0A6CDC00FD4EB2 /* ViewController.m in Sources */,
 				BF4FA4142A0D13A4007098E1 /* testviewcontroller.m in Sources */,
@@ -338,7 +354,9 @@
 				BF0A86E02A0A9E4B00FD4EB2 /* rootViewController.m in Sources */,
 				BF4FA4112A0D11DE007098E1 /* WeiboAPIManager.m in Sources */,
 				BF0A86E62A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m in Sources */,
+				BF4FA4292A0D4BAE007098E1 /* WeiboHomePageManager.m in Sources */,
 				BF4FA40A2A0CB684007098E1 /* AccessToken.m in Sources */,
+				BF4FA4262A0D43E8007098E1 /* ImageLoader.m in Sources */,
 				BF0A86992A0A6CDC00FD4EB2 /* SceneDelegate.m in Sources */,
 				BF0A86E92A0AB78200FD4EB2 /* CostomScrollView.m in Sources */,
 				BF4FA41A2A0D24DB007098E1 /* WeiboOAuthViewController.m in Sources */,
