@@ -7,49 +7,141 @@
 
 #import "HomePageTableViewCell.h"
 #import "ImageLoader.h"
+@interface HomePageTableViewCell ()
 
+@property (nonatomic, strong) UIImageView *userProfileImageView;
+
+@end
 
 @implementation HomePageTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andwith:(NSString*)text andwith:(NSString*)name andwith:(NSMutableArray*)picUrlArray{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.nameLabel = [[UILabel alloc] init];
-        self.nameLabel.font = [UIFont systemFontOfSize:14.0];
-        [self.contentView addSubview:self.nameLabel];
-        [self.nameLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-        NSLayoutConstraint *nameLabelLeft = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-        NSLayoutConstraint *nameLabelTop = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:10];
-        [self.contentView addConstraints:@[nameLabelLeft, nameLabelTop]];
+//        self.nameLabel = [[UILabel alloc] init];
+//        self.nameLabel.font = [UIFont systemFontOfSize:14.0];
+//        [self.contentView addSubview:self.nameLabel];
+//        [self.nameLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+//        NSLayoutConstraint *nameLabelLeft = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+//        NSLayoutConstraint *nameLabelTop = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:10];
+//        [self.contentView addConstraints:@[nameLabelLeft, nameLabelTop]];
+////        [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+////            make.left.top.equalTo(self.contentView).offset(10);
+////        }];
+//
+//        self.textContentLabel = [[UILabel alloc] init];
+//        self.textContentLabel.numberOfLines = 0;
+//        self.textContentLabel.font = [UIFont systemFontOfSize:14.0];
+//        [self.contentView addSubview:self.textContentLabel];
+//        self.textContentLabel.translatesAutoresizingMaskIntoConstraints = NO;
+//        [self.textContentLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+//        NSLayoutConstraint *textLabelLeft = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+//        NSLayoutConstraint *textLabelRight = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
+//        NSLayoutConstraint *textLabelTop = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+//        [self.contentView addConstraints:@[textLabelLeft, textLabelRight, textLabelTop]];
+//
+////        [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+////            make.left.equalTo(self.contentView).offset(10);
+////            make.right.equalTo(self.contentView).offset(-10);
+////            make.top.equalTo(self.nameLabel.mas_bottom).offset(10);
+////        }];
+//        self.imagesUrl = picUrlArray;
+//        self.imageViews = [NSMutableArray array];
+//        for (int i = 0; i < self.imagesUrl.count; i++) {
+//            UIImageView *imageView = [[UIImageView alloc] init];
+//            imageView.contentMode = UIViewContentModeScaleAspectFill;
+//            imageView.clipsToBounds = YES;
+//            [self.contentView addSubview:imageView];
+//            [self.imageViews addObject:imageView];
+//        }
+//
+////        UILabel *countLabel = [[UILabel alloc] init];
+////        countLabel.font = [UIFont systemFontOfSize:12.0];
+////        countLabel.textColor = [UIColor whiteColor];
+////        countLabel.textAlignment = NSTextAlignmentCenter;
+////        countLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+////        countLabel.layer.cornerRadius = 10;
+////        countLabel.layer.masksToBounds = YES;
+////        [self.contentView addSubview:countLabel];
+////        [countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+////            make.centerX.equalTo(self.contentView);
+////            make.bottom.equalTo(self.contentView).offset(-10);
+////            make.width.height.mas_equalTo(20);
+////        }];
+//        [self setImageViewWithImageUrls:self.imagesUrl];
+////        CGFloat margin = 10.0;
+////        CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
+////        CGFloat imageSize = (screenWidth - margin * 4) / 3;
+////        for (int i = 0; i < 9; i++) {
+////            CGFloat x = margin + (imageSize + margin) * (i % 3);
+////            CGFloat y = margin + (imageSize + margin) * (i / 3 + 1);
+////            UIImageView *imageView = self.imageViews[i];
+////            [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+////                make.left.equalTo(self.contentView).offset(x);
+////                make.top.equalTo(self.textLabel.mas_bottom).offset(y);
+////                make.width.height.mas_equalTo(imageSize);
+////            }];
+////        }
+    }
+    return self;
+}
+
+- (void)layoutSubviewwith:(NSString*)text andwith:(NSString*)name andwith:(NSMutableArray*)picUrlArray{
+    for (UIView *subview in self.contentView.subviews) {
+        [subview removeFromSuperview];
+    }
+    [super layoutSubviews];
+    
+    self.userProfileImageView = [[UIImageView alloc] init];
+    self.userProfileImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.userProfileImageView.layer.cornerRadius = 15.0;
+    self.userProfileImageView.layer.masksToBounds = YES;
+    [self.contentView addSubview:self.userProfileImageView];
+    NSLayoutConstraint *profileImageLeft = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+    NSLayoutConstraint *profileImageTop = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:15];
+    [self.contentView addConstraints:@[profileImageLeft, profileImageLeft]];
+    
+    
+    
+    
+    self.nameLabel = [[UILabel alloc] init];
+    self.nameLabel.text = name;
+    self.nameLabel.font = [UIFont systemFontOfSize:14.0];
+    [self.contentView addSubview:self.nameLabel];
+    [self.nameLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSLayoutConstraint *nameLabelLeft = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+    NSLayoutConstraint *nameLabelTop = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:15];
+    [self.contentView addConstraints:@[nameLabelLeft, nameLabelTop]];
 //        [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.left.top.equalTo(self.contentView).offset(10);
 //        }];
-        
-        self.textContentLabel = [[UILabel alloc] init];
-        self.textContentLabel.numberOfLines = 0;
-        self.textContentLabel.font = [UIFont systemFontOfSize:14.0];
-        [self.contentView addSubview:self.textContentLabel];
-        self.textContentLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.textContentLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-        NSLayoutConstraint *textLabelLeft = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-        NSLayoutConstraint *textLabelRight = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
-        NSLayoutConstraint *textLabelTop = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
-        [self.contentView addConstraints:@[textLabelLeft, textLabelRight, textLabelTop]];
-        
+    
+    self.textContentLabel = [[UILabel alloc] init];
+    self.textContentLabel.text = text;
+    self.textContentLabel.numberOfLines = 0;
+    self.textContentLabel.font = [UIFont systemFontOfSize:14.0];
+    [self.contentView addSubview:self.textContentLabel];
+    self.textContentLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.textContentLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSLayoutConstraint *textLabelLeft = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+    NSLayoutConstraint *textLabelRight = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
+    NSLayoutConstraint *textLabelTop = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:25];
+    [self.contentView addConstraints:@[textLabelLeft, textLabelRight, textLabelTop]];
+    
 //        [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.left.equalTo(self.contentView).offset(10);
 //            make.right.equalTo(self.contentView).offset(-10);
 //            make.top.equalTo(self.nameLabel.mas_bottom).offset(10);
 //        }];
-        self.imagesUrl = picUrlArray;
-        self.imageViews = [NSMutableArray array];
-        for (int i = 0; i < self.imagesUrl.count; i++) {
-            UIImageView *imageView = [[UIImageView alloc] init];
-            imageView.contentMode = UIViewContentModeScaleAspectFill;
-            imageView.clipsToBounds = YES;
-            [self.contentView addSubview:imageView];
-            [self.imageViews addObject:imageView];
-        }
+
+    self.imageViews = [NSMutableArray array];
+    for (int i = 0; i < self.imagesUrl.count; i++) {
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = YES;
+        [self.contentView addSubview:imageView];
+        [self.imageViews addObject:imageView];
+    }
 
 //        UILabel *countLabel = [[UILabel alloc] init];
 //        countLabel.font = [UIFont systemFontOfSize:12.0];
@@ -64,7 +156,7 @@
 //            make.bottom.equalTo(self.contentView).offset(-10);
 //            make.width.height.mas_equalTo(20);
 //        }];
-        [self setImageViewWithImageUrls:self.imagesUrl];
+    [self setImageViewWithImageUrls:self.imagesUrl];
 //        CGFloat margin = 10.0;
 //        CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
 //        CGFloat imageSize = (screenWidth - margin * 4) / 3;
@@ -78,9 +170,10 @@
 //                make.width.height.mas_equalTo(imageSize);
 //            }];
 //        }
-    }
-    return self;
+
 }
+
+
 // 排版图片
 - (void)setImageViewWithImageUrls:(NSArray *)imagesUrl {
     NSInteger count = imagesUrl.count;
@@ -115,16 +208,16 @@
                     CGFloat imageWidth = image.size.width;
                     CGFloat imageHeight = image.size.height;
                     CGFloat maxWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 20.0;
-                    CGFloat maxHeight = maxWidth * 0.75;
-                    if (imageWidth > maxWidth || imageHeight > maxHeight) {
+                    CGFloat maxHeight = maxWidth * 0.5;
+//                    if (imageWidth > maxWidth || imageHeight > maxHeight) {
                         CGFloat scale = MIN(maxWidth / imageWidth, maxHeight / imageHeight);
                         imageWidth *= scale;
                         imageHeight *= scale;
-                    }
+//                    }
                     UIImageView *imageView = self.imageViews.firstObject;
                     [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
                     NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-                    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+                    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:15];
                     NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageWidth];
                     NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageHeight];
                     [self.contentView addSubview:imageView];
@@ -142,17 +235,17 @@
 //            make.width.mas_equalTo(imageWidth);
 //            make.height.mas_equalTo(imageHeight);
 //        }];
-    } else if (count >= 2 && count <= 4) {
+    } else if (count == 2 || count == 4 || count == 3) {
         CGFloat margin = 10.0;
         CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
         CGFloat imageSize = (screenWidth - margin * 4) / 3;
         for (int i = 0; i < count; i++) {
             CGFloat x = margin + (imageSize + margin) * (i % 2);
-            CGFloat y = margin + (imageSize + margin) * (i / 2 + 1);
+            CGFloat y = margin + (imageSize + margin) * (i / 2);
             UIImageView *imageView = self.imageViews[i];
             [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
             NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:x];
-            NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:y];
+            NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant: y + 5];
             NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
             NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
             [self.contentView addSubview:imageView];
@@ -164,20 +257,22 @@
 //                make.width.height.mas_equalTo(imageSize);
 //            }];
         }
-    } else if (count >= 5 && count <= 9) {
+    } else if (self.imageNumber >= 5 && self.imageNumber <= 9) {
         CGFloat margin = 10.0;
         CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
         CGFloat imageSize = (screenWidth - margin * 4) / 3;
         for (int i = 0; i < count; i++) {
             CGFloat x = margin + (imageSize + margin) * (i % 3);
-            CGFloat y = margin + (imageSize + margin) * (i / 3 + 1);
+            CGFloat y = margin + (imageSize + margin) * (i / 3);
             UIImageView *imageView = self.imageViews[i];
+            [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
             NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:x];
-            NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:y];
+            NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:y+5];
             NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
             NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
             [self.contentView addSubview:imageView];
             [imageView addConstraints:@[width, height]];
+
             [self.contentView addConstraints:@[left, top]];
 //            [imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
 //                make.left.equalTo(self.contentView).offset(x);
@@ -191,10 +286,11 @@
         CGFloat imageSize = (screenWidth - margin * 4) / 3;
         for (int i = 0; i < 9; i++) {
             CGFloat x = margin + (imageSize + margin) * (i % 3);
-            CGFloat y = margin + (imageSize + margin) * (i / 3 + 1);
+            CGFloat y = margin + (imageSize + margin) * (i / 3);
             UIImageView *imageView = self.imageViews[i];
+            [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
             NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:x];
-            NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:y];
+            NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:y+5];
             NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
             NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
             [self.contentView addSubview:imageView];
@@ -214,6 +310,19 @@
                     CIImage *outputImage = [blurFilter valueForKey:kCIOutputImageKey];
                     UIImage *blurredImage = [[UIImage alloc] initWithCIImage:outputImage];
                     imageView.image = blurredImage;
+                    UILabel *countLabel = [[UILabel alloc] init];
+                     countLabel.text = [NSString stringWithFormat:@"+%d", self.imageNumber - 9];
+                     countLabel.textColor = [UIColor whiteColor];
+                     countLabel.font = [UIFont systemFontOfSize:25];
+                     countLabel.textAlignment = NSTextAlignmentCenter;
+                     countLabel.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+                     [countLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+                     [imageView addSubview:countLabel];
+                     NSLayoutConstraint *countLeft = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
+                     NSLayoutConstraint *countTop = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+                     NSLayoutConstraint *countWidth = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
+                     NSLayoutConstraint *countHeight = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
+                     [imageView addConstraints:@[countLeft, countTop, countWidth, countHeight]];
 //                    imageView.image = [imageView.image applyBlurWithRadius:5 tintColor:nil saturationDeltaFactor:1.0 maskImage:nil];
                 }
             }

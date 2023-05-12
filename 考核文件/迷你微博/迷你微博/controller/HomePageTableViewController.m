@@ -64,11 +64,12 @@
         cell = [[HomePageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier andwith:[status objectForKey:@"text"] andwith:[[status objectForKey:@"user"] objectForKey:@"name"] andwith:[self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]]];
     }
 
-
+    NSNumber *picNum = [status objectForKey:@"pic_num"];
+    cell.imageNumber = picNum.intValue;
     cell.textContentLabel.text = [status objectForKey:@"text"];
     cell.nameLabel.text = [[status objectForKey:@"user"] objectForKey:@"name"];
-//    cell.imagesUrl = [self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]];
-    
+    cell.imagesUrl = [self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]];
+    [cell layoutSubviewwith:[status objectForKey:@"text"] andwith:[[status objectForKey:@"user"] objectForKey:@"name"] andwith:cell.imagesUrl];
     return cell;
 }
 
@@ -76,31 +77,35 @@
     NSMutableArray *thumbnailUrls = [NSMutableArray array];
     for (NSDictionary *dict in array) {
         // 判断字典中是否包含 key 为 "thumbnail_pic" 的值
-        if ([dict objectForKey:@"thumbnail_pic"]) {
+//        if ([dict objectForKey:@"thumbnail_pic"]) {
             // 获取 key 为 "thumbnail_pic" 的 NSURL 对象
             NSURL *thumbnailUrl = [NSURL URLWithString:[dict objectForKey:@"thumbnail_pic"]];
             [thumbnailUrls addObject:thumbnailUrl];
-        }
+//        }
     }
     return thumbnailUrls;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableDictionary *status = self.DataArray[indexPath.row];
-    CGFloat height = 10.0;
+    CGFloat height = 50.0;
     height += [self heightForText:[status objectForKey:@"text"]];
-    int picNumber = (int)[status objectForKey:@"pic_num"];
+    NSMutableArray *picUrlArray = [status objectForKey:@"pic_urls"];
+    int picNumber = picUrlArray.count;
     if (picNumber == 0) {
-        height += 10.0;
-    } else if (picNumber <= 3) {
-        int testnNumber = 3;
-        height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * ((testnNumber - 1) / 2 + 1);
+        height += 20;
+    }else if (picNumber == 1){
+        height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * 2;
+    }else if (picNumber <= 3) {
+        height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * ((picNumber - 1) / 2 + 1);
     } else if (picNumber<= 6) {
         height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * 2;
     } else {
+        NSNumber *picNum = [status objectForKey:@"pic_num"];
+        picNumber = picNum.intValue;
         height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * 3;
     }
-    height += 10.0;
+    height += 40.0;
     return height;
 }
 

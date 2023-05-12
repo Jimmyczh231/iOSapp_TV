@@ -34,27 +34,37 @@
         if (cachedImage) {
             completion(cachedImage);
         } else {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                NSData *imageData = [NSData dataWithContentsOfURL:url];
-                UIImage *image = [UIImage imageWithData:imageData];
-                
-                if (image) {
-                    if(self.imageCache.count >= imageThreshold){
-                        [self.imageCache removeObjectForKey: [self.imageThresholdArrary firstObject]];
-                        [self.imageThresholdArrary removeObjectAtIndex:0];
-                    }
-                    [self.imageCache setObject:image forKey:url.absoluteString];
-                    [self.imageThresholdArrary addObject:url];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completion(image);
-                    });
-                    
-                    [self saveImage:image withURL:url];
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                if (error) {
+                    NSLog(@"Error: %@", error.localizedDescription);
+                    return;
                 }
-            });
+                
+                if (data) {
+                    UIImage *image = [UIImage imageWithData:data];
+                    
+                    if (image) {
+                        if(self.imageCache.count >= imageThreshold){
+                            [self.imageCache removeObjectForKey: [self.imageThresholdArrary firstObject]];
+                            [self.imageThresholdArrary removeObjectAtIndex:0];
+                        }
+                        [self.imageCache setObject:image forKey:url.absoluteString];
+                        [self.imageThresholdArrary addObject:url];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            completion(image);
+                        });
+                        
+                        [self saveImage:image withURL:url];
+                    }
+                }
+            }];
+            
+            [task resume];
         }
     }];
 }
+
 
 
 - (void)saveImage:(UIImage *)image withURL:(NSURL *)url {

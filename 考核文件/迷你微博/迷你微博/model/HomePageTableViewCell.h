@@ -16,9 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSDictionary *status;
 @property (nonatomic, strong) NSMutableArray<UIImageView *> *imageViews;
 @property (nonatomic, strong) NSMutableArray *imagesUrl;
-@property (nonatomic, strong) UIImageView *profileImage;
+@property (nonatomic, strong) NSURL *profileImageUrl;
+@property (nonatomic, readwrite) int imageNumber;
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andwith:(NSString*)text andwith:(NSString*)name andwith:(NSMutableArray*)picUrlArray;
+
+- (void)layoutSubviewwith:(NSString*)text andwith:(NSString*)name andwith:(NSMutableArray*)picUrlArray;
 
 @end
 
