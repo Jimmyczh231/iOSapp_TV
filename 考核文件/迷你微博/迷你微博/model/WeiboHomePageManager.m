@@ -48,7 +48,7 @@
     // 添加请求参数
     NSString *params;
     if (self.isAuthorized){
-        params = [NSString stringWithFormat:@"access_token=%@&count=%d&feature=0", [AccessToken sharedInstance].accessToken, kWeiboDataCount];
+        params = [NSString stringWithFormat:@"access_token=%@&count=%d&feature=2", [AccessToken sharedInstance].accessToken, kWeiboDataCount];
         
     }else{
         params = [NSString stringWithFormat:@"count=%d", kWeiboDataCount];

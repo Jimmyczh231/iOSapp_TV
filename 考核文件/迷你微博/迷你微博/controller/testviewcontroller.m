@@ -9,6 +9,7 @@
 #import "WeiboOAuthViewController.h"
 #import "WeiboOAuthHelper.h"
 #import <WebKit/WebKit.h>
+#import "AccessToken.h"
 @interface testviewcontroller () <WKNavigationDelegate>
 
 @property (nonatomic, strong) WKWebView *webView;
@@ -48,7 +49,25 @@
     
 
 }
+- (void)viewDidAppear:(BOOL)animated{
+    if([AccessToken sharedInstance].accessToken == nil){
+        WeiboOAuthViewController *oauthHelper = [[WeiboOAuthViewController alloc] initWithCompletion:^(NSString * _Nullable accessToken, NSError * _Nullable error) {
+            if (accessToken) {
+                // 授权成功，获取到 accessToken
+                NSLog(@"Access token: %@", accessToken);
+            } else {
+                // 授权失败，打印错误信息
+                NSLog(@"Error: %@", error);
+            }
+        }];
 
+        oauthHelper.clientID = @"2262783794";
+        oauthHelper.clientSecret = @"53e0114ec2ec768df43bf3f7d10f4bab";
+        oauthHelper.redirectURI = @"http://localhost/com.jimmyczh.jimmy";
+        oauthHelper.pushViewController = self;
+        [self.navigationController pushViewController:oauthHelper animated:YES];
+    }
+}
 /*
 #pragma mark - Navigation
 

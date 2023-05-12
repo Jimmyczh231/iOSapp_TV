@@ -28,6 +28,7 @@
 		BF4FA4262A0D43E8007098E1 /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4252A0D43E8007098E1 /* ImageLoader.m */; };
 		BF4FA4292A0D4BAE007098E1 /* WeiboHomePageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */; };
 		BF4FA42C2A0D55A5007098E1 /* HomePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */; };
+		BFB053532A0DE01D00AC5DA1 /* HomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboHomePageManager.m; sourceTree = "<group>"; };
 		BF4FA42A2A0D55A5007098E1 /* HomePageTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageTableViewController.h; sourceTree = "<group>"; };
 		BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageTableViewController.m; sourceTree = "<group>"; };
+		BFB053512A0DE01D00AC5DA1 /* HomePageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageTableViewCell.h; sourceTree = "<group>"; };
+		BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +207,8 @@
 				BF4FA4252A0D43E8007098E1 /* ImageLoader.m */,
 				BF4FA4272A0D4BAE007098E1 /* WeiboHomePageManager.h */,
 				BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */,
+				BFB053512A0DE01D00AC5DA1 /* HomePageTableViewCell.h */,
+				BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 				BF0A86E62A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m in Sources */,
 				BF4FA4292A0D4BAE007098E1 /* WeiboHomePageManager.m in Sources */,
 				BF4FA40A2A0CB684007098E1 /* AccessToken.m in Sources */,
+				BFB053532A0DE01D00AC5DA1 /* HomePageTableViewCell.m in Sources */,
 				BF4FA4262A0D43E8007098E1 /* ImageLoader.m in Sources */,
 				BF0A86992A0A6CDC00FD4EB2 /* SceneDelegate.m in Sources */,
 				BF0A86E92A0AB78200FD4EB2 /* CostomScrollView.m in Sources */,

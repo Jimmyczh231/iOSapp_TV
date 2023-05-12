@@ -6,6 +6,7 @@
 //
 
 #import "HomePageTableViewController.h"
+#import "HomePageTableViewCell.h"
 #import "WeiboHomePageManager.h"
 #import "AccessToken.h"
 
@@ -24,7 +25,11 @@
     [manager refreshHomePageDataWithCompletion:^(BOOL success, NSArray *weiboDataArray) {
         if (success) {
             // 加载成功，更新界面
-            self.DataArray = [weiboDataArray mutableCopy];;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.DataArray = [weiboDataArray mutableCopy];;
+                [self.tableView reloadData];
+            });
+
         } else {
             // 加载失败，处理错误
         }
@@ -53,18 +58,66 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"MyCell";
-    
-//    MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    if (cell == nil) {
-//        cell = [[MyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//    }
-//
-//    NSDictionary *weibo = self.weiboData[indexPath.row];
-//    cell.textLabel.text = weibo[@"text"];
-//    cell.images = weibo[@"images"];
+    NSDictionary *status = self.DataArray[indexPath.row];
+    HomePageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[HomePageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier andwith:[status objectForKey:@"text"] andwith:[[status objectForKey:@"user"] objectForKey:@"name"] andwith:[self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]]];
+    }
+
+
+    cell.textContentLabel.text = [status objectForKey:@"text"];
+    cell.nameLabel.text = [[status objectForKey:@"user"] objectForKey:@"name"];
+//    cell.imagesUrl = [self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]];
     
     return cell;
 }
+
+- (NSMutableArray *)getAllThumbnailUrlsFromArray:(NSArray *)array {
+    NSMutableArray *thumbnailUrls = [NSMutableArray array];
+    for (NSDictionary *dict in array) {
+        // 判断字典中是否包含 key 为 "thumbnail_pic" 的值
+        if ([dict objectForKey:@"thumbnail_pic"]) {
+            // 获取 key 为 "thumbnail_pic" 的 NSURL 对象
+            NSURL *thumbnailUrl = [NSURL URLWithString:[dict objectForKey:@"thumbnail_pic"]];
+            [thumbnailUrls addObject:thumbnailUrl];
+        }
+    }
+    return thumbnailUrls;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSMutableDictionary *status = self.DataArray[indexPath.row];
+    CGFloat height = 10.0;
+    height += [self heightForText:[status objectForKey:@"text"]];
+    int picNumber = (int)[status objectForKey:@"pic_num"];
+    if (picNumber == 0) {
+        height += 10.0;
+    } else if (picNumber <= 3) {
+        int testnNumber = 3;
+        height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * ((testnNumber - 1) / 2 + 1);
+    } else if (picNumber<= 6) {
+        height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * 2;
+    } else {
+        height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * 3;
+    }
+    height += 10.0;
+    return height;
+}
+
+- (CGFloat)heightForText:(NSString *)text {
+    CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
+    CGFloat margin = 10.0;
+    CGFloat labelWidth = screenWidth - margin * 2;
+    CGFloat minHeight = 20.0;
+    UILabel *label = [[UILabel alloc] init];
+    label.font = [UIFont systemFontOfSize:14.0];
+    label.numberOfLines = 0;
+    label.lineBreakMode = NSLineBreakByTruncatingTail;
+    label.text = text;
+    CGSize size = [label sizeThatFits:CGSizeMake(labelWidth, CGFLOAT_MAX)];
+    return MAX(size.height, minHeight);
+}
+
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];

@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (UIImage *)loadImageFromCacheWithURL:(NSURL *)url;
 
+- (void)loadImageFromCacheWithURL:(NSURL *)url completion:(void (^)(UIImage *))completion;
+
 
 @end
 
