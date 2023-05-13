@@ -12,7 +12,7 @@
 
 
 
-#define kRefreshControlHeight 50.0
+#define kRefreshControlHeight 80.0
 #define kLoadMoreControlHeight 50.0
 
 @interface CostomScrollView () <UIScrollViewDelegate>
@@ -44,8 +44,9 @@
         // 添加每一页的视图并设置frame
         for (NSInteger i = 0; i < pages.count; i++) {
             UIView *pageView = pages[i];
-            pageView.frame = CGRectMake(i * frame.size.width, 0, frame.size.width, frame.size.height);
-            UIView * refreshControls = [[UIView alloc] initWithFrame:CGRectMake(i * frame.size.width, -kRefreshControlHeight, frame.size.width, kRefreshControlHeight)];
+            pageView.frame = CGRectMake(i * frame.size.width, kRefreshControlHeight, frame.size.width, frame.size.height-kRefreshControlHeight);
+            UIView * refreshControls = [[UIView alloc] initWithFrame:CGRectMake(i * frame.size.width, 0, frame.size.width, kRefreshControlHeight)];
+            refreshControls.userInteractionEnabled = NO;
             refreshControls.backgroundColor = [UIColor whiteColor];
             UILabel *label = [[UILabel alloc] initWithFrame:refreshControls.bounds];
             label.textAlignment = NSTextAlignmentCenter;
@@ -56,19 +57,19 @@
         }
         
         // 设置contentSize为所有页面宽度的总和，高度等于scrollView高度
-        self.contentSize = CGSizeMake(frame.size.width * pages.count, frame.size.height+kRefreshControlHeight);
+        self.contentSize = CGSizeMake(frame.size.width * pages.count, frame.size.height);
         
         // 添加下拉刷新控件
         
         
         
-        self.refreshControlyes = [[UIView alloc] initWithFrame:CGRectMake(0, -kRefreshControlHeight, frame.size.width, kRefreshControlHeight)];
-        self.refreshControlyes.backgroundColor = [UIColor whiteColor];
-        UILabel *label = [[UILabel alloc] initWithFrame:self.refreshControlyes.bounds];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.text = @"下拉刷新";
-        [self.refreshControlyes addSubview:label];
-        [self addSubview: self.refreshControlyes];
+//        self.refreshControlyes = [[UIView alloc] initWithFrame:CGRectMake(0, -kRefreshControlHeight, frame.size.width, kRefreshControlHeight)];
+//        self.refreshControlyes.backgroundColor = [UIColor whiteColor];
+//        UILabel *label = [[UILabel alloc] initWithFrame:self.refreshControlyes.bounds];
+//        label.textAlignment = NSTextAlignmentCenter;
+//        label.text = @"下拉刷新";
+//        [self.refreshControlyes addSubview:label];
+//        [self addSubview: self.refreshControlyes];
         
         // 添加上滑添加更多控件
 //        self.loadMoreControlyes = [[UIView alloc] initWithFrame:CGRectMake(0, self.contentSize.height, self.bounds.size.width, kLoadMoreControlHeight)];
@@ -118,11 +119,18 @@
     CGFloat progress = (scrollView.contentOffset.x - pageWidth * self.currentPage) / pageWidth;
     // 如果有设置didScrollToPageBlock，调用它并传递currentPage和progress
     if (self.didScrollToPageBlock) {
+        if (progress > 1) {
+            self.currentPage += 1;
+            progress -= 1;
+        } else if (progress < -1){
+            self.currentPage -= 1;
+            progress += 1;
+        }
         self.didScrollToPageBlock(self.currentPage, progress);
     }
     
     // 判断是否滑动到边界，禁止继续滑动
-    if (scrollView.contentOffset.x <= 0 || scrollView.contentOffset.x >= scrollView.contentSize.width - scrollView.frame.size.width || scrollView.contentOffset.y >= scrollView.contentSize.height - pageHeight) {
+    if (scrollView.contentOffset.x <= 0 || scrollView.contentOffset.x >= scrollView.contentSize.width - scrollView.frame.size.width) {
         scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, scrollView.contentOffset.y);
     }
 //    // 判断是否滑到了底部
@@ -148,6 +156,13 @@
     CGFloat progress = (scrollView.contentOffset.x - pageWidth * self.currentPage) / pageWidth;
     // 如果有设置didScrollToPageBlock，调用它并传递currentPage和progress
     if (self.didScrollToPageBlock) {
+        if (progress > 1) {
+            self.currentPage += 1;
+            progress -= 1;
+        } else if (progress < -1){
+            self.currentPage -= 1;
+            progress += 1;
+        }
         self.didScrollToPageBlock(self.currentPage, progress);
     }
 }
@@ -348,5 +363,6 @@
 //    }
 //    self.contentSize = contentSize;
 //}
+
 @end
 

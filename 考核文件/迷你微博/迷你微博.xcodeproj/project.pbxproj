@@ -29,6 +29,11 @@
 		BF4FA4292A0D4BAE007098E1 /* WeiboHomePageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */; };
 		BF4FA42C2A0D55A5007098E1 /* HomePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */; };
 		BFB053532A0DE01D00AC5DA1 /* HomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */; };
+		BFE880112A0F70EB000676EF /* WeiboSender.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE880102A0F70EB000676EF /* WeiboSender.m */; };
+		BFE880152A0F7C6C000676EF /* weiboSenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE880142A0F7C6C000676EF /* weiboSenderViewController.m */; };
+		BFE880182A0FBB58000676EF /* CostomScrollViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE880172A0FBB58000676EF /* CostomScrollViewBar.m */; };
+		BFE8801A2A0FE17F000676EF /* jiahao.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE880192A0FE17F000676EF /* jiahao.png */; };
+		BFE8801D2A0FE41A000676EF /* jiahao-2.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE8801C2A0FE41A000676EF /* jiahao-2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +95,14 @@
 		BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageTableViewController.m; sourceTree = "<group>"; };
 		BFB053512A0DE01D00AC5DA1 /* HomePageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageTableViewCell.h; sourceTree = "<group>"; };
 		BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageTableViewCell.m; sourceTree = "<group>"; };
+		BFE8800F2A0F70EB000676EF /* WeiboSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboSender.h; sourceTree = "<group>"; };
+		BFE880102A0F70EB000676EF /* WeiboSender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboSender.m; sourceTree = "<group>"; };
+		BFE880132A0F7C6C000676EF /* weiboSenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = weiboSenderViewController.h; sourceTree = "<group>"; };
+		BFE880142A0F7C6C000676EF /* weiboSenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = weiboSenderViewController.m; sourceTree = "<group>"; };
+		BFE880162A0FBB58000676EF /* CostomScrollViewBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CostomScrollViewBar.h; sourceTree = "<group>"; };
+		BFE880172A0FBB58000676EF /* CostomScrollViewBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CostomScrollViewBar.m; sourceTree = "<group>"; };
+		BFE880192A0FE17F000676EF /* jiahao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jiahao.png; sourceTree = "<group>"; };
+		BFE8801C2A0FE41A000676EF /* jiahao-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jiahao-2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +153,8 @@
 		BF0A86932A0A6CDC00FD4EB2 /* 迷你微博 */ = {
 			isa = PBXGroup;
 			children = (
+				BFE8801B2A0FE18B000676EF /* icon */,
+				BFE880122A0F70FC000676EF /* view */,
 				BF0A86D82A0A71BF00FD4EB2 /* controller */,
 				BF4FA4072A0CB669007098E1 /* model */,
 				BF4FA40B2A0D0B78007098E1 /* constants */,
@@ -190,6 +205,8 @@
 				BF4FA4132A0D13A4007098E1 /* testviewcontroller.m */,
 				BF4FA4182A0D24DB007098E1 /* WeiboOAuthViewController.h */,
 				BF4FA4192A0D24DB007098E1 /* WeiboOAuthViewController.m */,
+				BFE880132A0F7C6C000676EF /* weiboSenderViewController.h */,
+				BFE880142A0F7C6C000676EF /* weiboSenderViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -199,16 +216,14 @@
 			children = (
 				BF4FA4042A0CB4F7007098E1 /* WeiboOAuthHelper.h */,
 				BF4FA4052A0CB4F7007098E1 /* WeiboOAuthHelper.m */,
-				BF4FA4082A0CB684007098E1 /* AccessToken.h */,
-				BF4FA4092A0CB684007098E1 /* AccessToken.m */,
 				BF4FA40F2A0D11DE007098E1 /* WeiboAPIManager.h */,
 				BF4FA4102A0D11DE007098E1 /* WeiboAPIManager.m */,
 				BF4FA4242A0D43E8007098E1 /* ImageLoader.h */,
 				BF4FA4252A0D43E8007098E1 /* ImageLoader.m */,
 				BF4FA4272A0D4BAE007098E1 /* WeiboHomePageManager.h */,
 				BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */,
-				BFB053512A0DE01D00AC5DA1 /* HomePageTableViewCell.h */,
-				BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */,
+				BFE8800F2A0F70EB000676EF /* WeiboSender.h */,
+				BFE880102A0F70EB000676EF /* WeiboSender.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -216,8 +231,30 @@
 		BF4FA40B2A0D0B78007098E1 /* constants */ = {
 			isa = PBXGroup;
 			children = (
+				BF4FA4082A0CB684007098E1 /* AccessToken.h */,
+				BF4FA4092A0CB684007098E1 /* AccessToken.m */,
 			);
 			path = constants;
+			sourceTree = "<group>";
+		};
+		BFE880122A0F70FC000676EF /* view */ = {
+			isa = PBXGroup;
+			children = (
+				BFB053512A0DE01D00AC5DA1 /* HomePageTableViewCell.h */,
+				BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */,
+				BFE880162A0FBB58000676EF /* CostomScrollViewBar.h */,
+				BFE880172A0FBB58000676EF /* CostomScrollViewBar.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		BFE8801B2A0FE18B000676EF /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				BFE8801C2A0FE41A000676EF /* jiahao-2.png */,
+				BFE880192A0FE17F000676EF /* jiahao.png */,
+			);
+			path = icon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,7 +360,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE8801D2A0FE41A000676EF /* jiahao-2.png in Resources */,
 				BF0A86A42A0A6CDD00FD4EB2 /* LaunchScreen.storyboard in Resources */,
+				BFE8801A2A0FE17F000676EF /* jiahao.png in Resources */,
 				BF0A86A12A0A6CDD00FD4EB2 /* Assets.xcassets in Resources */,
 				BF0A869F2A0A6CDC00FD4EB2 /* Main.storyboard in Resources */,
 			);
@@ -351,18 +390,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF4FA42C2A0D55A5007098E1 /* HomePageTableViewController.m in Sources */,
+				BFE880112A0F70EB000676EF /* WeiboSender.m in Sources */,
 				BF4FA4062A0CB4F7007098E1 /* WeiboOAuthHelper.m in Sources */,
 				BF0A869C2A0A6CDC00FD4EB2 /* ViewController.m in Sources */,
 				BF4FA4142A0D13A4007098E1 /* testviewcontroller.m in Sources */,
 				BF0A86962A0A6CDC00FD4EB2 /* AppDelegate.m in Sources */,
 				BF0A86A72A0A6CDD00FD4EB2 /* main.m in Sources */,
 				BF0A86E02A0A9E4B00FD4EB2 /* rootViewController.m in Sources */,
+				BFE880152A0F7C6C000676EF /* weiboSenderViewController.m in Sources */,
 				BF4FA4112A0D11DE007098E1 /* WeiboAPIManager.m in Sources */,
 				BF0A86E62A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m in Sources */,
 				BF4FA4292A0D4BAE007098E1 /* WeiboHomePageManager.m in Sources */,
 				BF4FA40A2A0CB684007098E1 /* AccessToken.m in Sources */,
 				BFB053532A0DE01D00AC5DA1 /* HomePageTableViewCell.m in Sources */,
 				BF4FA4262A0D43E8007098E1 /* ImageLoader.m in Sources */,
+				BFE880182A0FBB58000676EF /* CostomScrollViewBar.m in Sources */,
 				BF0A86992A0A6CDC00FD4EB2 /* SceneDelegate.m in Sources */,
 				BF0A86E92A0AB78200FD4EB2 /* CostomScrollView.m in Sources */,
 				BF4FA41A2A0D24DB007098E1 /* WeiboOAuthViewController.m in Sources */,

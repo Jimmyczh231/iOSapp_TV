@@ -10,10 +10,13 @@
 
 #import "ScrollableWithTitleViewController.h"
 #import "CostomScrollView.h"
-
-@interface ScrollableWithTitleViewController ()
+#import "CostomScrollViewBar.h"
+#import "weiboSenderViewController.h"
+@interface ScrollableWithTitleViewController ()<CostomScrollViewBarDelegate>
 
 @property (nonatomic, strong) CostomScrollView *pagingScrollView;
+@property (nonatomic, strong) CostomScrollViewBar *ScrollViewBar;
+@property (nonatomic, strong) weiboSenderViewController *weiboSenderView;
 
 @end
 
@@ -21,6 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.userInteractionEnabled = YES;
+    self.ScrollViewBar = [[CostomScrollViewBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 120.0)];
+    self.ScrollViewBar.delegate = self;
     
     UIView *page1 = [[UIView alloc] initWithFrame:self.view.bounds];
     page1.backgroundColor = [UIColor redColor];
@@ -32,7 +38,6 @@
     page3.backgroundColor = [UIColor blueColor];
     
     self.pagingScrollView = [[CostomScrollView alloc] initWithFrame:self.view.bounds pages:@[page1, page2, page3]];
-    [self.view addSubview:self.pagingScrollView];
     
     __weak typeof(self) weakSelf = self;
     self.pagingScrollView.didScrollToPageBlock = ^(NSInteger currentPage, CGFloat progress) {
@@ -41,7 +46,7 @@
         // 发送通知
         [[NSNotificationCenter defaultCenter] postNotificationName:@"PagingScrollViewDidScrollNotification" object:nil userInfo:@{@"currentPage": @(currentPage), @"progress": @(progress)}];
     };
-    self.pagingScrollView.refreshControlyes = [self createRefreshControl];
+//    self.pagingScrollView.refreshControlyes = [self createRefreshControl];
 //    self.pagingScrollView.loadMoreControlyes = [self createLoadMoreControl];
 //    self.pagingScrollView.loadMoreBlock = ^{
 //        __strong typeof (self) strongself = weakSelf;
@@ -54,10 +59,30 @@
 
 
     [self.view addSubview:self.pagingScrollView];
-    
+    [self.view addSubview:self.ScrollViewBar];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *senderImage = [UIImage imageNamed:@"jiahao.png"];
+    UIImage *senderImageTouched = [UIImage imageNamed:@"jiahao-2.png"];
+    button.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 50, 80, 28, 28);
+    [button setImage:senderImage forState:UIControlStateNormal];
+    [button setImage:senderImageTouched forState:UIControlStateSelected];
+    [button setTitle:@"Button Title" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [button becomeFirstResponder];
+
+    // 设置 frame 属性
+//    button.frame = CGRectMake(100, 100, 100, 50);
+    // 添加到视图中
+    [self.view addSubview:button];
+    // 创建 UITapGestureRecognizer 对象
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonTapped:)];
+    // 将 tapGestureRecognizer 添加到你的 view 上
+    [self.ScrollViewBar addGestureRecognizer:tapGestureRecognizer];
 
     
     [self.pagingScrollView startRefreshing];
+    [button becomeFirstResponder];
 }
 
 - (UIView *)createRefreshControl {
@@ -68,6 +93,14 @@
     label.text = @"下拉刷新";
     [refreshControl addSubview:label];
     return refreshControl;
+}
+- (IBAction)buttonTapped:(UIButton *)sender {
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"你点击了按钮" preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+//    [alert addAction:okAction];
+//    [self presentViewController:alert animated:YES completion:nil];
+    self.weiboSenderView = [[weiboSenderViewController alloc]init];
+    [self.navigationController pushViewController:self.weiboSenderView animated:YES];
 }
 
 - (void)loadNewData {
@@ -104,5 +137,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)WeiboSenderPush {
+    
+}
+
+
 
 @end
