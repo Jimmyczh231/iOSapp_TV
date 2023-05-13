@@ -9,11 +9,14 @@
 #import "HomePageTableViewCell.h"
 #import "WeiboHomePageManager.h"
 #import "AccessToken.h"
+#import "WeiboWebViewController.h"
+
 
 @interface HomePageTableViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 
 @property (nonatomic, strong, readwrite) NSMutableArray *DataArray;
+@property (nonatomic, strong, readwrite) WeiboWebViewController *webViewController;
 
 @end
 
@@ -34,7 +37,8 @@
             // 加载失败，处理错误
         }
     }];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleOpenURLNotification:) name:@"OpenURLNotification" object:nil];
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -42,6 +46,17 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.tableView reloadData];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"OpenURLNotification" object:nil];
+}
+
+- (void)handleOpenURLNotification:(NSNotification *)notification {
+    NSURL *url = notification.userInfo[@"url"];
+    self.webViewController = [[WeiboWebViewController alloc]initWithURL:url];
+    [self.navigationController pushViewController:self.webViewController animated:YES];
+
 }
 
 #pragma mark - Table view data source

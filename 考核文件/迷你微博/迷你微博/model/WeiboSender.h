@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)sendWeiboWithText:(NSString *)text;
 
++ (instancetype)sharedInstance;
+
 @end
 
 NS_ASSUME_NONNULL_END

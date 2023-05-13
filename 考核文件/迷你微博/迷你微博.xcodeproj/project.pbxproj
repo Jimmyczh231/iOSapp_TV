@@ -34,6 +34,7 @@
 		BFE880182A0FBB58000676EF /* CostomScrollViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE880172A0FBB58000676EF /* CostomScrollViewBar.m */; };
 		BFE8801A2A0FE17F000676EF /* jiahao.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE880192A0FE17F000676EF /* jiahao.png */; };
 		BFE8801D2A0FE41A000676EF /* jiahao-2.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE8801C2A0FE41A000676EF /* jiahao-2.png */; };
+		BFE880202A101139000676EF /* WeiboWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE8801F2A101139000676EF /* WeiboWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,8 @@
 		BFE880172A0FBB58000676EF /* CostomScrollViewBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CostomScrollViewBar.m; sourceTree = "<group>"; };
 		BFE880192A0FE17F000676EF /* jiahao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jiahao.png; sourceTree = "<group>"; };
 		BFE8801C2A0FE41A000676EF /* jiahao-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jiahao-2.png"; sourceTree = "<group>"; };
+		BFE8801E2A101139000676EF /* WeiboWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboWebViewController.h; sourceTree = "<group>"; };
+		BFE8801F2A101139000676EF /* WeiboWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +210,8 @@
 				BF4FA4192A0D24DB007098E1 /* WeiboOAuthViewController.m */,
 				BFE880132A0F7C6C000676EF /* weiboSenderViewController.h */,
 				BFE880142A0F7C6C000676EF /* weiboSenderViewController.m */,
+				BFE8801E2A101139000676EF /* WeiboWebViewController.h */,
+				BFE8801F2A101139000676EF /* WeiboWebViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				BF4FA4292A0D4BAE007098E1 /* WeiboHomePageManager.m in Sources */,
 				BF4FA40A2A0CB684007098E1 /* AccessToken.m in Sources */,
 				BFB053532A0DE01D00AC5DA1 /* HomePageTableViewCell.m in Sources */,
+				BFE880202A101139000676EF /* WeiboWebViewController.m in Sources */,
 				BF4FA4262A0D43E8007098E1 /* ImageLoader.m in Sources */,
 				BFE880182A0FBB58000676EF /* CostomScrollViewBar.m in Sources */,
 				BF0A86992A0A6CDC00FD4EB2 /* SceneDelegate.m in Sources */,

@@ -62,7 +62,9 @@
 
 - (void)sendButtonClicked:(UIBarButtonItem *)button {
     //TODO: 点击发送按钮后的逻辑
-    NSLog(@"sended");
+    
+    [[WeiboSender sharedInstance] sendWeiboWithText:self.textField.text];
+    
 }
 
 #pragma mark - UITextFieldDelegate

@@ -128,7 +128,7 @@
 //        [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.left.top.equalTo(self.contentView).offset(10);
 //        }];
-    
+
     self.textContentLabel = [[UILabel alloc] init];
     self.textContentLabel.text = text;
     self.textContentLabel.numberOfLines = 0;
@@ -141,6 +141,27 @@
     NSLayoutConstraint *textLabelTop = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:35];
     [self.contentView addConstraints:@[textLabelLeft, textLabelRight, textLabelTop]];
     
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnTextLabel:)];
+    [self.textContentLabel addGestureRecognizer:tapGesture];
+    // 用正则表达式匹配URL
+    NSString *pattern = @"(http://|https://){0,1}[a-zA-Z0-9\\-.]+\\.[a-zA-Z]{2,3}(/\\S*){0,1}";
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
+    NSArray *matches = [regex matchesInString:text options:0 range:NSMakeRange(0, [text length])];
+
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
+    for (NSTextCheckingResult *match in matches) {
+        NSRange matchRange = [match range];
+        NSString *urlString = [text substringWithRange:matchRange];
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSDictionary *linkAttributes = @{ NSForegroundColorAttributeName: [UIColor blueColor], NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle) };
+        [attributedText addAttributes:linkAttributes range:matchRange];
+        [attributedText replaceCharactersInRange:matchRange withString:@"网络链接"];
+        [attributedText addAttribute:NSLinkAttributeName value:url range:NSMakeRange(matchRange.location, 4)];
+    }
+
+    self.textContentLabel.attributedText = attributedText;
+    self.textContentLabel.userInteractionEnabled = YES;
 //        [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.left.equalTo(self.contentView).offset(10);
 //            make.right.equalTo(self.contentView).offset(-10);
@@ -184,6 +205,20 @@
 //            }];
 //        }
 
+}
+
+- (void)handleTapOnTextLabel:(UITapGestureRecognizer *)gesture {
+    UILabel *label = (UILabel *)gesture.view;
+    NSString *text = label.text;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"((http|https)://)[^\\s]+" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSTextCheckingResult *match = [regex firstMatchInString:text options:0 range:NSMakeRange(0, [text length])];
+    if (match) {
+        NSURL *url = [NSURL URLWithString:[text substringWithRange:match.range]];
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+            NSDictionary *userInfo = @{@"url": url};
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenURLNotification" object:nil userInfo:userInfo];
+        }
+    }
 }
 
 
