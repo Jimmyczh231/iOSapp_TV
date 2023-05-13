@@ -52,40 +52,6 @@
     [self.view addSubview:self.sendButton];
     
 
-    
-
-    // 创建右边导航栏按钮
-    self.navigationBarSendButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.navigationBarSendButton setTitle:@"发送" forState:UIControlStateNormal];
-    [self.navigationBarSendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.navigationBarSendButton addTarget:self action:@selector(sendButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-
-    // 设置按钮的背景颜色
-    self.navigationBarSendButton.backgroundColor = [UIColor orangeColor];
-
-    // 设置按钮的圆角半径为按钮高度的一半
-    CGFloat cornerRadius = self.navigationBarSendButton.frame.size.height / 2.0;
-    self.navigationBarSendButton.layer.cornerRadius = cornerRadius;
-
-    // 将按钮的背景设置为药丸形状
-    UIRectCorner corners = UIRectCornerAllCorners;
-    CGSize cornerRadii = CGSizeMake(cornerRadius, cornerRadius);
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.navigationBarSendButton.bounds byRoundingCorners:corners cornerRadii:cornerRadii];
-    CAShapeLayer *shapeLayer = [[CAShapeLayer alloc] init];
-    shapeLayer.path = path.CGPath;
-    self.navigationBarSendButton.layer.mask = shapeLayer;
-
-    // 设置按钮的尺寸
-//    CGSize buttonSize = [self.navigationBarSendButton sizeThatFits:CGSizeZero];
-    self.navigationBarSendButton.frame = CGRectMake(0, 0, 60, 30);
-
-    // 创建一个UIBarButtonItem，将自定义按钮作为其自定义视图
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.navigationBarSendButton];
-
-    // 将UIBarButtonItem设置为导航栏右侧的按钮
-    self.navigationItem.rightBarButtonItem = barButtonItem;
-
-    // 设置左边导航栏按钮
 
 
 }
