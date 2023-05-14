@@ -5,6 +5,8 @@
 //  Created by jimmy on 5/12/23.
 //
 #define kWeiboDataCount 20
+#define Appkey @"2262783794"
+#define Redirect_Uri @"http://localhost/com.jimmyczh.jimmy"
 #import "WeiboHomePageManager.h"
 #import "AccessToken.h"
 
@@ -51,7 +53,7 @@
         params = [NSString stringWithFormat:@"access_token=%@&count=%d&feature=2", [AccessToken sharedInstance].accessToken, kWeiboDataCount];
         
     }else{
-        params = [NSString stringWithFormat:@"count=%d", kWeiboDataCount];
+        params = [NSString stringWithFormat:@"count=%d&source=%@", kWeiboDataCount,Appkey];
 //        [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     }
     

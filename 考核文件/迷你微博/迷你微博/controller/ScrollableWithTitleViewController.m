@@ -12,12 +12,16 @@
 #import "CostomScrollView.h"
 #import "CostomScrollViewBar.h"
 #import "weiboSenderViewController.h"
+#import "HomePageTableViewController.h"
+#import "AccessToken.h"
+#import "WeiboOAuthViewController.h"
 @interface ScrollableWithTitleViewController ()<CostomScrollViewBarDelegate>
 
 @property (nonatomic, strong) CostomScrollView *pagingScrollView;
 @property (nonatomic, strong) CostomScrollViewBar *ScrollViewBar;
 @property (nonatomic, strong) weiboSenderViewController *weiboSenderView;
-
+@property (nonatomic, strong) HomePageTableViewController *homePageTable;
+@property (nonatomic, strong) NSMutableArray *allViewArray;
 @end
 
 @implementation ScrollableWithTitleViewController
@@ -27,7 +31,7 @@
     self.view.userInteractionEnabled = YES;
     self.ScrollViewBar = [[CostomScrollViewBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 120.0)];
     self.ScrollViewBar.delegate = self;
-    
+    self.homePageTable = [[HomePageTableViewController alloc] init];
     UIView *page1 = [[UIView alloc] initWithFrame:self.view.bounds];
     page1.backgroundColor = [UIColor redColor];
     
@@ -36,15 +40,23 @@
     
     UIView *page3 = [[UIView alloc] initWithFrame:self.view.bounds];
     page3.backgroundColor = [UIColor blueColor];
-    
-    self.pagingScrollView = [[CostomScrollView alloc] initWithFrame:self.view.bounds pages:@[page1, page2, page3]];
+    self.allViewArray = [NSMutableArray array];
+    [self.allViewArray addObject:page1];
+    [self.allViewArray addObject:self.homePageTable.tableView];
+    [self.allViewArray addObject:page3];
+    self.pagingScrollView = [[CostomScrollView alloc] initWithFrame:self.view.bounds pages:@[page1, self.homePageTable.tableView, page3]];
     
     __weak typeof(self) weakSelf = self;
     self.pagingScrollView.didScrollToPageBlock = ^(NSInteger currentPage, CGFloat progress) {
         __strong typeof (self) strongself = weakSelf;
         NSLog(@"currentPage: %ld, progress: %.2f", (long)currentPage, progress);
         // 发送通知
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PagingScrollViewDidScrollNotification" object:nil userInfo:@{@"currentPage": @(currentPage), @"progress": @(progress)}];
+        if(progress == 0){
+            if(currentPage == 1){
+                [strongself.homePageTable refreshTableView];
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"PagingScrollViewDidScrollNotification" object:nil userInfo:@{@"currentPage": @(currentPage), @"progress": @(progress)}];
+        }
     };
 //    self.pagingScrollView.refreshControlyes = [self createRefreshControl];
 //    self.pagingScrollView.loadMoreControlyes = [self createLoadMoreControl];
@@ -111,6 +123,27 @@
     [self.pagingScrollView endRefreshing];
 }
 
+
+- (void)viewDidAppear:(BOOL)animated{
+    if([AccessToken sharedInstance].accessToken == nil){
+        WeiboOAuthViewController *oauthHelper = [[WeiboOAuthViewController alloc] initWithCompletion:^(NSString * _Nullable accessToken, NSError * _Nullable error) {
+            if (accessToken) {
+                // 授权成功，获取到 accessToken
+                NSLog(@"Access token: %@", accessToken);
+            } else {
+                // 授权失败，打印错误信息
+                NSLog(@"Error: %@", error);
+            }
+        }];
+
+        oauthHelper.clientID = @"2262783794";
+        oauthHelper.clientSecret = @"53e0114ec2ec768df43bf3f7d10f4bab";
+        oauthHelper.redirectURI = @"http://localhost/com.jimmyczh.jimmy";
+        oauthHelper.pushViewController = self;
+        [self.navigationController pushViewController:oauthHelper animated:YES];
+    }
+    
+}
 //- (UIView *)createLoadMoreControl {
 //    UIView *loadMoreControl = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kLoadMoreControlHeight)];
 //    loadMoreControl.backgroundColor = [UIColor whiteColor];

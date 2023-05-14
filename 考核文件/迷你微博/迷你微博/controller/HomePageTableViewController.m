@@ -17,6 +17,10 @@
 
 @property (nonatomic, strong, readwrite) NSMutableArray *DataArray;
 @property (nonatomic, strong, readwrite) WeiboWebViewController *webViewController;
+@property (nonatomic, strong, readwrite) WeiboHomePageManager *manager;
+@property (nonatomic, strong, readwrite) NSTimer *refreshTimer;
+@property (nonatomic, readwrite) BOOL needToRefresh;
+
 
 @end
 
@@ -24,8 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    WeiboHomePageManager *manager = [[WeiboHomePageManager alloc] initWithAccessToken:[AccessToken sharedInstance].accessToken];
-    [manager refreshHomePageDataWithCompletion:^(BOOL success, NSArray *weiboDataArray) {
+    self.needToRefresh = YES;
+    self.manager = [[WeiboHomePageManager alloc] initWithAccessToken:[AccessToken sharedInstance].accessToken];
+    [self.manager refreshHomePageDataWithCompletion:^(BOOL success, NSArray *weiboDataArray) {
         if (success) {
             // 加载成功，更新界面
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -35,9 +40,17 @@
 
         } else {
             // 加载失败，处理错误
+            self.needToRefresh = YES;
         }
     }];
+    
+    self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:30.0
+                                                      target:self
+                                                       selector:@selector(timeToRefresh:)
+                                                    userInfo:nil
+                                                     repeats:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleOpenURLNotification:) name:@"OpenURLNotification" object:nil];
+    
 
     
     // Uncomment the following line to preserve selection between presentations.
@@ -48,8 +61,39 @@
     [self.tableView reloadData];
 }
 
+- (void)timeToRefresh:(NSTimer *)timer {
+    self.needToRefresh = YES;
+}
+
+- (void)refreshTableView{
+    if(self.needToRefresh){
+        __weak typeof(self) weakSelf = self;
+        [self.manager refreshHomePageDataWithCompletion:^(BOOL success, NSArray *weiboDataArray) {
+            __strong typeof (self) strongself = weakSelf;
+            if (success) {
+                // 加载成功，更新界面
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    strongself.DataArray = [weiboDataArray mutableCopy];;
+                    [strongself.tableView reloadData];
+                    strongself.needToRefresh = NO;
+                });
+                
+            } else {
+                // 加载失败，处理错误
+                strongself.needToRefresh = YES;
+            }
+        }];
+    }
+}
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"OpenURLNotification" object:nil];
+}
+
+- (void)sliderProgressDidChange:(NSNotification *)notification {
+    // 获取滑动的进度值
+    NSInteger selectedIndex = [notification.userInfo[@"currentPage"] integerValue];
+
 }
 
 - (void)handleOpenURLNotification:(NSNotification *)notification {
