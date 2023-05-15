@@ -494,8 +494,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/model/WeiboHomePageManager.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "-refreshHomePageDataWithCompletion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1278,9 +1278,9 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/HomePageTableViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "-handleTapOnTextLabel:"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "-layoutSubViewWith:andwith:andwith:andwith:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1534,8 +1534,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/model/WeiboHomePageManager.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "-loadMoreHomePageDataWithCompletion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1550,9 +1550,57 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/model/WeiboHomePageManager.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "-loadMoreHomePageDataWithCompletion:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC089F95-15A2-4040-B6FA-21C79236EFEB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/model/ImageLoader.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-loadImageWithURL:completion:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E904F7CB-6211-4510-AC07-2D9F229B0EAB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/model/WeiboAPIManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "-init"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2939E758-ABC2-4851-AEBF-86B687B789BB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/model/WeiboAPIManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "-init"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -144,6 +144,7 @@
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnTextLabel:)];
     [self.textContentLabel addGestureRecognizer:tapGesture];
+    
     // 用正则表达式匹配URL
     NSString *pattern = @"(http://|https://){0,1}[a-zA-Z0-9\\-.]+\\.[a-zA-Z]{2,3}(/\\S*){0,1}";
     NSError *error = nil;
@@ -178,19 +179,7 @@
         [self.imageViews addObject:imageView];
     }
 
-//        UILabel *countLabel = [[UILabel alloc] init];
-//        countLabel.font = [UIFont systemFontOfSize:12.0];
-//        countLabel.textColor = [UIColor whiteColor];
-//        countLabel.textAlignment = NSTextAlignmentCenter;
-//        countLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-//        countLabel.layer.cornerRadius = 10;
-//        countLabel.layer.masksToBounds = YES;
-//        [self.contentView addSubview:countLabel];
-//        [countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.centerX.equalTo(self.contentView);
-//            make.bottom.equalTo(self.contentView).offset(-10);
-//            make.width.height.mas_equalTo(20);
-//        }];
+
     [self setImageViewWithImageUrls:self.imagesUrl];
 //        CGFloat margin = 10.0;
 //        CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
@@ -278,12 +267,7 @@
                 NSLog(@"Failed to load image");
             }
         }];
-//        [imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(self.contentView).offset(10);
-//            make.top.equalTo(self.textLabel.mas_bottom).offset(10);
-//            make.width.mas_equalTo(imageWidth);
-//            make.height.mas_equalTo(imageHeight);
-//        }];
+        
     } else if (count == 2 || count == 4 || count == 3) {
         CGFloat margin = 10.0;
         CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
@@ -306,6 +290,7 @@
 //                make.width.height.mas_equalTo(imageSize);
 //            }];
         }
+        
     } else if (self.imageNumber >= 5 && self.imageNumber <= 9) {
         CGFloat margin = 10.0;
         CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
@@ -323,11 +308,7 @@
             [imageView addConstraints:@[width, height]];
 
             [self.contentView addConstraints:@[left, top]];
-//            [imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.left.equalTo(self.contentView).offset(x);
-//                make.top.equalTo(self.textLabel.mas_bottom).offset(y);
-//                make.width.height.mas_equalTo(imageSize);
-//            }];
+
         }
     } else {
         CGFloat margin = 10.0;
@@ -345,11 +326,6 @@
             [self.contentView addSubview:imageView];
             [imageView addConstraints:@[width, height]];
             [self.contentView addConstraints:@[left, top]];
-//            [imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.left.equalTo(self.contentView).offset(x);
-//                    make.top.equalTo(self.textLabel.mas_bottom).offset(y);
-//                    make.width.height.mas_equalTo(imageSize);
-//                }];
                 if (i == 8) {
                     // 模糊最后一张图片
                     CIImage *inputImage = [[CIImage alloc] initWithImage:imageView.image];

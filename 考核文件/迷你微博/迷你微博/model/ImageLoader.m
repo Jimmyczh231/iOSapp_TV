@@ -25,6 +25,7 @@
         sharedInstance = [[self alloc] init];
         sharedInstance.imageCache = [NSMutableDictionary dictionary];
         sharedInstance.imageThresholdArrary = [NSMutableArray array];
+        
     });
     return sharedInstance;
 }
@@ -51,6 +52,7 @@
                         }
                         [self.imageCache setObject:image forKey:url.absoluteString];
                         [self.imageThresholdArrary addObject:url];
+                        
                         dispatch_async(dispatch_get_main_queue(), ^{
                             completion(image);
                         });
@@ -59,7 +61,7 @@
                     }
                 }
             }];
-            
+
             [task resume];
         }
     }];

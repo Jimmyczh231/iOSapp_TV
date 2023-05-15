@@ -58,30 +58,25 @@
     }
     NSString *fullUrlString = [NSString stringWithFormat:@"%@?%@", urlHead, params];
     
-    url = [NSURL URLWithString:fullUrlString];
     
     // 构造网络请求
+    url = [NSURL URLWithString:fullUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"GET"];
+    
     
     // 发送网络请求
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
-            NSLog(@"Error: %@", error);
+            NSLog(@"Error: %@", error.localizedDescription);
             completion(NO, nil);
             return;
         }
         
         NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         NSArray *statusesArray = [resultDict objectForKey:@"statuses"];
-//        for (NSDictionary *statusDict in statusesArray) {
-            // 解析微博数据并保存到数组中
-            // 例如：NSString *text = [statusDict objectForKey:@"text"];
-            // WeiboModel *weiboModel = [[WeiboModel alloc] initWithText:text];
-            // [self.weiboDataArray addObject:weiboModel];
-//        }
-        // 更新 nextPageCursor
         self.weiboDataArray = [statusesArray mutableCopy];
+        // 更新页数计数器
         self.nextPageCursor = [NSNumber numberWithInt:2];
         completion(YES, self.weiboDataArray);
     }];
@@ -119,7 +114,7 @@
     // 发送网络请求
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
-            NSLog(@"Error: %@", error);
+            NSLog(@"Error: %@", error.localizedDescription);
             completion(NO, nil);
             return;
         }
