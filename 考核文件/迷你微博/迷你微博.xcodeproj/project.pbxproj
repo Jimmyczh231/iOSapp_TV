@@ -28,6 +28,8 @@
 		BF4FA4262A0D43E8007098E1 /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4252A0D43E8007098E1 /* ImageLoader.m */; };
 		BF4FA4292A0D4BAE007098E1 /* WeiboHomePageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */; };
 		BF4FA42C2A0D55A5007098E1 /* HomePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */; };
+		BFA3B5B82A120F3F008E23E4 /* MyWeiboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5B72A120F3F008E23E4 /* MyWeiboViewController.m */; };
+		BFA3B5BB2A120F88008E23E4 /* MyWeiboViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5BA2A120F88008E23E4 /* MyWeiboViewManager.m */; };
 		BFB053532A0DE01D00AC5DA1 /* HomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */; };
 		BFE880112A0F70EB000676EF /* WeiboSender.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE880102A0F70EB000676EF /* WeiboSender.m */; };
 		BFE880152A0F7C6C000676EF /* weiboSenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE880142A0F7C6C000676EF /* weiboSenderViewController.m */; };
@@ -94,6 +96,10 @@
 		BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboHomePageManager.m; sourceTree = "<group>"; };
 		BF4FA42A2A0D55A5007098E1 /* HomePageTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageTableViewController.h; sourceTree = "<group>"; };
 		BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageTableViewController.m; sourceTree = "<group>"; };
+		BFA3B5B62A120F3F008E23E4 /* MyWeiboViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWeiboViewController.h; sourceTree = "<group>"; };
+		BFA3B5B72A120F3F008E23E4 /* MyWeiboViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWeiboViewController.m; sourceTree = "<group>"; };
+		BFA3B5B92A120F88008E23E4 /* MyWeiboViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWeiboViewManager.h; sourceTree = "<group>"; };
+		BFA3B5BA2A120F88008E23E4 /* MyWeiboViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWeiboViewManager.m; sourceTree = "<group>"; };
 		BFB053512A0DE01D00AC5DA1 /* HomePageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageTableViewCell.h; sourceTree = "<group>"; };
 		BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageTableViewCell.m; sourceTree = "<group>"; };
 		BFE8800F2A0F70EB000676EF /* WeiboSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboSender.h; sourceTree = "<group>"; };
@@ -212,6 +218,8 @@
 				BFE880142A0F7C6C000676EF /* weiboSenderViewController.m */,
 				BFE8801E2A101139000676EF /* WeiboWebViewController.h */,
 				BFE8801F2A101139000676EF /* WeiboWebViewController.m */,
+				BFA3B5B62A120F3F008E23E4 /* MyWeiboViewController.h */,
+				BFA3B5B72A120F3F008E23E4 /* MyWeiboViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -225,10 +233,12 @@
 				BF4FA4102A0D11DE007098E1 /* WeiboAPIManager.m */,
 				BF4FA4242A0D43E8007098E1 /* ImageLoader.h */,
 				BF4FA4252A0D43E8007098E1 /* ImageLoader.m */,
-				BF4FA4272A0D4BAE007098E1 /* WeiboHomePageManager.h */,
-				BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */,
 				BFE8800F2A0F70EB000676EF /* WeiboSender.h */,
 				BFE880102A0F70EB000676EF /* WeiboSender.m */,
+				BF4FA4272A0D4BAE007098E1 /* WeiboHomePageManager.h */,
+				BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */,
+				BFA3B5B92A120F88008E23E4 /* MyWeiboViewManager.h */,
+				BFA3B5BA2A120F88008E23E4 /* MyWeiboViewManager.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -407,6 +417,7 @@
 				BF0A86E62A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m in Sources */,
 				BF4FA4292A0D4BAE007098E1 /* WeiboHomePageManager.m in Sources */,
 				BF4FA40A2A0CB684007098E1 /* AccessToken.m in Sources */,
+				BFA3B5BB2A120F88008E23E4 /* MyWeiboViewManager.m in Sources */,
 				BFB053532A0DE01D00AC5DA1 /* HomePageTableViewCell.m in Sources */,
 				BFE880202A101139000676EF /* WeiboWebViewController.m in Sources */,
 				BF4FA4262A0D43E8007098E1 /* ImageLoader.m in Sources */,
@@ -414,6 +425,7 @@
 				BF0A86992A0A6CDC00FD4EB2 /* SceneDelegate.m in Sources */,
 				BF0A86E92A0AB78200FD4EB2 /* CostomScrollView.m in Sources */,
 				BF4FA41A2A0D24DB007098E1 /* WeiboOAuthViewController.m in Sources */,
+				BFA3B5B82A120F3F008E23E4 /* MyWeiboViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

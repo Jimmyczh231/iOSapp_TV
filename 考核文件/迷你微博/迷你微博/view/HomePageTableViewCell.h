@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong ,readwrite) UILabel *textContentLabel;
+@property (nonatomic, strong ,readwrite) NSString *orignalText;
 @property (nonatomic, strong) NSDictionary *status;
 @property (nonatomic, strong) NSMutableArray<UIImageView *> *imageViews;
 @property (nonatomic, strong) NSMutableArray *imagesUrl;
@@ -21,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andwith:(NSString*)text andwith:(NSString*)name andwith:(NSMutableArray*)picUrlArray;
 
-- (void)layoutSubviewwith:(NSString*)text andwith:(NSString *)name andwith:(NSMutableArray*)picUrlArray andwith:(NSURL*)profileImageUrl;
+- (void)layoutSubViewWith:(NSString*)text andwith:(NSString *)name andwith:(NSMutableArray*)picUrlArray andwith:(NSURL*)profileImageUrl;
 
 @end
 

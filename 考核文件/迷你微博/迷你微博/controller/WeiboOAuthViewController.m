@@ -111,10 +111,13 @@
             return;
         }
         NSString *accessToken = json[@"access_token"];
+        NSString *uid = json[@"uid"];
+        
         if (self.completion) {
             self.completion(accessToken, nil);
             if([AccessToken sharedInstance].accessToken == nil){
                 [[AccessToken sharedInstance] setAccessToken:accessToken];
+                [[AccessToken sharedInstance] setUid:uid];
             }
         }
         [self closeWebView];

@@ -9,6 +9,7 @@
 #import "ScrollableWithTitleViewController.h"
 #import "testviewcontroller.h"
 #import "HomePageTableViewController.h"
+#import "MyWeiboViewController.h"
 
 @interface rootViewController ()
 
@@ -23,6 +24,8 @@
     ScrollableWithTitleViewController *viewController1 = [[ScrollableWithTitleViewController alloc] init];
     testviewcontroller *viewController4 = [[testviewcontroller alloc] init];
     HomePageTableViewController *viewController2 = [[HomePageTableViewController alloc] init];
+    MyWeiboViewController *viewController5 = [[MyWeiboViewController alloc] init];
+
     // 创建 ViewController1
 
     viewController1.tabBarItem.title = @"图标1";
@@ -44,7 +47,6 @@
     viewController4.tabBarItem.image = [UIImage imageNamed:@"图标4"];
 
     // 创建 ViewController5
-    UIViewController *viewController5 = [[UIViewController alloc] init];
     viewController5.tabBarItem.title = @"图标5";
     viewController5.tabBarItem.image = [UIImage imageNamed:@"图标5"];
 

@@ -24,16 +24,28 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.webView = [[WKWebView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-    [self.view addSubview: self.webView];
-
-    NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
-    [self.webView loadRequest:request];
+    
+    [self loadWebViewWithURL:self.url];
 }
+
+- (void)loadWebViewWithURL:(NSURL *)url {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 在这里执行需要更新UI的代码、
+            [self.webView loadRequest:request];
+            [self.view addSubview:self.webView];
+        });
+    });
+}
+
+
 
 /*
 #pragma mark - Navigation

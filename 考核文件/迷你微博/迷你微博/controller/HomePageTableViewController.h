@@ -11,7 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomePageTableViewController : UITableViewController
 
+@property (nonatomic, readwrite) BOOL needToRefresh;
+@property (nonatomic, readwrite) BOOL canLoadMoreData;
+
 - (void)refreshTableView;
+- (void)loadMoreDataOnTableView;
 
 @end
 

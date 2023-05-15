@@ -15,13 +15,20 @@
 #import "HomePageTableViewController.h"
 #import "AccessToken.h"
 #import "WeiboOAuthViewController.h"
+#import "WeiboWebViewController.h"
+
+
 @interface ScrollableWithTitleViewController ()<CostomScrollViewBarDelegate>
 
 @property (nonatomic, strong) CostomScrollView *pagingScrollView;
 @property (nonatomic, strong) CostomScrollViewBar *ScrollViewBar;
 @property (nonatomic, strong) weiboSenderViewController *weiboSenderView;
 @property (nonatomic, strong) HomePageTableViewController *homePageTable;
+@property (nonatomic, strong, readwrite) WeiboWebViewController *webViewController;
+
 @property (nonatomic, strong) NSMutableArray *allViewArray;
+@property (nonatomic, readwrite) NSInteger currnetPage;
+@property (nonatomic, readwrite) CGFloat progress;
 @end
 
 @implementation ScrollableWithTitleViewController
@@ -51,12 +58,14 @@
         __strong typeof (self) strongself = weakSelf;
         NSLog(@"currentPage: %ld, progress: %.2f", (long)currentPage, progress);
         // 发送通知
-        if(progress == 0){
-            if(currentPage == 1){
+        if (progress == 0) {
+            if (currentPage == 1) {
+                strongself.currnetPage = currentPage;
+                strongself.progress = progress;
                 [strongself.homePageTable refreshTableView];
             }
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"PagingScrollViewDidScrollNotification" object:nil userInfo:@{@"currentPage": @(currentPage), @"progress": @(progress)}];
         }
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PagingScrollViewDidScrollNotification" object:nil userInfo:@{@"currentPage": @(currentPage), @"progress": @(progress)}];
     };
 //    self.pagingScrollView.refreshControlyes = [self createRefreshControl];
 //    self.pagingScrollView.loadMoreControlyes = [self createLoadMoreControl];
@@ -68,7 +77,10 @@
         __strong typeof (self) strongself = weakSelf;
         [strongself loadNewData];
     };
-
+    self.pagingScrollView.loadMoreBlock  = ^{
+        __strong typeof (self) strongself = weakSelf;
+        [strongself loadMoreData];
+    };
 
     [self.view addSubview:self.pagingScrollView];
     [self.view addSubview:self.ScrollViewBar];
@@ -95,7 +107,24 @@
     
     [self.pagingScrollView startRefreshing];
     [button becomeFirstResponder];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleOpenURLNotification:) name:@"OpenURLNotification" object:nil];
+
+    
 }
+
+- (void)handleOpenURLNotification:(NSNotification *)notification {
+    NSURL *url = notification.userInfo[@"url"];
+    self.webViewController = [[WeiboWebViewController alloc]initWithURL:url];
+    [self.navigationController pushViewController:self.webViewController animated:YES];
+
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"OpenURLNotification" object:nil];
+}
+
 
 - (UIView *)createRefreshControl {
     UIView *refreshControl = [[UIView alloc] initWithFrame:CGRectMake(0, -kRefreshControlHeight, self.view.bounds.size.width, kRefreshControlHeight)];
@@ -106,6 +135,7 @@
     [refreshControl addSubview:label];
     return refreshControl;
 }
+
 - (IBAction)buttonTapped:(UIButton *)sender {
 //    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"你点击了按钮" preferredStyle:UIAlertControllerStyleAlert];
 //    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
@@ -117,12 +147,27 @@
 
 - (void)loadNewData {
     // 实现刷新数据的逻辑
-    // ...
-    // 刷新结束后需要调用endRefreshing方法停止下拉刷新
+    if (self.progress == 0) {
+        if(self.currnetPage == 1) {
+            self.homePageTable.needToRefresh = YES;
+            [self.homePageTable refreshTableView];
+        }
+        
+    }
     
+    // 刷新结束后需要调用endRefreshing方法停止下拉刷新
     [self.pagingScrollView endRefreshing];
 }
 
+- (void)loadMoreData {
+    // 实现加载更多数据的逻辑
+    if (self.progress == 0) {
+        if(self.currnetPage == 1) {
+            [self.homePageTable loadMoreDataOnTableView];
+        }
+        
+    }
+}
 
 - (void)viewDidAppear:(BOOL)animated{
     if([AccessToken sharedInstance].accessToken == nil){

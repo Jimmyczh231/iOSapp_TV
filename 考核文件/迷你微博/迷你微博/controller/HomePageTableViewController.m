@@ -19,7 +19,7 @@
 @property (nonatomic, strong, readwrite) WeiboWebViewController *webViewController;
 @property (nonatomic, strong, readwrite) WeiboHomePageManager *manager;
 @property (nonatomic, strong, readwrite) NSTimer *refreshTimer;
-@property (nonatomic, readwrite) BOOL needToRefresh;
+
 
 
 @end
@@ -29,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.needToRefresh = YES;
+    self.canLoadMoreData = YES;
     self.manager = [[WeiboHomePageManager alloc] initWithAccessToken:[AccessToken sharedInstance].accessToken];
     [self.manager refreshHomePageDataWithCompletion:^(BOOL success, NSArray *weiboDataArray) {
         if (success) {
@@ -44,12 +45,11 @@
         }
     }];
     
-    self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:30.0
+    self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:300.0
                                                       target:self
                                                        selector:@selector(timeToRefresh:)
                                                     userInfo:nil
                                                      repeats:YES];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleOpenURLNotification:) name:@"OpenURLNotification" object:nil];
     
 
     
@@ -67,6 +67,7 @@
 
 - (void)refreshTableView{
     if(self.needToRefresh){
+        self.canLoadMoreData = NO;
         __weak typeof(self) weakSelf = self;
         [self.manager refreshHomePageDataWithCompletion:^(BOOL success, NSArray *weiboDataArray) {
             __strong typeof (self) strongself = weakSelf;
@@ -76,6 +77,7 @@
                     strongself.DataArray = [weiboDataArray mutableCopy];;
                     [strongself.tableView reloadData];
                     strongself.needToRefresh = NO;
+                    self.canLoadMoreData = YES;
                 });
                 
             } else {
@@ -84,11 +86,39 @@
             }
         }];
     }
+    self.needToRefresh = NO;
+}
+- (void)loadMoreDataOnTableView{
+    if(self.canLoadMoreData){
+        self.canLoadMoreData = NO;
+        __weak typeof(self) weakSelf = self;
+        [self.manager loadMoreHomePageDataWithCompletion:^(BOOL success, NSArray *weiboDataArray) {
+            __strong typeof (self) strongself = weakSelf;
+            if (success || weiboDataArray != nil) {
+                // 加载成功，更新界面
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [strongself.DataArray addObjectsFromArray:weiboDataArray];
+                    [strongself.tableView reloadData];
+                    strongself.canLoadMoreData = YES;
+                });
+                
+            } else {
+                // 加载失败，处理错误
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"加载失败" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+                    [alert addAction:okAction];
+                    [strongself presentViewController:alert animated:YES completion:nil];
+                    strongself.canLoadMoreData = YES;
+                });
+            }
+        }];
+        
+    }
+        
+
 }
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"OpenURLNotification" object:nil];
-}
 
 - (void)sliderProgressDidChange:(NSNotification *)notification {
     // 获取滑动的进度值
@@ -96,12 +126,6 @@
 
 }
 
-- (void)handleOpenURLNotification:(NSNotification *)notification {
-    NSURL *url = notification.userInfo[@"url"];
-    self.webViewController = [[WeiboWebViewController alloc]initWithURL:url];
-    [self.navigationController pushViewController:self.webViewController animated:YES];
-
-}
 
 #pragma mark - Table view data source
 
@@ -128,7 +152,7 @@
     cell.textContentLabel.text = [status objectForKey:@"text"];
     cell.nameLabel.text = [[status objectForKey:@"user"] objectForKey:@"name"];
     cell.imagesUrl = [self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]];
-    [cell layoutSubviewwith:[status objectForKey:@"text"] andwith:[[status objectForKey:@"user"] objectForKey:@"name"] andwith:cell.imagesUrl andwith:[NSURL URLWithString:[[status objectForKey:@"user"] objectForKey:@"profile_image_url"]]];
+    [cell layoutSubViewWith:[status objectForKey:@"text"] andwith:[[status objectForKey:@"user"] objectForKey:@"name"] andwith:cell.imagesUrl andwith:[NSURL URLWithString:[[status objectForKey:@"user"] objectForKey:@"profile_image_url"]]];
     return cell;
 }
 

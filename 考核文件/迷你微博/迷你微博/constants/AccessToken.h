@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AccessToken : NSObject
 
 @property (nonatomic, copy) NSString *accessToken;
+@property (nonatomic, copy) NSString *uid;
 
 + (instancetype)sharedInstance;
 

@@ -47,9 +47,9 @@ static CGFloat const kSliderToBarDistance = 10.0;
         self.sliderProgress = 0;
         
         // 初始化标题
-        self.leftLabel = [self createLabelWithText:@"关注" frame:CGRectMake(70, 20, (frame.size.width-140) / 3, kBarHeight - 10)];
-        self.centerLabel = [self createLabelWithText:@"推荐" frame:CGRectMake(70 + (frame.size.width-140) / 3, 20, (frame.size.width-140) / 3, kBarHeight - 10)];
-        self.rightLabel = [self createLabelWithText:@"其他" frame:CGRectMake(70 + (frame.size.width-140) * 2 / 3, 20, (frame.size.width-140) / 3, kBarHeight - 10)];
+        self.leftLabel = [self createLabelWithText:@"关注" frame:CGRectMake(70, 40, (frame.size.width-140) / 3, kBarHeight - 10)];
+        self.centerLabel = [self createLabelWithText:@"推荐" frame:CGRectMake(70 + (frame.size.width-140) / 3, 40, (frame.size.width-140) / 3, kBarHeight - 10)];
+        self.rightLabel = [self createLabelWithText:@"其他" frame:CGRectMake(70 + (frame.size.width-140) * 2 / 3, 40, (frame.size.width-140) / 3, kBarHeight - 10)];
         [self addSubview:self.leftLabel];
         [self addSubview:self.centerLabel];
         [self addSubview:self.rightLabel];
@@ -71,7 +71,7 @@ static CGFloat const kSliderToBarDistance = 10.0;
         
  
         // 初始化滑块
-        self.sliderView = [[UIView alloc] initWithFrame:CGRectMake(frame.size.width / 2 - self.leftLabel.frame.size.width / 2, kBarHeight - kSliderHeight - kSliderToBarDistance, self.leftLabel.frame.size.width, kSliderHeight)];
+        self.sliderView = [[UIView alloc] initWithFrame:CGRectMake(frame.size.width / 2 - self.leftLabel.frame.size.width / 2, self.leftLabel.frame.size.height - kSliderHeight - kSliderToBarDistance, self.leftLabel.frame.size.width, kSliderHeight)];
         self.sliderView.backgroundColor = [UIColor orangeColor];
         [self addSubview:self.sliderView];
         
@@ -126,14 +126,17 @@ static CGFloat const kSliderToBarDistance = 10.0;
 }
 - (void)updateSlider {
     // 根据滑动进度更新滑块的位置和大小
-    UILabel *currentLabel = self.allLabels[self.selectedIndex];
     
+    UILabel *currentLabel = self.allLabels[self.selectedIndex];
     NSInteger objetiveLablelIndex = self.selectedIndex + (self.sliderProgress < 0 ? -1 : 1 ) ;
     UILabel *objetiveLabel = self.allLabels[(objetiveLablelIndex + 1) < self.allLabels.count ? objetiveLablelIndex : self.allLabels.count - 1 ];
     CGFloat x;
     CGFloat width;
+    
+    // 计算滑动的位置和长度
+    
     if (self.sliderProgress > 0) {
-        if(fabs(self.sliderProgress)<=0.5){
+        if(fabs(self.sliderProgress)<=0.5) {
             CGFloat progress = self.sliderProgress / 0.5;
             x = currentLabel.frame.origin.x;
             width = currentLabel.frame.size.width + ((objetiveLabel.frame.origin.x + objetiveLabel.frame.size.width) - (currentLabel.frame.origin.x + currentLabel.frame.size.width)) * progress;
@@ -143,7 +146,7 @@ static CGFloat const kSliderToBarDistance = 10.0;
             width = objetiveLabel.frame.size.width + (objetiveLabel.frame.origin.x - currentLabel.frame.origin.x) * progress;
         }
     } else if (self.sliderProgress < 0) {
-        if(fabs(self.sliderProgress)<=0.5){
+        if (fabs(self.sliderProgress)<=0.5) {
             CGFloat progress = self.sliderProgress / 0.5;
             x = objetiveLabel.frame.origin.x + (currentLabel.frame.origin.x - objetiveLabel.frame.origin.x) * (1 + progress);
             width = currentLabel.frame.size.width + (objetiveLabel.frame.origin.x - currentLabel.frame.origin.x) *  progress;
@@ -152,14 +155,14 @@ static CGFloat const kSliderToBarDistance = 10.0;
             x = objetiveLabel.frame.origin.x;
             width = objetiveLabel.frame.size.width + ((currentLabel.frame.origin.x + currentLabel.frame.size.width) - (objetiveLabel.frame.origin.x + objetiveLabel.frame.size.width)) *  progress ;
         }
-    }else{
+    } else {
         x = currentLabel.frame.origin.x;
         width = currentLabel.frame.size.width;
     }
     
     
     CGFloat height = kSliderHeight ;
-    CGFloat y = kBarHeight - height - kSliderToBarDistance;
+    CGFloat y = self.frame.size.height - height - kSliderToBarDistance;
     self.sliderView.frame = CGRectMake(x, y, width, height);
     
 

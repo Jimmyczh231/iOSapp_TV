@@ -44,7 +44,8 @@
         // 添加每一页的视图并设置frame
         for (NSInteger i = 0; i < pages.count; i++) {
             UIView *pageView = pages[i];
-            pageView.frame = CGRectMake(i * frame.size.width, kRefreshControlHeight, frame.size.width, frame.size.height-kRefreshControlHeight);
+            pageView.frame = CGRectMake(i * frame.size.width, kRefreshControlHeight+30, frame.size.width, frame.size.height-kRefreshControlHeight-80);
+            // 添加刷新条
             UIView * refreshControls = [[UIView alloc] initWithFrame:CGRectMake(i * frame.size.width, 0, frame.size.width, kRefreshControlHeight)];
             refreshControls.userInteractionEnabled = NO;
             refreshControls.backgroundColor = [UIColor whiteColor];
@@ -52,6 +53,19 @@
             label.textAlignment = NSTextAlignmentCenter;
             label.text = @"下拉刷新";
             [refreshControls addSubview:label];
+            // 添加加载更多条
+            UIView *loadMoreView = [[UIView alloc] initWithFrame:CGRectMake(i * frame.size.width, frame.size.height - 60, frame.size.width, 80)];
+            loadMoreView.backgroundColor = [UIColor whiteColor];
+            UILabel *loadMoreLabel = [[UILabel alloc] initWithFrame:loadMoreView.bounds];
+            loadMoreLabel.textAlignment = NSTextAlignmentCenter;
+            loadMoreLabel.text = @"加载更多";
+            loadMoreLabel.textColor = [UIColor orangeColor];
+            [loadMoreView addSubview:loadMoreLabel];
+            
+            [self addSubview:refreshControls];
+            [self addSubview:pageView];
+            [self addSubview:loadMoreView];
+            
             [self addSubview: refreshControls];
             [self addSubview: pageView];
         }
@@ -122,7 +136,7 @@
         if (progress > 1) {
             self.currentPage += 1;
             progress -= 1;
-        } else if (progress < -1){
+        } else if (progress < -1) {
             self.currentPage -= 1;
             progress += 1;
         }
@@ -159,7 +173,7 @@
         if (progress > 1) {
             self.currentPage += 1;
             progress -= 1;
-        } else if (progress < -1){
+        } else if (progress < -1) {
             self.currentPage -= 1;
             progress += 1;
         }
@@ -210,19 +224,17 @@
         [self setContentOffset:CGPointMake(self.currentPage * pageWidth, 0) animated:YES];
     }
     
-//    // 如果滑到了底部，触发加载更多
-//        if (scrollView.contentOffset.y + scrollView.frame.size.height >= scrollView.contentSize.height && !self.isLoadingMore && self.shouldAllowLoadMore) {
-//            self.isLoadingMore = YES;
-//            [UIView animateWithDuration:0.3 animations:^{
-//                UIEdgeInsets insets = scrollView.contentInset;
-//                insets.bottom += kLoadMoreControlHeight;
-//                scrollView.contentInset = insets;
-//            } completion:^(BOOL finished) {
-//                if (self.loadMoreBlock) {
-//                    self.loadMoreBlock();
-//                }
-//            }];
-//        }
+    // 如果滑到了底部，触发加载更多
+        if (scrollView.contentOffset.y + scrollView.frame.size.height >= scrollView.contentSize.height + 80) {
+            [UIView animateWithDuration:0.3 animations:^{
+                UIEdgeInsets insets = scrollView.contentInset;
+                scrollView.contentInset = insets;
+            } completion:^(BOOL finished) {
+                if (self.loadMoreBlock) {
+                    self.loadMoreBlock();
+                }
+            }];
+        }
     
     self.isDragging = NO;
 }

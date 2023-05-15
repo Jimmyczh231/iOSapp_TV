@@ -6,8 +6,10 @@
 //
 
 #define Appkey @"2262783794"
+#define Secret @"53e0114ec2ec768df43bf3f7d10f4bab"
+//#define Appkey2 @"3102869047"
 #define Redirect_Uri @"http://localhost/com.jimmyczh.jimmy"
-
+//#define kSecret2 @"84973c10ec38bdc593f5a8e9ef5ff7c4"
 #import "WeiboOAuthHelper.h"
 #import "AccessToken.h"
 #import "SceneDelegate.h"
@@ -39,7 +41,7 @@
     UIWindowScene *windowScene = (UIWindowScene *)connectedScenes[0];
     SceneDelegate* allDelegate = windowScene.delegate;
     UINavigationController* navVC = allDelegate.window.rootViewController;
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&response_type=code&redirect_uri=%@", self.clientID, self.redirectURI]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&response_type=code&redirect_uri=%@", Appkey, Redirect_Uri]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
     [navVC pushViewController:vc animated:YES];
@@ -93,7 +95,7 @@
     NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/access_token"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
-    NSString *body = [NSString stringWithFormat:@"client_id=%@&client_secret=%@&grant_type=authorization_code&code=%@&redirect_uri=%@", self.clientID, self.clientSecret, code, self.redirectURI];
+    NSString *body = [NSString stringWithFormat:@"client_id=%@&client_secret=%@&grant_type=authorization_code&code=%@&redirect_uri=%@", Appkey, Secret, code, Redirect_Uri];
     request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {

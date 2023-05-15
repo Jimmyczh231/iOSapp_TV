@@ -86,7 +86,7 @@
     return self;
 }
 
-- (void)layoutSubviewwith:(NSString*)text andwith:(NSString *)name andwith:(NSMutableArray*)picUrlArray andwith:(NSURL*)profileImageUrl{
+- (void)layoutSubViewWith:(NSString*)text andwith:(NSString *)name andwith:(NSMutableArray*)picUrlArray andwith:(NSURL*)profileImageUrl{
     for (UIView *subview in self.contentView.subviews) {
         [subview removeFromSuperview];
     }
@@ -131,6 +131,7 @@
 
     self.textContentLabel = [[UILabel alloc] init];
     self.textContentLabel.text = text;
+    self.orignalText = text;
     self.textContentLabel.numberOfLines = 0;
     self.textContentLabel.font = [UIFont systemFontOfSize:14.0];
     [self.contentView addSubview:self.textContentLabel];
@@ -209,7 +210,7 @@
 
 - (void)handleTapOnTextLabel:(UITapGestureRecognizer *)gesture {
     UILabel *label = (UILabel *)gesture.view;
-    NSString *text = label.text;
+    NSString *text = self.orignalText;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"((http|https)://)[^\\s]+" options:NSRegularExpressionCaseInsensitive error:nil];
     NSTextCheckingResult *match = [regex firstMatchInString:text options:0 range:NSMakeRange(0, [text length])];
     if (match) {
