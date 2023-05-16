@@ -150,16 +150,20 @@
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
     NSArray *matches = [regex matchesInString:text options:0 range:NSMakeRange(0, [text length])];
-
+    
+    NSInteger lengthOffset = 0; // 用于记录长度的偏差值
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
     for (NSTextCheckingResult *match in matches) {
         NSRange matchRange = [match range];
+        matchRange.location -= lengthOffset; // 减去偏差
         NSString *urlString = [text substringWithRange:matchRange];
         NSURL *url = [NSURL URLWithString:urlString];
         NSDictionary *linkAttributes = @{ NSForegroundColorAttributeName: [UIColor blueColor], NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle) };
         [attributedText addAttributes:linkAttributes range:matchRange];
         [attributedText replaceCharactersInRange:matchRange withString:@"网络链接"];
-        [attributedText addAttribute:NSLinkAttributeName value:url range:NSMakeRange(matchRange.location, 4)];
+        NSInteger lengthDifference = matchRange.length - [@"网络链接" length];
+        lengthOffset += lengthDifference; // 加上偏差值
+//        [attributedText addAttribute:NSLinkAttributeName value:url range:NSMakeRange(matchRange.location, 4)];
     }
 
     self.textContentLabel.attributedText = attributedText;
@@ -225,6 +229,7 @@
         UIImageView *imageView = self.imageViews[i];
         if (i < count) {
             imageView.hidden = NO;
+            imageView.image = [UIImage imageNamed:@"loading-icon.jpg"];
             [[ImageLoader sharedInstance] loadImageWithURL:imagesUrl[i] completion:^(UIImage * _Nonnull image) {
                 if (image) {
                     dispatch_async(dispatch_get_main_queue(), ^{

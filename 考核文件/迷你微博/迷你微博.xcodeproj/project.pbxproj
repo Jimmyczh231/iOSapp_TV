@@ -30,6 +30,7 @@
 		BF4FA42C2A0D55A5007098E1 /* HomePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */; };
 		BFA3B5B82A120F3F008E23E4 /* MyWeiboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5B72A120F3F008E23E4 /* MyWeiboViewController.m */; };
 		BFA3B5BB2A120F88008E23E4 /* MyWeiboViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5BA2A120F88008E23E4 /* MyWeiboViewManager.m */; };
+		BFA3B5BD2A12A93F008E23E4 /* loading-icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BFA3B5BC2A12A93F008E23E4 /* loading-icon.jpg */; };
 		BFB053532A0DE01D00AC5DA1 /* HomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */; };
 		BFE880112A0F70EB000676EF /* WeiboSender.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE880102A0F70EB000676EF /* WeiboSender.m */; };
 		BFE880152A0F7C6C000676EF /* weiboSenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE880142A0F7C6C000676EF /* weiboSenderViewController.m */; };
@@ -100,6 +101,7 @@
 		BFA3B5B72A120F3F008E23E4 /* MyWeiboViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWeiboViewController.m; sourceTree = "<group>"; };
 		BFA3B5B92A120F88008E23E4 /* MyWeiboViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWeiboViewManager.h; sourceTree = "<group>"; };
 		BFA3B5BA2A120F88008E23E4 /* MyWeiboViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWeiboViewManager.m; sourceTree = "<group>"; };
+		BFA3B5BC2A12A93F008E23E4 /* loading-icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "loading-icon.jpg"; sourceTree = "<group>"; };
 		BFB053512A0DE01D00AC5DA1 /* HomePageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageTableViewCell.h; sourceTree = "<group>"; };
 		BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageTableViewCell.m; sourceTree = "<group>"; };
 		BFE8800F2A0F70EB000676EF /* WeiboSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboSender.h; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				BFE8801C2A0FE41A000676EF /* jiahao-2.png */,
+				BFA3B5BC2A12A93F008E23E4 /* loading-icon.jpg */,
 				BFE880192A0FE17F000676EF /* jiahao.png */,
 			);
 			path = icon;
@@ -378,6 +381,7 @@
 				BFE8801D2A0FE41A000676EF /* jiahao-2.png in Resources */,
 				BF0A86A42A0A6CDD00FD4EB2 /* LaunchScreen.storyboard in Resources */,
 				BFE8801A2A0FE17F000676EF /* jiahao.png in Resources */,
+				BFA3B5BD2A12A93F008E23E4 /* loading-icon.jpg in Resources */,
 				BF0A86A12A0A6CDD00FD4EB2 /* Assets.xcassets in Resources */,
 				BF0A869F2A0A6CDC00FD4EB2 /* Main.storyboard in Resources */,
 			);
