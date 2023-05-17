@@ -10,7 +10,7 @@
 @interface HomePageTableViewCell ()
 
 @property (nonatomic, strong) UIImageView *userProfileImageView;
-
+@property (nonatomic, strong) UIButton *dinazanButton;
 @end
 
 @implementation HomePageTableViewCell
@@ -86,7 +86,7 @@
     return self;
 }
 
-- (void)layoutSubViewWith:(NSString*)text andwith:(NSString *)name andwith:(NSMutableArray*)picUrlArray andwith:(NSURL*)profileImageUrl{
+- (void)layoutSubViewWith:(NSString*)text andWith:(NSString *)name andWith:(NSMutableArray*)picUrlArray andWith:(NSURL*)profileImageUrl{
     for (UIView *subview in self.contentView.subviews) {
         [subview removeFromSuperview];
     }
@@ -187,13 +187,21 @@
     }
     
     
-    UIButton *dinazanButton = [[UIButton alloc]init];
-    dinazanButton.frame = CGRectMake((self.contentView.bounds.size.width) * 2 / 3, self.contentView.bounds.size.height-25, 20, 20);
-    dinazanButton.backgroundColor = [UIColor whiteColor];
+    self.dinazanButton = [[UIButton alloc]init];
+    self.dinazanButton.frame = CGRectMake((self.contentView.bounds.size.width) * 3 / 4 - 10, self.contentView.bounds.size.height-25, 20, 20);
+    self.dinazanButton.backgroundColor = [UIColor whiteColor];
     UIImage *dinazan = [UIImage imageNamed:@"dianzan-2.png"];
-    [dinazanButton setImage:dinazan forState:UIControlStateNormal];
-    [dinazanButton addTarget:self action:@selector(dinazanButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:dinazanButton];
+    [self.dinazanButton setImage:dinazan forState:UIControlStateNormal];
+    [self.dinazanButton addTarget:self action:@selector(dinazanButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.dinazanButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:(self.contentView.bounds.size.width) * 3 / 4 - 10];
+    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:-10];
+    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:20];
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:20];
+    [self.contentView addSubview:self.dinazanButton];
+    [self.contentView addConstraints:@[left, top]];
+    [self.dinazanButton addConstraints:@[width, height]];
+
 
 
 

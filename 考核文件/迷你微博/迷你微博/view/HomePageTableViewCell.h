@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andwith:(NSString*)text andwith:(NSString*)name andwith:(NSMutableArray*)picUrlArray;
 
-- (void)layoutSubViewWith:(NSString*)text andwith:(NSString *)name andwith:(NSMutableArray*)picUrlArray andwith:(NSURL*)profileImageUrl;
+- (void)layoutSubViewWith:(NSString*)text andWith:(NSString *)name andWith:(NSMutableArray*)picUrlArray andWith:(NSURL*)profileImageUrl;
 
 @end
 

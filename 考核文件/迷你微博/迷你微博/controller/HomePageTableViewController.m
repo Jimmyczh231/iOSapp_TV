@@ -153,7 +153,7 @@
     cell.nameLabel.text = [[status objectForKey:@"user"] objectForKey:@"name"];
     cell.imagesUrl = [self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]];
     cell.status = status;
-    [cell layoutSubViewWith:[status objectForKey:@"text"] andwith:[[status objectForKey:@"user"] objectForKey:@"name"] andwith:cell.imagesUrl andwith:[NSURL URLWithString:[[status objectForKey:@"user"] objectForKey:@"profile_image_url"]]];
+    [cell layoutSubViewWith:[status objectForKey:@"text"] andWith:[[status objectForKey:@"user"] objectForKey:@"name"] andWith:cell.imagesUrl andWith:[NSURL URLWithString:[[status objectForKey:@"user"] objectForKey:@"profile_image_url"]]];
     return cell;
 }
 
@@ -189,7 +189,7 @@
         picNumber = picNum.intValue;
         height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * 3;
     }
-    height += 50.0;
+    height += 65.0;
     return height;
 }
 
@@ -210,12 +210,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSMutableDictionary *status = self.DataArray[indexPath.row];
+    
+    // 发送添加到历史记录通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddHistoryData" object:nil userInfo:status];
+
     if(self.delegate != nil){
         [self.delegate presentWeiboDetailWith:status];
     }
-    // 发送添加到历史记录通知
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddHistoryData" object:nil userInfo:status];
     
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+
+
 }
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

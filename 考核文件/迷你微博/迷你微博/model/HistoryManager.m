@@ -55,6 +55,7 @@
         }
     }
     
+    // 将历史记录数据异步存入本地
     [mutableArray insertObject:data atIndex:0];
     self.historyArray = [NSArray arrayWithArray:mutableArray];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -73,7 +74,7 @@
 
 - (void)clearHistoryData {
     // 清空数组和本地存储的历史数据
-    _historyArray = @[];
+    self.historyArray = @[];
     NSString *filePath = [self historyFilePath];
     [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
 }

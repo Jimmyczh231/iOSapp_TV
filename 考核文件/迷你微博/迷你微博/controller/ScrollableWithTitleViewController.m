@@ -16,7 +16,7 @@
 #import "AccessToken.h"
 #import "WeiboOAuthViewController.h"
 #import "WeiboWebViewController.h"
-
+#import "WeiboDetailViewController.h"
 
 @interface ScrollableWithTitleViewController ()<HomePageTableViewControllerDelegate>
 
@@ -25,6 +25,7 @@
 @property (nonatomic, strong) weiboSenderViewController *weiboSenderView;
 @property (nonatomic, strong) HomePageTableViewController *homePageTable;
 @property (nonatomic, strong, readwrite) WeiboWebViewController *webViewController;
+@property (nonatomic, strong, readwrite) WeiboDetailViewController *weiboDetailViewController;
 
 @property (nonatomic, strong) NSMutableArray *allViewArray;
 @property (nonatomic, readwrite) NSInteger currnetPage;
@@ -190,24 +191,27 @@
     
 }
 - (void)presentWeiboDetailWith:(nonnull NSDictionary *)status {
-    NSURL *url;
-    NSString * urlHead;
-    urlHead = @"http://api.weibo.com/2/statuses/go";
+    self.weiboDetailViewController = [[WeiboDetailViewController alloc]initWithId:[status objectForKey:@"id"]];
+    [self.navigationController pushViewController:self.weiboDetailViewController animated:YES];
+//    NSURL *url;
+//    NSString * urlHead;
+//    urlHead = @"http://api.weibo.com/2/statuses/go";
+//    // 添加请求参数
+//    NSString *params;
+//    if ([AccessToken sharedInstance].accessToken != nil){
+//        params = [NSString stringWithFormat:@"access_token=%@&uid=%@&id=%@", [AccessToken sharedInstance].accessToken, [[status objectForKey:@"user"]objectForKey:@"id"], [status objectForKey:@"id"]];
+//
+//    }
+//    NSString *fullUrlString = [NSString stringWithFormat:@"%@?%@", urlHead, params];
+//    url = [NSURL URLWithString:fullUrlString];
+//    self.webViewController = [[WeiboWebViewController alloc]initWithURL:url];
+//    [self.navigationController pushViewController:self.webViewController animated:YES];
 
-
-    // 添加请求参数
-    NSString *params;
-    if ([AccessToken sharedInstance].accessToken != nil){
-        params = [NSString stringWithFormat:@"access_token=%@&uid=%@&id=%@", [AccessToken sharedInstance].accessToken, [[status objectForKey:@"user"]objectForKey:@"id"], [status objectForKey:@"id"]];
-        
-    }else{
-//        params = [NSString stringWithFormat:@"count=%d&page=%@", kWeiboDataCount, self.nextPageCursor];
-    }
-    NSString *fullUrlString = [NSString stringWithFormat:@"%@?%@", urlHead, params];
-    url = [NSURL URLWithString:fullUrlString];
-    self.webViewController = [[WeiboWebViewController alloc]initWithURL:url];
-    [self.navigationController pushViewController:self.webViewController animated:YES];
+    
+    
 }
+
+
 //- (UIView *)createLoadMoreControl {
 //    UIView *loadMoreControl = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kLoadMoreControlHeight)];
 //    loadMoreControl.backgroundColor = [UIColor whiteColor];

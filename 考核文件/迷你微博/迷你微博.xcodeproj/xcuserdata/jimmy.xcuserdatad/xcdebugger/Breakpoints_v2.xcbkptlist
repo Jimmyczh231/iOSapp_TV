@@ -516,7 +516,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "7058DC1C-152C-4F64-B6D2-C26F87E162C2 - da3f85d610102908"
+                  uuid = "7058DC1C-152C-4F64-B6D2-C26F87E162C2 - da3f85d6101027db"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -526,12 +526,12 @@
                   urlString = "file:///Users/jimmy/Documents/github%E9%A1%B9%E7%9B%AE/%E4%BA%8C%E8%BD%AE%E8%80%83%E6%A0%B8/iOSapp_TV/%E8%80%83%E6%A0%B8%E6%96%87%E4%BB%B6/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/controller/HomePageTableViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "172">
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "228">
                </Location>
                <Location
-                  uuid = "7058DC1C-152C-4F64-B6D2-C26F87E162C2 - e25261f6f46765f5"
+                  uuid = "7058DC1C-152C-4F64-B6D2-C26F87E162C2 - e25261f6f4676ba0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -541,8 +541,8 @@
                   urlString = "file:///Users/jimmy/Documents/github%E9%A1%B9%E7%9B%AE/%E4%BA%8C%E8%BD%AE%E8%80%83%E6%A0%B8/iOSapp_TV/%E8%80%83%E6%A0%B8%E6%96%87%E4%BB%B6/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/controller/HomePageTableViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
                   offsetFromSymbolStart = "60">
                </Location>
             </Locations>
@@ -1192,7 +1192,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "6A0C80C7-6E0E-49DD-8BF6-BE33D339B9D2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
@@ -1246,8 +1246,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/ScrollableWithTitleViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "-loadNewData"
             landmarkType = "7">
          </BreakpointContent>
@@ -1278,8 +1278,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/HomePageTableViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "-handleTapOnTextLabel:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1438,8 +1438,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/ScrollableWithTitleViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
             <Locations>
@@ -1486,8 +1486,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/ScrollableWithTitleViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1502,8 +1502,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/ScrollableWithTitleViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1518,8 +1518,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/ScrollableWithTitleViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "-loadMoreData"
             landmarkType = "7">
          </BreakpointContent>
@@ -1676,7 +1676,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "169"
             endingLineNumber = "169"
-            landmarkName = "-layoutSubViewWith:andwith:andwith:andwith:"
+            landmarkName = "-layoutSubViewWith:andWith:andWith:andWith:"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1716,14 +1716,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "730C812C-A46B-4BA3-81C2-26CA23BF9C3E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/ScrollableWithTitleViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "-presentWeiboDetailWith:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1748,7 +1748,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "EEDA6727-C937-42DD-BC5C-1DAE2EDF1598"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/WeiboWebViewController.m"
@@ -1796,15 +1796,95 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "348FA7CF-123D-4CF2-8095-90F3762A1716"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/MyWeiboViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "14E2815D-EF1D-4376-99BA-43CF6A55615B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HistoryTableViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "33D2E8AC-4F3C-4182-B62A-1C8AA2ED4734"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/WeiboDetailViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDE2EE86-7D55-459A-AFC2-60841A2DD0B5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-refreshTableView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "505A0311-6251-457F-BFB0-BABDE9994662"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-refreshTableView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4CC6AADB-8B4D-42A6-95C0-3803DDD9684B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/model/WeiboDetailViewManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "-loadWeiboDetailPageDataWith:andWithCompletion:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

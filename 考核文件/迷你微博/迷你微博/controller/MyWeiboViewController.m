@@ -8,11 +8,16 @@
 #import "MyWeiboViewController.h"
 #import "MyWeiboViewManager.h"
 #import "ImageLoader.h"
+#import "ShoucangTableViewController.h"
+#import "HistoryTableViewController.h"
 
 @interface MyWeiboViewController ()
+
 @property (nonatomic, strong) MyWeiboViewManager *manager;
 @property (nonatomic, strong) NSDictionary *MyViewDataDictionary;
 @property (nonatomic, readwrite) BOOL needToRefresh;
+@property (nonatomic, strong) ShoucangTableViewController *shoucangTableview;
+@property (nonatomic, strong) HistoryTableViewController *historyTableview;
 
 @property (nonatomic, strong) UIImageView *userProfileImageView;
 @property (nonatomic, strong) UIView *buttonView;
@@ -26,9 +31,20 @@
 @property (nonatomic, strong) UILabel *followersLabel;
 @property (nonatomic, strong) UILabel *followingLabel;
 
+
 @end
 
 @implementation MyWeiboViewController
+
+- (instancetype)init{
+    self = [super init];
+    if(self){
+        self.shoucangTableview = [[ShoucangTableViewController alloc] init];
+        self.historyTableview = [[HistoryTableViewController alloc] init];
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -168,11 +184,11 @@
 
 
 - (void)shoucangButtonClicked:(UIButton *)sender{
-    
+    [self.navigationController pushViewController:self.shoucangTableview animated:YES];
 }
 
 - (void)histroyButtonClicked:(UIButton *)sender{
-    
+    [self.navigationController pushViewController:self.historyTableview animated:YES];
 }
 
 /*
