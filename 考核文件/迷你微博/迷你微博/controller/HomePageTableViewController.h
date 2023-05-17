@@ -9,10 +9,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+
+@protocol HomePageTableViewControllerDelegate <NSObject>
+
+@required
+- (void)presentWeiboDetailWith:(NSDictionary*)status;
+
+@end
+
 @interface HomePageTableViewController : UITableViewController
 
 @property (nonatomic, readwrite) BOOL needToRefresh;
 @property (nonatomic, readwrite) BOOL canLoadMoreData;
+@property (nonatomic, weak) id<HomePageTableViewControllerDelegate> delegate;
 
 - (void)refreshTableView;
 - (void)loadMoreDataOnTableView;

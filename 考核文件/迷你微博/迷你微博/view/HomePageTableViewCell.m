@@ -151,18 +151,21 @@
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
     NSArray *matches = [regex matchesInString:text options:0 range:NSMakeRange(0, [text length])];
     
-    NSInteger lengthOffset = 0; // 用于记录长度的偏差值
+    // 用于记录长度的偏差值
+    NSInteger lengthOffset = 0;
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
     for (NSTextCheckingResult *match in matches) {
         NSRange matchRange = [match range];
-        matchRange.location -= lengthOffset; // 减去偏差
+        // 减去偏差
+        matchRange.location -= lengthOffset;
         NSString *urlString = [text substringWithRange:matchRange];
         NSURL *url = [NSURL URLWithString:urlString];
         NSDictionary *linkAttributes = @{ NSForegroundColorAttributeName: [UIColor blueColor], NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle) };
         [attributedText addAttributes:linkAttributes range:matchRange];
         [attributedText replaceCharactersInRange:matchRange withString:@"网络链接"];
         NSInteger lengthDifference = matchRange.length - [@"网络链接" length];
-        lengthOffset += lengthDifference; // 加上偏差值
+        // 加上偏差值
+        lengthOffset += lengthDifference;
 //        [attributedText addAttribute:NSLinkAttributeName value:url range:NSMakeRange(matchRange.location, 4)];
     }
 
@@ -182,22 +185,22 @@
         [self.contentView addSubview:imageView];
         [self.imageViews addObject:imageView];
     }
+    
+    
+    UIButton *dinazanButton = [[UIButton alloc]init];
+    dinazanButton.frame = CGRectMake((self.contentView.bounds.size.width) * 2 / 3, self.contentView.bounds.size.height-25, 20, 20);
+    dinazanButton.backgroundColor = [UIColor whiteColor];
+    UIImage *dinazan = [UIImage imageNamed:@"dianzan-2.png"];
+    [dinazanButton setImage:dinazan forState:UIControlStateNormal];
+    [dinazanButton addTarget:self action:@selector(dinazanButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:dinazanButton];
+
+
+
 
 
     [self setImageViewWithImageUrls:self.imagesUrl];
-//        CGFloat margin = 10.0;
-//        CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
-//        CGFloat imageSize = (screenWidth - margin * 4) / 3;
-//        for (int i = 0; i < 9; i++) {
-//            CGFloat x = margin + (imageSize + margin) * (i % 3);
-//            CGFloat y = margin + (imageSize + margin) * (i / 3 + 1);
-//            UIImageView *imageView = self.imageViews[i];
-//            [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.left.equalTo(self.contentView).offset(x);
-//                make.top.equalTo(self.textLabel.mas_bottom).offset(y);
-//                make.width.height.mas_equalTo(imageSize);
-//            }];
-//        }
+    
 
 }
 
@@ -215,6 +218,9 @@
     }
 }
 
+- (void)dinazanButtonClicked:(UIButton *)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddShoucangData" object:nil userInfo:self.status];
+}
 
 // 排版图片
 - (void)setImageViewWithImageUrls:(NSArray *)imagesUrl {

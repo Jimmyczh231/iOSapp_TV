@@ -50,6 +50,8 @@ static CGFloat const kSliderToBarDistance = 10.0;
         self.leftLabel = [self createLabelWithText:@"关注" frame:CGRectMake(70, 40, (frame.size.width-140) / 3, kBarHeight - 10)];
         self.centerLabel = [self createLabelWithText:@"推荐" frame:CGRectMake(70 + (frame.size.width-140) / 3, 40, (frame.size.width-140) / 3, kBarHeight - 10)];
         self.rightLabel = [self createLabelWithText:@"其他" frame:CGRectMake(70 + (frame.size.width-140) * 2 / 3, 40, (frame.size.width-140) / 3, kBarHeight - 10)];
+        
+        
         [self addSubview:self.leftLabel];
         [self addSubview:self.centerLabel];
         [self addSubview:self.rightLabel];
@@ -58,7 +60,7 @@ static CGFloat const kSliderToBarDistance = 10.0;
         [self.allLabels addObject:self.centerLabel];
         [self.allLabels addObject:self.rightLabel];
      
-        // 初始化加号按钮
+        // 初始化发送按钮
 //        self.sendWeiboButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //        self.sendWeiboButton.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 50, 52, 28, 28);
 //        UIImage *senderImage = [UIImage imageNamed:@"jiahao.png"];
@@ -86,7 +88,7 @@ static CGFloat const kSliderToBarDistance = 10.0;
 }
 
 - (void)dealloc {
-    // 移除通知的监听
+    // 页面销毁时移除通知的监听
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

@@ -18,7 +18,7 @@
 #import "WeiboWebViewController.h"
 
 
-@interface ScrollableWithTitleViewController ()<CostomScrollViewBarDelegate>
+@interface ScrollableWithTitleViewController ()<HomePageTableViewControllerDelegate>
 
 @property (nonatomic, strong) CostomScrollView *pagingScrollView;
 @property (nonatomic, strong) CostomScrollViewBar *ScrollViewBar;
@@ -37,8 +37,10 @@
     [super viewDidLoad];
     self.view.userInteractionEnabled = YES;
     self.ScrollViewBar = [[CostomScrollViewBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 120.0)];
-    self.ScrollViewBar.delegate = self;
+
     self.homePageTable = [[HomePageTableViewController alloc] init];
+    self.homePageTable.delegate = self;
+    
     UIView *page1 = [[UIView alloc] initWithFrame:self.view.bounds];
     page1.backgroundColor = [UIColor redColor];
     
@@ -95,10 +97,8 @@
     [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [button becomeFirstResponder];
 
-    // 设置 frame 属性
-//    button.frame = CGRectMake(100, 100, 100, 50);
-    // 添加到视图中
     [self.view addSubview:button];
+    
     // 创建 UITapGestureRecognizer 对象
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonTapped:)];
     // 将 tapGestureRecognizer 添加到你的 view 上
@@ -189,6 +189,25 @@
     }
     
 }
+- (void)presentWeiboDetailWith:(nonnull NSDictionary *)status {
+    NSURL *url;
+    NSString * urlHead;
+    urlHead = @"http://api.weibo.com/2/statuses/go";
+
+
+    // 添加请求参数
+    NSString *params;
+    if ([AccessToken sharedInstance].accessToken != nil){
+        params = [NSString stringWithFormat:@"access_token=%@&uid=%@&id=%@", [AccessToken sharedInstance].accessToken, [[status objectForKey:@"user"]objectForKey:@"id"], [status objectForKey:@"id"]];
+        
+    }else{
+//        params = [NSString stringWithFormat:@"count=%d&page=%@", kWeiboDataCount, self.nextPageCursor];
+    }
+    NSString *fullUrlString = [NSString stringWithFormat:@"%@?%@", urlHead, params];
+    url = [NSURL URLWithString:fullUrlString];
+    self.webViewController = [[WeiboWebViewController alloc]initWithURL:url];
+    [self.navigationController pushViewController:self.webViewController animated:YES];
+}
 //- (UIView *)createLoadMoreControl {
 //    UIView *loadMoreControl = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kLoadMoreControlHeight)];
 //    loadMoreControl.backgroundColor = [UIColor whiteColor];
@@ -216,9 +235,11 @@
 }
 */
 
-- (void)WeiboSenderPush {
-    
-}
+
+
+
+
+
 
 
 

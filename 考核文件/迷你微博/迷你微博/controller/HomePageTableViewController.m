@@ -152,6 +152,7 @@
     cell.textContentLabel.text = [status objectForKey:@"text"];
     cell.nameLabel.text = [[status objectForKey:@"user"] objectForKey:@"name"];
     cell.imagesUrl = [self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]];
+    cell.status = status;
     [cell layoutSubViewWith:[status objectForKey:@"text"] andwith:[[status objectForKey:@"user"] objectForKey:@"name"] andwith:cell.imagesUrl andwith:[NSURL URLWithString:[[status objectForKey:@"user"] objectForKey:@"profile_image_url"]]];
     return cell;
 }
@@ -159,7 +160,7 @@
 - (NSMutableArray *)getAllThumbnailUrlsFromArray:(NSArray *)array {
     NSMutableArray *thumbnailUrls = [NSMutableArray array];
     for (NSDictionary *dict in array) {
-        // 判断字典中是否包含 key 为 "thumbnail_pic" 的值
+        // 判断字典中是否包含key为"thumbnail_pic"的值
 //        if ([dict objectForKey:@"thumbnail_pic"]) {
             // 获取 key 为 "thumbnail_pic" 的 NSURL 对象
             NSURL *thumbnailUrl = [NSURL URLWithString:[dict objectForKey:@"thumbnail_pic"]];
@@ -188,7 +189,7 @@
         picNumber = picNum.intValue;
         height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * 3;
     }
-    height += 45.0;
+    height += 50.0;
     return height;
 }
 
@@ -206,6 +207,16 @@
     return MAX(size.height, minHeight);
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSMutableDictionary *status = self.DataArray[indexPath.row];
+    if(self.delegate != nil){
+        [self.delegate presentWeiboDetailWith:status];
+    }
+    // 发送添加到历史记录通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddHistoryData" object:nil userInfo:status];
+    
+}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];

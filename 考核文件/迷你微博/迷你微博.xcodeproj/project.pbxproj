@@ -31,6 +31,15 @@
 		BFA3B5B82A120F3F008E23E4 /* MyWeiboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5B72A120F3F008E23E4 /* MyWeiboViewController.m */; };
 		BFA3B5BB2A120F88008E23E4 /* MyWeiboViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5BA2A120F88008E23E4 /* MyWeiboViewManager.m */; };
 		BFA3B5BD2A12A93F008E23E4 /* loading-icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BFA3B5BC2A12A93F008E23E4 /* loading-icon.jpg */; };
+		BFA3B5C02A13A66E008E23E4 /* HistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5BF2A13A66E008E23E4 /* HistoryManager.m */; };
+		BFA3B5C52A13FFB9008E23E4 /* lishijilu.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA3B5C12A13FFB9008E23E4 /* lishijilu.png */; };
+		BFA3B5C62A13FFB9008E23E4 /* tupian.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA3B5C22A13FFB9008E23E4 /* tupian.png */; };
+		BFA3B5C72A13FFB9008E23E4 /* qianbao.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA3B5C32A13FFB9008E23E4 /* qianbao.png */; };
+		BFA3B5C82A13FFB9008E23E4 /* shoucang.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA3B5C42A13FFB9008E23E4 /* shoucang.png */; };
+		BFA3B5CA2A1463C8008E23E4 /* dianzan-2.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA3B5C92A1463C7008E23E4 /* dianzan-2.png */; };
+		BFA3B5CD2A1465DB008E23E4 /* ShoucangManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5CC2A1465DB008E23E4 /* ShoucangManager.m */; };
+		BFA3B5D02A146DEF008E23E4 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5CF2A146DEF008E23E4 /* HistoryTableViewController.m */; };
+		BFA3B5D32A146E03008E23E4 /* ShoucangTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5D22A146E03008E23E4 /* ShoucangTableViewController.m */; };
 		BFB053532A0DE01D00AC5DA1 /* HomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */; };
 		BFE880112A0F70EB000676EF /* WeiboSender.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE880102A0F70EB000676EF /* WeiboSender.m */; };
 		BFE880152A0F7C6C000676EF /* weiboSenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE880142A0F7C6C000676EF /* weiboSenderViewController.m */; };
@@ -102,6 +111,19 @@
 		BFA3B5B92A120F88008E23E4 /* MyWeiboViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWeiboViewManager.h; sourceTree = "<group>"; };
 		BFA3B5BA2A120F88008E23E4 /* MyWeiboViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWeiboViewManager.m; sourceTree = "<group>"; };
 		BFA3B5BC2A12A93F008E23E4 /* loading-icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "loading-icon.jpg"; sourceTree = "<group>"; };
+		BFA3B5BE2A13A66E008E23E4 /* HistoryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryManager.h; sourceTree = "<group>"; };
+		BFA3B5BF2A13A66E008E23E4 /* HistoryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryManager.m; sourceTree = "<group>"; };
+		BFA3B5C12A13FFB9008E23E4 /* lishijilu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lishijilu.png; sourceTree = "<group>"; };
+		BFA3B5C22A13FFB9008E23E4 /* tupian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tupian.png; sourceTree = "<group>"; };
+		BFA3B5C32A13FFB9008E23E4 /* qianbao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qianbao.png; sourceTree = "<group>"; };
+		BFA3B5C42A13FFB9008E23E4 /* shoucang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoucang.png; sourceTree = "<group>"; };
+		BFA3B5C92A1463C7008E23E4 /* dianzan-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dianzan-2.png"; sourceTree = "<group>"; };
+		BFA3B5CB2A1465DB008E23E4 /* ShoucangManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoucangManager.h; sourceTree = "<group>"; };
+		BFA3B5CC2A1465DB008E23E4 /* ShoucangManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoucangManager.m; sourceTree = "<group>"; };
+		BFA3B5CE2A146DEF008E23E4 /* HistoryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		BFA3B5CF2A146DEF008E23E4 /* HistoryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
+		BFA3B5D12A146E03008E23E4 /* ShoucangTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoucangTableViewController.h; sourceTree = "<group>"; };
+		BFA3B5D22A146E03008E23E4 /* ShoucangTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoucangTableViewController.m; sourceTree = "<group>"; };
 		BFB053512A0DE01D00AC5DA1 /* HomePageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageTableViewCell.h; sourceTree = "<group>"; };
 		BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageTableViewCell.m; sourceTree = "<group>"; };
 		BFE8800F2A0F70EB000676EF /* WeiboSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboSender.h; sourceTree = "<group>"; };
@@ -222,6 +244,10 @@
 				BFE8801F2A101139000676EF /* WeiboWebViewController.m */,
 				BFA3B5B62A120F3F008E23E4 /* MyWeiboViewController.h */,
 				BFA3B5B72A120F3F008E23E4 /* MyWeiboViewController.m */,
+				BFA3B5CE2A146DEF008E23E4 /* HistoryTableViewController.h */,
+				BFA3B5CF2A146DEF008E23E4 /* HistoryTableViewController.m */,
+				BFA3B5D12A146E03008E23E4 /* ShoucangTableViewController.h */,
+				BFA3B5D22A146E03008E23E4 /* ShoucangTableViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -241,6 +267,10 @@
 				BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */,
 				BFA3B5B92A120F88008E23E4 /* MyWeiboViewManager.h */,
 				BFA3B5BA2A120F88008E23E4 /* MyWeiboViewManager.m */,
+				BFA3B5BE2A13A66E008E23E4 /* HistoryManager.h */,
+				BFA3B5BF2A13A66E008E23E4 /* HistoryManager.m */,
+				BFA3B5CB2A1465DB008E23E4 /* ShoucangManager.h */,
+				BFA3B5CC2A1465DB008E23E4 /* ShoucangManager.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -268,9 +298,14 @@
 		BFE8801B2A0FE18B000676EF /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				BFA3B5C12A13FFB9008E23E4 /* lishijilu.png */,
+				BFA3B5C32A13FFB9008E23E4 /* qianbao.png */,
+				BFA3B5C42A13FFB9008E23E4 /* shoucang.png */,
+				BFA3B5C22A13FFB9008E23E4 /* tupian.png */,
 				BFE8801C2A0FE41A000676EF /* jiahao-2.png */,
 				BFA3B5BC2A12A93F008E23E4 /* loading-icon.jpg */,
 				BFE880192A0FE17F000676EF /* jiahao.png */,
+				BFA3B5C92A1463C7008E23E4 /* dianzan-2.png */,
 			);
 			path = icon;
 			sourceTree = "<group>";
@@ -379,10 +414,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE8801D2A0FE41A000676EF /* jiahao-2.png in Resources */,
+				BFA3B5C82A13FFB9008E23E4 /* shoucang.png in Resources */,
 				BF0A86A42A0A6CDD00FD4EB2 /* LaunchScreen.storyboard in Resources */,
 				BFE8801A2A0FE17F000676EF /* jiahao.png in Resources */,
 				BFA3B5BD2A12A93F008E23E4 /* loading-icon.jpg in Resources */,
 				BF0A86A12A0A6CDD00FD4EB2 /* Assets.xcassets in Resources */,
+				BFA3B5C52A13FFB9008E23E4 /* lishijilu.png in Resources */,
+				BFA3B5C62A13FFB9008E23E4 /* tupian.png in Resources */,
+				BFA3B5C72A13FFB9008E23E4 /* qianbao.png in Resources */,
+				BFA3B5CA2A1463C8008E23E4 /* dianzan-2.png in Resources */,
 				BF0A869F2A0A6CDC00FD4EB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,11 +455,15 @@
 				BF4FA4142A0D13A4007098E1 /* testviewcontroller.m in Sources */,
 				BF0A86962A0A6CDC00FD4EB2 /* AppDelegate.m in Sources */,
 				BF0A86A72A0A6CDD00FD4EB2 /* main.m in Sources */,
+				BFA3B5CD2A1465DB008E23E4 /* ShoucangManager.m in Sources */,
 				BF0A86E02A0A9E4B00FD4EB2 /* rootViewController.m in Sources */,
+				BFA3B5D02A146DEF008E23E4 /* HistoryTableViewController.m in Sources */,
 				BFE880152A0F7C6C000676EF /* weiboSenderViewController.m in Sources */,
 				BF4FA4112A0D11DE007098E1 /* WeiboAPIManager.m in Sources */,
+				BFA3B5C02A13A66E008E23E4 /* HistoryManager.m in Sources */,
 				BF0A86E62A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m in Sources */,
 				BF4FA4292A0D4BAE007098E1 /* WeiboHomePageManager.m in Sources */,
+				BFA3B5D32A146E03008E23E4 /* ShoucangTableViewController.m in Sources */,
 				BF4FA40A2A0CB684007098E1 /* AccessToken.m in Sources */,
 				BFA3B5BB2A120F88008E23E4 /* MyWeiboViewManager.m in Sources */,
 				BFB053532A0DE01D00AC5DA1 /* HomePageTableViewCell.m in Sources */,

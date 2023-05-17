@@ -10,7 +10,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-
 @interface WeiboHomePageManager : NSObject
 
 @property (nonatomic, copy, readonly) NSString *accessToken; // 用户授权后获取的访问令牌
