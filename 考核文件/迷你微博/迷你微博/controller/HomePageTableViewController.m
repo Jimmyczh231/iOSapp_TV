@@ -65,7 +65,7 @@
     self.needToRefresh = YES;
 }
 
-- (void)refreshTableView{
+- (void)refreshTableViewWithCompletion:(void (^)(BOOL))completion{
     if(self.needToRefresh){
         self.canLoadMoreData = NO;
         __weak typeof(self) weakSelf = self;
@@ -78,6 +78,7 @@
                     [strongself.tableView reloadData];
                     strongself.needToRefresh = NO;
                     self.canLoadMoreData = YES;
+                    completion(YES);
                 });
                 
             } else {

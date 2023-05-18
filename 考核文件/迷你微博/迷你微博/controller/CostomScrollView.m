@@ -24,6 +24,8 @@
 @property (nonatomic, assign) BOOL shouldAllowRefresh;
 @property (nonatomic, assign) BOOL shouldAllowLoadMore;
 @property (nonatomic, assign) CGPoint beginContentOffset;
+@property (nonatomic, strong) NSMutableArray<UILabel *> *refreshControllLabels;
+@property (nonatomic, strong) NSMutableArray<UIView *> *refreshControlls;
 
 @end
 
@@ -37,24 +39,28 @@
         self.showsVerticalScrollIndicator = NO;
         self.bounces = NO;
         self.delegate = self;
-        
-        _pages = pages;
-        _currentPage = 0;
+        self.refreshControllLabels = [NSMutableArray array];
+        self.pages = pages;
+        self.currentPage = 0;
         
         // 添加每一页的视图并设置frame
         for (NSInteger i = 0; i < pages.count; i++) {
             UIView *pageView = pages[i];
-            pageView.frame = CGRectMake(i * frame.size.width, kRefreshControlHeight+30, frame.size.width, frame.size.height-kRefreshControlHeight-80);
+            pageView.frame = CGRectMake(i * frame.size.width, kRefreshControlHeight+30, frame.size.width, frame.size.height-kRefreshControlHeight-70);
             // 添加刷新条
             UIView * refreshControls = [[UIView alloc] initWithFrame:CGRectMake(i * frame.size.width, 0, frame.size.width, kRefreshControlHeight)];
             refreshControls.userInteractionEnabled = NO;
             refreshControls.backgroundColor = [UIColor whiteColor];
             UILabel *label = [[UILabel alloc] initWithFrame:refreshControls.bounds];
+            label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y + 60, label.frame.size.width, label.frame.size.height-30);
             label.textAlignment = NSTextAlignmentCenter;
             label.text = @"下拉刷新";
-            [refreshControls addSubview:label];
+            [self.refreshControllLabels addObject:label];
+            [refreshControls addSubview:self.refreshControllLabels[i]];
+
+            [self.refreshControlls addObject:refreshControls];
             // 添加加载更多条
-            UIView *loadMoreView = [[UIView alloc] initWithFrame:CGRectMake(i * frame.size.width, frame.size.height - 60, frame.size.width, 80)];
+            UIView *loadMoreView = [[UIView alloc] initWithFrame:CGRectMake(i * frame.size.width, frame.size.height - 40, frame.size.width, 80)];
             loadMoreView.backgroundColor = [UIColor whiteColor];
             UILabel *loadMoreLabel = [[UILabel alloc] initWithFrame:loadMoreView.bounds];
             loadMoreLabel.textAlignment = NSTextAlignmentCenter;
@@ -66,8 +72,6 @@
             [self addSubview:pageView];
             [self addSubview:loadMoreView];
             
-            [self addSubview: refreshControls];
-            [self addSubview: pageView];
         }
         
         // 设置contentSize为所有页面宽度的总和，高度等于scrollView高度
@@ -101,10 +105,10 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     // 如果正在刷新，禁止滑动
-    if (self.isRefreshing) {
-        scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, -kRefreshControlHeight);
-        return;
-    }
+//    if (self.isRefreshing && !self.isDragging) {
+//        scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, -kRefreshControlHeight);
+//        return;
+//    }
     CGPoint currentContentOffset = scrollView.contentOffset;
     CGFloat deltaX = currentContentOffset.x - self.beginContentOffset.x;
     CGFloat deltaY = currentContentOffset.y - self.beginContentOffset.y;
@@ -131,6 +135,7 @@
     CGFloat pageWidth = scrollView.frame.size.width;
     CGFloat pageHeight = scrollView.frame.size.height;
     CGFloat progress = (scrollView.contentOffset.x - pageWidth * self.currentPage) / pageWidth;
+    self.currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     // 如果有设置didScrollToPageBlock，调用它并传递currentPage和progress
     if (self.didScrollToPageBlock) {
         if (progress > 1) {
@@ -147,6 +152,13 @@
     if (scrollView.contentOffset.x <= 0 || scrollView.contentOffset.x >= scrollView.contentSize.width - scrollView.frame.size.width) {
         scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, scrollView.contentOffset.y);
     }
+    
+    
+    if (scrollView.contentOffset.y <= -kRefreshControlHeight / 2 - 20  && self.shouldAllowRefresh && !self.isRefreshing) {
+        (self.refreshControllLabels[self.currentPage]).text = @"松开刷新";
+    } else if (scrollView.contentOffset.y > -kRefreshControlHeight / 2 - 20  && self.shouldAllowRefresh && !self.isRefreshing){
+        (self.refreshControllLabels[self.currentPage]).text = @"下拉刷新";
+    }
 //    // 判断是否滑到了底部
 //    CGFloat offsetY = scrollView.contentOffset.y;
 //    CGFloat contentHeight = scrollView.contentSize.height;
@@ -157,15 +169,20 @@
 //            [self startLoadingMore];
 //        }
 //    }
-    
+    NSLog(@"%lf",scrollView.contentOffset.y);
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGFloat pageWidth = scrollView.frame.size.width;
-    // 根据scrollView的contentOffset计算当前页面
     self.currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    // 使用setContentOffset:animated:方法迅速移动到最近的页面
-    [self setContentOffset:CGPointMake(self.currentPage * pageWidth, 0) animated:YES];
+    if(!self.isRefreshing){
+        
+        // 根据scrollView的contentOffset计算当前页面
+
+        // 使用setContentOffset:animated:方法迅速移动到最近的页面
+        [self setContentOffset:CGPointMake(self.currentPage * pageWidth, 0) animated:YES];
+    }
+
     // 发送一次页面消息
     CGFloat progress = (scrollView.contentOffset.x - pageWidth * self.currentPage) / pageWidth;
     // 如果有设置didScrollToPageBlock，调用它并传递currentPage和progress
@@ -184,6 +201,7 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     // 记录scrollView的拖拽状态
     self.isDragging = YES;
+    self.pagingEnabled = YES;
     
     // 记录scrollView的滚动方向
     CGPoint velocity = [scrollView.panGestureRecognizer velocityInView:self];
@@ -191,6 +209,7 @@
     if (fabs(velocity.x) > fabs(velocity.y)) {
         // 左右滑动，禁止下拉刷新和上滑添加
         self.shouldAllowRefresh = NO;
+        self.pagingEnabled = YES;
 //        self.shouldAllowLoadMore = NO;
     } else {
         // 上下滑动，允许下拉刷新和上滑添加
@@ -201,19 +220,13 @@
 
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-
+    self.isDragging = NO;
+    
     // 如果下拉刷新控件已经显示，触发刷新
-    if (scrollView.contentOffset.y <= -kRefreshControlHeight && !self.isRefreshing && self.shouldAllowRefresh) {
-        self.isRefreshing = YES;
-        [UIView animateWithDuration:0.3 animations:^{
-            UIEdgeInsets insets = scrollView.contentInset;
-            insets.top += kRefreshControlHeight;
-            scrollView.contentInset = insets;
-        } completion:^(BOOL finished) {
-            if (self.refreshBlock) {
-                self.refreshBlock();
-            }
-        }];
+    if (scrollView.contentOffset.y <= -kRefreshControlHeight / 2 - 20  && self.shouldAllowRefresh) { //
+        self.pagingEnabled = NO;
+        [self startRefreshing];
+
     }
     CGFloat pageWidth = scrollView.frame.size.width;
     if(!self.isRefreshing && ((scrollView.contentOffset.x - pageWidth * self.currentPage) / pageWidth )== 0){
@@ -226,7 +239,7 @@
     
     // 如果滑到了底部，触发加载更多
         if (scrollView.contentOffset.y + scrollView.frame.size.height >= scrollView.contentSize.height + 80) {
-            [UIView animateWithDuration:0.3 animations:^{
+            [UIView animateWithDuration:0.5 animations:^{
                 UIEdgeInsets insets = scrollView.contentInset;
                 scrollView.contentInset = insets;
             } completion:^(BOOL finished) {
@@ -236,15 +249,14 @@
             }];
         }
     
-    self.isDragging = NO;
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     // 如果正在刷新，禁止滑动
-    if (self.isRefreshing) {
-        scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, -kRefreshControlHeight);
-        return;
-    }
+//    if (self.isRefreshing) {
+//        scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, -kRefreshControlHeight);
+//        return;
+//    }
 }
 
 - (void)setCurrentPage:(NSInteger)currentPage {
@@ -258,37 +270,39 @@
 }
 
 - (void)startRefreshing {
+    (self.refreshControllLabels[self.currentPage]).text = @"正在刷新";
     if (self.isDragging) {
         return;
     }
     self.isRefreshing = YES;
-    [UIView animateWithDuration:0.3 animations:^{
-        UIEdgeInsets insets = self.contentInset;
-        insets.top += kRefreshControlHeight;
-        self.contentInset = insets;
-        self.contentOffset = CGPointMake(self.contentOffset.x, -kRefreshControlHeight);
-    } completion:^(BOOL finished) {
-        if (self.refreshBlock) {
-            self.refreshBlock();
-        }
-    }];
+    [self setContentOffset:CGPointMake(self.contentOffset.x, -kRefreshControlHeight) animated:YES];
+    if (self.refreshBlock) {
+        self.refreshBlock();
+    }
+//    [UIView animateWithDuration:0.5 animations:^{
+////        UIEdgeInsets insets = self.contentInset;
+////        insets.top += kRefreshControlHeight;
+////        self.contentInset = insets;
+//
+//        self.contentOffset = CGPointMake(self.contentOffset.x, -kRefreshControlHeight);
+//
+//    } completion:^(BOOL finished) {
+//        if (self.refreshBlock) {
+//            self.refreshBlock();
+//        }
+//    }];
 }
 
 - (void)endRefreshing {
-    if (self.isRefreshing) {
-        [UIView animateWithDuration:0.3 animations:^{
-            UIEdgeInsets insets = self.contentInset;
-            insets.top -= kRefreshControlHeight;
-            self.contentInset = insets;
-        } completion:^(BOOL finished) {
-            self.isRefreshing = NO;
-        }];
-    }
     CGFloat pageWidth = self.frame.size.width;
     // 根据scrollView的contentOffset计算当前页面
     self.currentPage = floor((self.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     // 使用setContentOffset:animated:方法迅速移动到最近的页面
+    if (self.isRefreshing) {
     [self setContentOffset:CGPointMake(self.currentPage * pageWidth, 0) animated:YES];
+    self.isRefreshing = NO;
+    }
+    
 }
 
 //- (void)startLoadingMore {

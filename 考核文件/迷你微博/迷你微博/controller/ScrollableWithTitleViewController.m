@@ -65,7 +65,10 @@
             if (currentPage == 1) {
                 strongself.currnetPage = currentPage;
                 strongself.progress = progress;
-                [strongself.homePageTable refreshTableView];
+                [strongself.homePageTable refreshTableViewWithCompletion:^(BOOL finished) {
+                    // 刷新结束后需要调用endRefreshing方法停止下拉刷新
+                    [strongself.pagingScrollView endRefreshing];
+                }];
             }
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:@"PagingScrollViewDidScrollNotification" object:nil userInfo:@{@"currentPage": @(currentPage), @"progress": @(progress)}];
@@ -151,13 +154,15 @@
     if (self.progress == 0) {
         if(self.currnetPage == 1) {
             self.homePageTable.needToRefresh = YES;
-            [self.homePageTable refreshTableView];
+            [self.homePageTable refreshTableViewWithCompletion:^(BOOL finished) {
+                // 刷新结束后需要调用endRefreshing方法停止下拉刷新
+                [self.pagingScrollView endRefreshing];
+            }];
         }
         
     }
     
-    // 刷新结束后需要调用endRefreshing方法停止下拉刷新
-    [self.pagingScrollView endRefreshing];
+
 }
 
 - (void)loadMoreData {
