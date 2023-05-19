@@ -28,6 +28,7 @@
 		BF4FA4262A0D43E8007098E1 /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4252A0D43E8007098E1 /* ImageLoader.m */; };
 		BF4FA4292A0D4BAE007098E1 /* WeiboHomePageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */; };
 		BF4FA42C2A0D55A5007098E1 /* HomePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */; };
+		BF54C0FD2A1780650010FE24 /* dianzan_kuai.png in Resources */ = {isa = PBXBuildFile; fileRef = BF54C0FC2A1780650010FE24 /* dianzan_kuai.png */; };
 		BFA3B5B82A120F3F008E23E4 /* MyWeiboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5B72A120F3F008E23E4 /* MyWeiboViewController.m */; };
 		BFA3B5BB2A120F88008E23E4 /* MyWeiboViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5BA2A120F88008E23E4 /* MyWeiboViewManager.m */; };
 		BFA3B5BD2A12A93F008E23E4 /* loading-icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BFA3B5BC2A12A93F008E23E4 /* loading-icon.jpg */; };
@@ -108,6 +109,7 @@
 		BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboHomePageManager.m; sourceTree = "<group>"; };
 		BF4FA42A2A0D55A5007098E1 /* HomePageTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageTableViewController.h; sourceTree = "<group>"; };
 		BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageTableViewController.m; sourceTree = "<group>"; };
+		BF54C0FC2A1780650010FE24 /* dianzan_kuai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dianzan_kuai.png; sourceTree = "<group>"; };
 		BFA3B5B62A120F3F008E23E4 /* MyWeiboViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWeiboViewController.h; sourceTree = "<group>"; };
 		BFA3B5B72A120F3F008E23E4 /* MyWeiboViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWeiboViewController.m; sourceTree = "<group>"; };
 		BFA3B5B92A120F88008E23E4 /* MyWeiboViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWeiboViewManager.h; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			children = (
 				BFA3B5C12A13FFB9008E23E4 /* lishijilu.png */,
 				BFA3B5C32A13FFB9008E23E4 /* qianbao.png */,
+				BF54C0FC2A1780650010FE24 /* dianzan_kuai.png */,
 				BFA3B5C42A13FFB9008E23E4 /* shoucang.png */,
 				BFA3B5C22A13FFB9008E23E4 /* tupian.png */,
 				BFE8801C2A0FE41A000676EF /* jiahao-2.png */,
@@ -424,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE8801D2A0FE41A000676EF /* jiahao-2.png in Resources */,
+				BF54C0FD2A1780650010FE24 /* dianzan_kuai.png in Resources */,
 				BFA3B5C82A13FFB9008E23E4 /* shoucang.png in Resources */,
 				BF0A86A42A0A6CDD00FD4EB2 /* LaunchScreen.storyboard in Resources */,
 				BFE8801A2A0FE17F000676EF /* jiahao.png in Resources */,

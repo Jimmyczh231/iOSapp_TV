@@ -21,6 +21,7 @@ typedef void (^ShoucangDataCompletionBlock)(NSArray *shoucangData);
 
 - (void)loadShoucangDataWithCompletion:(ShoucangDataCompletionBlock)completion;
 
+- (BOOL)isDataShoucangedWith:(NSDictionary *)data;
 
 @end
 

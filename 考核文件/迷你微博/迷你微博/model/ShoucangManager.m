@@ -45,28 +45,45 @@
 }
 
 - (void)saveShoucangData:(NSDictionary *)data {
+    BOOL isShoucanged = NO;
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:self.shoucangArray];
     for (NSDictionary *existingData in mutableArray) {
-        if ([existingData isEqualToDictionary:data]) {
+        if ([[existingData objectForKey:@"id"] isEqualToNumber:[data objectForKey:@"id"]]) {
             [mutableArray removeObject:existingData];
+            isShoucanged = YES;
             break;
         }
     }
-    
-    [mutableArray insertObject:data atIndex:0];
+    if (!isShoucanged) {
+        [mutableArray insertObject:data atIndex:0];
+    }
     self.shoucangArray = [NSArray arrayWithArray:mutableArray];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // 将历史记录数据存入本地
+        // 将收藏数据存入本地
         NSString *filePath = [self shoucangFilePath];
         [self.shoucangArray writeToFile:filePath atomically:YES];
+    });
 
-        });
     
-//    // 将历史记录数据异步存入本地
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        NSString *filePath = [self historyFilePath];
-//        [self.historyArray writeToFile:filePath atomically:YES];
-//    });
+}
+- (BOOL)isDataShoucangedWith:(NSDictionary *)data {
+    BOOL isShoucanged = NO;
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:self.shoucangArray];
+    for (NSDictionary *existingData in mutableArray) {
+        if ([[existingData objectForKey:@"id"] isEqualToNumber:[data objectForKey:@"id"]]) {
+            [mutableArray indexOfObject:existingData];
+            [mutableArray replaceObjectAtIndex:[mutableArray indexOfObject:existingData] withObject:data];
+            self.shoucangArray = [NSArray arrayWithArray:mutableArray];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                // 将点赞数据存入本地
+                NSString *filePath = [self shoucangFilePath];
+                [self.shoucangArray writeToFile:filePath atomically:YES];
+            });
+            isShoucanged = YES;
+            break;
+        }
+    }
+    return isShoucanged;
 }
 
 - (void)clearShoucangData {
@@ -87,11 +104,13 @@
     [self saveShoucangData:data];
 }
 
+// 使用block获取数据的方法
 - (void)loadShoucangDataWithCompletion:(ShoucangDataCompletionBlock)completion {
     if (completion) {
         completion(self.shoucangArray);
     }
 }
+
 
 @end
 

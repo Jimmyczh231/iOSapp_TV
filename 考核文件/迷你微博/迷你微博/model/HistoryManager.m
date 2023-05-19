@@ -49,7 +49,7 @@
 - (void)saveHistoryData:(NSDictionary *)data {
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:self.historyArray];
     for (NSDictionary *existingData in mutableArray) {
-        if ([existingData isEqualToDictionary:data]) {
+        if ([[existingData objectForKey:@"id"] isEqualToNumber:[data objectForKey:@"id"]]) {
             [mutableArray removeObject:existingData];
             break;
         }

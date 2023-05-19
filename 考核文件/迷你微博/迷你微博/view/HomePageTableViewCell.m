@@ -7,10 +7,15 @@
 
 #import "HomePageTableViewCell.h"
 #import "ImageLoader.h"
+#import "ShoucangManager.h"
+
 @interface HomePageTableViewCell ()
 
 @property (nonatomic, strong) UIImageView *userProfileImageView;
 @property (nonatomic, strong) UIButton *dinazanButton;
+@property (nonatomic, strong) ShoucangManager *shoucangManager;
+@property (nonatomic, readwrite) BOOL isShoucanged;
+
 @end
 
 @implementation HomePageTableViewCell
@@ -190,8 +195,15 @@
     self.dinazanButton = [[UIButton alloc]init];
     self.dinazanButton.frame = CGRectMake((self.contentView.bounds.size.width) * 3 / 4 - 10, self.contentView.bounds.size.height-25, 20, 20);
     self.dinazanButton.backgroundColor = [UIColor whiteColor];
+    self.isShoucanged = [[ShoucangManager sharedManager] isDataShoucangedWith:self.status];
     UIImage *dinazan = [UIImage imageNamed:@"dianzan-2.png"];
-    [self.dinazanButton setImage:dinazan forState:UIControlStateNormal];
+    UIImage *dinazaned = [UIImage imageNamed:@"dianzan_kuai.png"];
+    if (self.isShoucanged) {
+        [self.dinazanButton setImage:dinazaned forState:UIControlStateNormal];
+    } else {
+        [self.dinazanButton setImage:dinazan forState:UIControlStateNormal];
+    }
+   
     [self.dinazanButton addTarget:self action:@selector(dinazanButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.dinazanButton setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:(self.contentView.bounds.size.width) * 3 / 4 - 10];
@@ -201,9 +213,6 @@
     [self.contentView addSubview:self.dinazanButton];
     [self.contentView addConstraints:@[left, top]];
     [self.dinazanButton addConstraints:@[width, height]];
-
-
-
 
 
 
@@ -227,6 +236,14 @@
 }
 
 - (void)dinazanButtonClicked:(UIButton *)sender{
+    self.isShoucanged = [[ShoucangManager sharedManager] isDataShoucangedWith:self.status];
+    UIImage *dinazan = [UIImage imageNamed:@"dianzan-2.png"];
+    UIImage *dinazaned = [UIImage imageNamed:@"dianzan_kuai.png"];
+    if (self.isShoucanged) {
+        [self.dinazanButton setImage:dinazan forState:UIControlStateNormal];
+    } else {
+        [self.dinazanButton setImage:dinazaned forState:UIControlStateNormal];
+    }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"AddShoucangData" object:nil userInfo:self.status];
 }
 

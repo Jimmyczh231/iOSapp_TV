@@ -153,7 +153,10 @@
     if (cell == nil) {
         cell = [[HomePageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier andwith:[status objectForKey:@"text"] andwith:[[status objectForKey:@"user"] objectForKey:@"name"] andwith:[self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]]];
     }
-
+    
+//    if([[status objectForKey:@"id"] isKindOfClass:[NSNumber class]]){
+//        NSLog(@"is");
+//    }
     NSNumber *picNum = [status objectForKey:@"pic_num"];
     cell.imageNumber = picNum.intValue;
     cell.textContentLabel.text = [status objectForKey:@"text"];
