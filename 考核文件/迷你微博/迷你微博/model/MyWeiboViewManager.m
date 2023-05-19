@@ -45,6 +45,7 @@
     url = [NSURL URLWithString:fullUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"GET"];
+    
     // 发送网络请求
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
@@ -52,7 +53,7 @@
             completion(NO, nil);
             return;
         }
-        
+        // 保存接收后的信息
         NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         self.weiboDataDictionary = [resultDict mutableCopy];
 

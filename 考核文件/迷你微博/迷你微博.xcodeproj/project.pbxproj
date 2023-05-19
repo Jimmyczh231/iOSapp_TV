@@ -20,7 +20,6 @@
 		BF0A86E02A0A9E4B00FD4EB2 /* rootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86DF2A0A9E4B00FD4EB2 /* rootViewController.m */; };
 		BF0A86E62A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86E52A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m */; };
 		BF0A86E92A0AB78200FD4EB2 /* CostomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86E82A0AB78200FD4EB2 /* CostomScrollView.m */; };
-		BF4FA4062A0CB4F7007098E1 /* WeiboOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4052A0CB4F7007098E1 /* WeiboOAuthHelper.m */; };
 		BF4FA40A2A0CB684007098E1 /* AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4092A0CB684007098E1 /* AccessToken.m */; };
 		BF4FA4112A0D11DE007098E1 /* WeiboAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4102A0D11DE007098E1 /* WeiboAPIManager.m */; };
 		BF4FA4142A0D13A4007098E1 /* testviewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4132A0D13A4007098E1 /* testviewcontroller.m */; };
@@ -93,8 +92,6 @@
 		BF0A86E52A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollableWithTitleViewController.m; sourceTree = "<group>"; };
 		BF0A86E72A0AB78200FD4EB2 /* CostomScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CostomScrollView.h; sourceTree = "<group>"; };
 		BF0A86E82A0AB78200FD4EB2 /* CostomScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CostomScrollView.m; sourceTree = "<group>"; };
-		BF4FA4042A0CB4F7007098E1 /* WeiboOAuthHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboOAuthHelper.h; sourceTree = "<group>"; };
-		BF4FA4052A0CB4F7007098E1 /* WeiboOAuthHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboOAuthHelper.m; sourceTree = "<group>"; };
 		BF4FA4082A0CB684007098E1 /* AccessToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessToken.h; sourceTree = "<group>"; };
 		BF4FA4092A0CB684007098E1 /* AccessToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessToken.m; sourceTree = "<group>"; };
 		BF4FA40F2A0D11DE007098E1 /* WeiboAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboAPIManager.h; sourceTree = "<group>"; };
@@ -178,6 +175,17 @@
 				BF4FA4132A0D13A4007098E1 /* testviewcontroller.m */,
 				BFA3B5D72A1517FA008E23E4 /* WeiboDetailViewController.h */,
 				BFA3B5D82A1517FA008E23E4 /* WeiboDetailViewController.m */,
+			);
+			path = "这些不怎么重要";
+			sourceTree = "<group>";
+		};
+		BF09C01B2A17F1A500063A41 /* 这些不怎么重要 */ = {
+			isa = PBXGroup;
+			children = (
+				BF4FA40F2A0D11DE007098E1 /* WeiboAPIManager.h */,
+				BF4FA4102A0D11DE007098E1 /* WeiboAPIManager.m */,
+				BFA3B5DA2A152219008E23E4 /* WeiboDetailViewManager.h */,
+				BFA3B5DB2A152219008E23E4 /* WeiboDetailViewManager.m */,
 			);
 			path = "这些不怎么重要";
 			sourceTree = "<group>";
@@ -277,11 +285,6 @@
 				BFA3B5BF2A13A66E008E23E4 /* HistoryManager.m */,
 				BFA3B5CB2A1465DB008E23E4 /* ShoucangManager.h */,
 				BFA3B5CC2A1465DB008E23E4 /* ShoucangManager.m */,
-				BF4FA4042A0CB4F7007098E1 /* WeiboOAuthHelper.h */,
-				BF4FA4052A0CB4F7007098E1 /* WeiboOAuthHelper.m */,
-				BF4FA40F2A0D11DE007098E1 /* WeiboAPIManager.h */,
-				BF4FA4102A0D11DE007098E1 /* WeiboAPIManager.m */,
-				BF4FA4242A0D43E8007098E1 /* ImageLoader.h */,
 				BF4FA4252A0D43E8007098E1 /* ImageLoader.m */,
 				BFE8800F2A0F70EB000676EF /* WeiboSender.h */,
 				BFE880102A0F70EB000676EF /* WeiboSender.m */,
@@ -289,8 +292,8 @@
 				BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */,
 				BFA3B5B92A120F88008E23E4 /* MyWeiboViewManager.h */,
 				BFA3B5BA2A120F88008E23E4 /* MyWeiboViewManager.m */,
-				BFA3B5DA2A152219008E23E4 /* WeiboDetailViewManager.h */,
-				BFA3B5DB2A152219008E23E4 /* WeiboDetailViewManager.m */,
+				BF4FA4242A0D43E8007098E1 /* ImageLoader.h */,
+				BF09C01B2A17F1A500063A41 /* 这些不怎么重要 */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -472,7 +475,6 @@
 			files = (
 				BF4FA42C2A0D55A5007098E1 /* HomePageTableViewController.m in Sources */,
 				BFE880112A0F70EB000676EF /* WeiboSender.m in Sources */,
-				BF4FA4062A0CB4F7007098E1 /* WeiboOAuthHelper.m in Sources */,
 				BF0A869C2A0A6CDC00FD4EB2 /* ViewController.m in Sources */,
 				BF4FA4142A0D13A4007098E1 /* testviewcontroller.m in Sources */,
 				BF0A86962A0A6CDC00FD4EB2 /* AppDelegate.m in Sources */,

@@ -25,7 +25,7 @@
 
 - (void)sendWeiboWithText:(NSString *)text {
 
-    // 创建URL对象
+    // URL
     NSString *url = @"https://api.weibo.com/2/statuses/update.json";
     NSString *access_token = [AccessToken sharedInstance].accessToken;
     NSCharacterSet *allowedCharacterSet = [NSCharacterSet URLQueryAllowedCharacterSet];
@@ -34,13 +34,11 @@
     NSString *fullSendUrlString = [NSString stringWithFormat:@"%@?%@",url,params];
     NSURL *fullSendUrl = [NSURL URLWithString:fullSendUrlString];
     
-    
-    // 创建请求对象
+    // 初始化网络请求
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:fullSendUrl];
     request.HTTPMethod = @"POST";
      
-
-    // 发送微博 API 请求，并处理返回结果
+    // 发送微博请求
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
@@ -48,20 +46,20 @@
             NSError *jsonError = nil;
             NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
             if (jsonError) {
-                NSLog(@"Error parsing JSON: %@", [jsonError localizedDescription]);
+                NSLog(@"Error: %@", [jsonError localizedDescription]);
             } else {
-                NSLog(@"Weibo sent successfully, result: %@", result);
+                NSLog(@"Weibo sent success, result: %@", result);
             }
         } else {
             // 请求失败，输出错误信息
-            NSLog(@"Error sending weibo: %@", [error localizedDescription]);
+            NSLog(@"Error: %@", [error localizedDescription]);
         }
     }];
     [task resume];
 }
 
 
-
+// 这个不是我写的，但是发送微博需要网络ip
 - (NSString *)getIPAddress {
     NSString *address = @"error";
     struct ifaddrs *interfaces = NULL;

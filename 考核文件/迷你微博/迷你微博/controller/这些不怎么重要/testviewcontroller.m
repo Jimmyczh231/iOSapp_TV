@@ -13,7 +13,6 @@
 
 #import "testviewcontroller.h"
 #import "WeiboOAuthViewController.h"
-#import "WeiboOAuthHelper.h"
 #import <WebKit/WebKit.h>
 #import "AccessToken.h"
 @interface testviewcontroller () <WKNavigationDelegate>

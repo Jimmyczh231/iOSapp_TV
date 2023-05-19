@@ -14,9 +14,8 @@
 
 @interface WeiboHomePageManager ()
 
-
-@property (nonatomic, strong) NSMutableArray *weiboDataArray;
-@property (nonatomic, assign) BOOL isAuthorized;
+@property (nonatomic, strong) NSMutableArray *weiboDataArray; // 微博数据
+@property (nonatomic, assign) BOOL isAuthorized; // 用户是否授权
 
 @end
 
@@ -59,7 +58,7 @@
     NSString *fullUrlString = [NSString stringWithFormat:@"%@?%@", urlHead, params];
     
     
-    // 构造网络请求
+    // 网络请求
     url = [NSURL URLWithString:fullUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"GET"];
@@ -73,9 +72,11 @@
             return;
         }
         
+        // 保存接收到的数据
         NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         NSArray *statusesArray = [resultDict objectForKey:@"statuses"];
         self.weiboDataArray = [statusesArray mutableCopy];
+        
         // 更新页数计数器
         self.nextPageCursor = [NSNumber numberWithInt:2];
         completion(YES, self.weiboDataArray);
@@ -118,10 +119,11 @@
             completion(NO, nil);
             return;
         }
-        
+        // 保存接收到的数据
         NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         NSArray *statusesArray = [resultDict objectForKey:@"statuses"];
         self.weiboDataArray = [statusesArray mutableCopy];
+        // 页数计数器加一
         self.nextPageCursor = [NSNumber numberWithInt:[self.nextPageCursor intValue]+1];
         completion(YES, self.weiboDataArray);
     }];
