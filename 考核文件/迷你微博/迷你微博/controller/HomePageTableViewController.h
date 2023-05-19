@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readwrite) BOOL canLoadMoreData;
 @property (nonatomic, weak) id<HomePageTableViewControllerDelegate> delegate;
 
-- (void)loadMoreDataOnTableView;
+- (void)loadMoreDataOnTableViewWithCompletion:(void (^)(BOOL))completion;
 - (void)refreshTableViewWithCompletion:(void (^)(BOOL))completion;
 @end
 

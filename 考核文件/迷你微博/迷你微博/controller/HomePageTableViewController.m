@@ -84,12 +84,16 @@
             } else {
                 // 加载失败，处理错误
                 strongself.needToRefresh = YES;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(NO);
+                });
+                
             }
         }];
     }
     self.needToRefresh = NO;
 }
-- (void)loadMoreDataOnTableView{
+- (void)loadMoreDataOnTableViewWithCompletion:(void (^)(BOOL))completion{
     if(self.canLoadMoreData){
         self.canLoadMoreData = NO;
         __weak typeof(self) weakSelf = self;
@@ -101,6 +105,7 @@
                     [strongself.DataArray addObjectsFromArray:weiboDataArray];
                     [strongself.tableView reloadData];
                     strongself.canLoadMoreData = YES;
+                    completion(YES);
                 });
                 
             } else {
@@ -110,6 +115,7 @@
                     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
                     [alert addAction:okAction];
                     [strongself presentViewController:alert animated:YES completion:nil];
+                    completion(NO);
                     strongself.canLoadMoreData = YES;
                 });
             }

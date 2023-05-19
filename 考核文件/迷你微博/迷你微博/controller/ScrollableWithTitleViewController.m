@@ -155,7 +155,7 @@
         if(self.currnetPage == 1) {
             self.homePageTable.needToRefresh = YES;
             [self.homePageTable refreshTableViewWithCompletion:^(BOOL finished) {
-                // 刷新结束后需要调用endRefreshing方法停止下拉刷新
+                // 刷新结束后停止下拉刷新
                 [self.pagingScrollView endRefreshing];
             }];
         }
@@ -169,7 +169,12 @@
     // 实现加载更多数据的逻辑
     if (self.progress == 0) {
         if(self.currnetPage == 1) {
-            [self.homePageTable loadMoreDataOnTableView];
+            [self.homePageTable loadMoreDataOnTableViewWithCompletion:^(BOOL finished) {
+                // 刷新结束后停止加载更多
+                [self.pagingScrollView endLoadingMore];
+            }];
+        } else {
+            [self.pagingScrollView endLoadingMore];
         }
         
     }
