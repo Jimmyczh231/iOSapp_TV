@@ -45,13 +45,16 @@
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    // 通过请求后跳转的网址，进一步获取 token
     NSURL *url = navigationAction.request.URL;
     if ([url.absoluteString containsString:@"code="]) {
+        // 如果返回了 code，使用它请求 token
         NSString *code = [self extractCodeFromURL:url];
         [self requestAccessTokenWithCode:code];
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
     } else if ([url.absoluteString containsString:@"error_code"]) {
+        // 失败
         NSError *error = [self extractErrorFromURL:url];
         if (self.completion) {
             self.completion(nil, error);
@@ -64,6 +67,7 @@
 }
 
 - (NSString *)extractCodeFromURL:(NSURL *)url {
+    // 从返回的 URL 中获得 code
     NSString *query = url.query;
     NSArray *components = [query componentsSeparatedByString:@"="];
     if (components.count == 2 && [components[0] isEqualToString:@"code"]) {
@@ -73,6 +77,7 @@
 }
 
 - (NSError *)extractErrorFromURL:(NSURL *)url {
+    // 从返回的 URL 中获取报错信息
     NSString *query = url.query;
     NSArray *components = [query componentsSeparatedByString:@"&"];
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
@@ -87,6 +92,7 @@
 }
 
 - (void)requestAccessTokenWithCode:(NSString *)code {
+    // 通过前面获取的 code，请求 token
     NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/access_token"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
@@ -112,10 +118,10 @@
         }
         NSString *accessToken = json[@"access_token"];
         NSString *uid = json[@"uid"];
-        
         if (self.completion) {
             self.completion(accessToken, nil);
             if([AccessToken sharedInstance].accessToken == nil){
+                // token 存入单列对象，方便在所有地方使用
                 [[AccessToken sharedInstance] setAccessToken:accessToken];
                 [[AccessToken sharedInstance] setUid:uid];
             }
@@ -127,6 +133,7 @@
 
 - (void)closeWebView {
     dispatch_async(dispatch_get_main_queue(), ^{
+        // 关闭登陆界面
         [self.webView removeFromSuperview];
         self.webView = nil;
         [self.navigationController popViewControllerAnimated:YES];

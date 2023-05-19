@@ -171,6 +171,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF09C01A2A17E4AB00063A41 /* 这些不怎么重要 */ = {
+			isa = PBXGroup;
+			children = (
+				BF4FA4122A0D13A4007098E1 /* testviewcontroller.h */,
+				BF4FA4132A0D13A4007098E1 /* testviewcontroller.m */,
+				BFA3B5D72A1517FA008E23E4 /* WeiboDetailViewController.h */,
+				BFA3B5D82A1517FA008E23E4 /* WeiboDetailViewController.m */,
+			);
+			path = "这些不怎么重要";
+			sourceTree = "<group>";
+		};
 		BF0A86882A0A6CDC00FD4EB2 = {
 			isa = PBXGroup;
 			children = (
@@ -240,10 +251,6 @@
 				BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */,
 				BF0A86E42A0AB74800FD4EB2 /* ScrollableWithTitleViewController.h */,
 				BF0A86E52A0AB74800FD4EB2 /* ScrollableWithTitleViewController.m */,
-				BF0A86DE2A0A9E4B00FD4EB2 /* rootViewController.h */,
-				BF0A86DF2A0A9E4B00FD4EB2 /* rootViewController.m */,
-				BF4FA4122A0D13A4007098E1 /* testviewcontroller.h */,
-				BF4FA4132A0D13A4007098E1 /* testviewcontroller.m */,
 				BF4FA4182A0D24DB007098E1 /* WeiboOAuthViewController.h */,
 				BF4FA4192A0D24DB007098E1 /* WeiboOAuthViewController.m */,
 				BFE880132A0F7C6C000676EF /* weiboSenderViewController.h */,
@@ -256,8 +263,9 @@
 				BFA3B5CF2A146DEF008E23E4 /* HistoryTableViewController.m */,
 				BFA3B5D12A146E03008E23E4 /* ShoucangTableViewController.h */,
 				BFA3B5D22A146E03008E23E4 /* ShoucangTableViewController.m */,
-				BFA3B5D72A1517FA008E23E4 /* WeiboDetailViewController.h */,
-				BFA3B5D82A1517FA008E23E4 /* WeiboDetailViewController.m */,
+				BF0A86DE2A0A9E4B00FD4EB2 /* rootViewController.h */,
+				BF0A86DF2A0A9E4B00FD4EB2 /* rootViewController.m */,
+				BF09C01A2A17E4AB00063A41 /* 这些不怎么重要 */,
 			);
 			path = controller;
 			sourceTree = "<group>";

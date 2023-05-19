@@ -15,11 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *clientID;
 @property (nonatomic, copy) NSString *clientSecret;
 @property (nonatomic, copy) NSString *redirectURI;
+
 @property (nonatomic, strong) UIViewController *pushViewController;
 
 - (instancetype)initWithCompletion:(void (^)(NSString * _Nullable accessToken, NSError * _Nullable error))completion;
 
 - (void)authorize;
+
 @end
 
 NS_ASSUME_NONNULL_END

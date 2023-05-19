@@ -47,6 +47,7 @@
 }
 
 - (void)saveHistoryData:(NSDictionary *)data {
+    // 从历史记录中删除 data，并将其放在第一位
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:self.historyArray];
     for (NSDictionary *existingData in mutableArray) {
         if ([[existingData objectForKey:@"id"] isEqualToNumber:[data objectForKey:@"id"]]) {
@@ -54,22 +55,16 @@
             break;
         }
     }
-    
-    // 将历史记录数据异步存入本地
     [mutableArray insertObject:data atIndex:0];
     self.historyArray = [NSArray arrayWithArray:mutableArray];
+    
+    // 将历史记录数据异步存入本地
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // 将历史记录数据存入本地
         NSString *filePath = [self historyFilePath];
         [self.historyArray writeToFile:filePath atomically:YES];
-
-        });
+    });
     
-//    // 将历史记录数据异步存入本地
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        NSString *filePath = [self historyFilePath];
-//        [self.historyArray writeToFile:filePath atomically:YES];
-//    });
 }
 
 - (void)clearHistoryData {

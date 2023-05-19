@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol HomePageTableViewControllerDelegate <NSObject>
 
 @required
+// 显示详情页的方法
 - (void)presentWeiboDetailWith:(NSDictionary*)status;
 
 @end
@@ -26,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)loadMoreDataOnTableViewWithCompletion:(void (^)(BOOL))completion;
 - (void)refreshTableViewWithCompletion:(void (^)(BOOL))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

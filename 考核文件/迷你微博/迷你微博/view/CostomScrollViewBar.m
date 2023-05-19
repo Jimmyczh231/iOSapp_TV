@@ -18,11 +18,12 @@ static CGFloat const kSliderToBarDistance = 10.0;
 @property (nonatomic, strong) UILabel *leftLabel;
 @property (nonatomic, strong) UILabel *centerLabel;
 @property (nonatomic, strong) UILabel *rightLabel;
-@property (nonatomic, strong) UIView *sliderView;
-@property (nonatomic, strong) UIButton *sendWeiboButton;
-@property (nonatomic, strong) NSMutableArray *allLabels;
-@property (nonatomic, readwrite) NSInteger selectedIndex;
-@property (nonatomic, readwrite )CGFloat sliderProgress;
+
+@property (nonatomic, strong) UIView *sliderView; // 滑块
+@property (nonatomic, strong) UIButton *sendWeiboButton; // 这个按钮做到了controller
+@property (nonatomic, strong) NSMutableArray *allLabels; // 所有标题，用于计算滑块位置
+@property (nonatomic, readwrite) NSInteger selectedIndex; // 当前页数
+@property (nonatomic, readwrite) CGFloat sliderProgress; // 页面之间滑动的progress
 
 @end
 
@@ -50,8 +51,6 @@ static CGFloat const kSliderToBarDistance = 10.0;
         self.leftLabel = [self createLabelWithText:@"关注" frame:CGRectMake(70, 40, (frame.size.width-140) / 3, kBarHeight - 10)];
         self.centerLabel = [self createLabelWithText:@"推荐" frame:CGRectMake(70 + (frame.size.width-140) / 3, 40, (frame.size.width-140) / 3, kBarHeight - 10)];
         self.rightLabel = [self createLabelWithText:@"其他" frame:CGRectMake(70 + (frame.size.width-140) * 2 / 3, 40, (frame.size.width-140) / 3, kBarHeight - 10)];
-        
-        
         [self addSubview:self.leftLabel];
         [self addSubview:self.centerLabel];
         [self addSubview:self.rightLabel];
@@ -69,7 +68,7 @@ static CGFloat const kSliderToBarDistance = 10.0;
 //        [self.sendWeiboButton setImage:senderImageTouched forState:UIControlStateSelected];
 //        self.sendWeiboButton.enabled = YES;
 //        [self.sendWeiboButton addTarget:self action:@selector(senderButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        self.userInteractionEnabled = NO;
+        self.userInteractionEnabled = YES;
         
  
         // 初始化滑块
@@ -92,6 +91,7 @@ static CGFloat const kSliderToBarDistance = 10.0;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+// 创建标题
 - (UILabel *)createLabelWithText:(NSString *)text frame:(CGRect)frame {
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.textAlignment = NSTextAlignmentCenter;
@@ -101,6 +101,7 @@ static CGFloat const kSliderToBarDistance = 10.0;
     return label;
 }
 
+// 重写两个数值赋值的方法
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
     _selectedIndex = selectedIndex;
     [self updateLabels];
@@ -111,6 +112,8 @@ static CGFloat const kSliderToBarDistance = 10.0;
     [self updateSlider];
 }
 
+
+// 处理接收的数据
 - (void)selectedIndexDidChange:(NSNotification *)notification {
     // 获取选中的索引值
     NSInteger selectedIndex = [notification.userInfo[@"selectedIndex"] integerValue];
@@ -126,15 +129,16 @@ static CGFloat const kSliderToBarDistance = 10.0;
     [self updateSlider];
     [self updateLabels];
 }
+
+
+#pragma mark - 调整滑块和标题
 - (void)updateSlider {
     // 根据滑动进度更新滑块的位置和大小
-    
     UILabel *currentLabel = self.allLabels[self.selectedIndex];
     NSInteger objetiveLablelIndex = self.selectedIndex + (self.sliderProgress < 0 ? -1 : 1 ) ;
     UILabel *objetiveLabel = self.allLabels[(objetiveLablelIndex + 1) < self.allLabels.count ? objetiveLablelIndex : self.allLabels.count - 1 ];
     CGFloat x;
     CGFloat width;
-    
     // 计算滑动的位置和长度
     
     if (self.sliderProgress > 0) {
@@ -162,7 +166,7 @@ static CGFloat const kSliderToBarDistance = 10.0;
         width = currentLabel.frame.size.width;
     }
     
-    
+    // 修改滑块的大小和位置
     CGFloat height = kSliderHeight ;
     CGFloat y = self.frame.size.height - height - kSliderToBarDistance;
     self.sliderView.frame = CGRectMake(x, y, width, height);

@@ -9,6 +9,13 @@
 #import "HistoryManager.h"
 #import "HomePageTableViewCell.h"
 
+/*
+ 这个页面也和 homepage 几乎一样。
+ 但是添加了一个清空历史记录的方法
+ 按钮在 navigation bar 的右边
+ */
+
+
 @interface HistoryTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong, readwrite) HistoryManager *manager;
 @property (nonatomic, strong, readwrite) NSArray *DataArray;
@@ -41,6 +48,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     NSLog(@"HistoryViewAppeared");
+    // 每次出现都刷新一次历史记录页面
     [self refreshHistoryTableView];
     
 }
@@ -48,7 +56,6 @@
 - (void)refreshHistoryTableView{
     [self.manager loadHistoryDataWithCompletion:^(NSArray *historyDataArray) {
         self.DataArray = historyDataArray;
-        
         [self.tableView reloadData];
     }];
 }
@@ -63,10 +70,9 @@
      
     // 确认按钮
     UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-         
+        // 清空历史记录，并刷新页面
         [self.manager clearHistoryData];
         [self refreshHistoryTableView];
-    
     }];
     [alertController addAction:confirmAction];
      
@@ -107,12 +113,8 @@
 - (NSMutableArray *)getAllThumbnailUrlsFromArray:(NSArray *)array {
     NSMutableArray *thumbnailUrls = [NSMutableArray array];
     for (NSDictionary *dict in array) {
-        // 判断字典中是否包含key为"thumbnail_pic"的值
-//        if ([dict objectForKey:@"thumbnail_pic"]) {
-            // 获取 key 为 "thumbnail_pic" 的 NSURL 对象
             NSURL *thumbnailUrl = [NSURL URLWithString:[dict objectForKey:@"thumbnail_pic"]];
             [thumbnailUrls addObject:thumbnailUrl];
-//        }
     }
     return thumbnailUrls;
 }
@@ -136,7 +138,7 @@
         picNumber = picNum.intValue;
         height += (10.0 + (CGRectGetWidth([UIScreen mainScreen].bounds) - 40.0) / 3) * 3;
     }
-    height += 50.0;
+    height += 65.0;
     return height;
 }
 
@@ -163,7 +165,7 @@
 //    }
     // 发送添加到历史记录通知
     [[NSNotificationCenter defaultCenter] postNotificationName:@"AddHistoryData" object:nil userInfo:status];
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

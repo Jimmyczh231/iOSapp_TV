@@ -30,8 +30,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/rootViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/rootViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -71,22 +71,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "34A150E2-7E4B-4C9E-8337-13250CD79182"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "-initWithFrame:pages:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "BB58CA3E-9702-44D3-A560-1AE18A59FE37"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -94,8 +78,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "-endRefreshing"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,10 +94,10 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
-            landmarkName = "-startRefreshing"
-            landmarkType = "7">
+            startingLineNumber = "252"
+            endingLineNumber = "252"
+            landmarkName = "CostomScrollView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -126,10 +110,10 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
-            landmarkName = "-scrollViewDidEndScrollingAnimation:"
-            landmarkType = "7">
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "CostomScrollView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -142,10 +126,10 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
-            landmarkName = "-scrollViewDidEndDragging:willDecelerate:"
-            landmarkType = "7">
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "CostomScrollView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -158,10 +142,10 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "-scrollViewWillBeginDragging:"
-            landmarkType = "7">
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "CostomScrollView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -174,25 +158,9 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "-scrollViewDidEndDragging:willDecelerate:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B8D5C55D-B8A7-43B1-9094-5CEF74D6C016"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "-scrollViewDidScroll:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -206,24 +174,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
-            landmarkName = "-startLoadingMore"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A434347C-1FE4-4616-B7F5-80B8550AA2ED"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "-startLoadingMore"
             landmarkType = "7">
          </BreakpointContent>
@@ -238,41 +190,9 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "333"
-            endingLineNumber = "333"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "-endLoadingMore"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B2499D60-74DC-484E-A1A2-27F1E2115E8B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
-            landmarkName = "-endLoadingMore"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7E602005-D5BC-431F-9BA3-10CCB5A5507B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
-            landmarkName = "-scrollViewDidEndDragging:willDecelerate:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -286,8 +206,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/testviewcontroller.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -318,8 +238,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/rootViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -334,8 +254,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/testviewcontroller.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -350,8 +270,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/testviewcontroller.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
             <Locations>
@@ -510,8 +430,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
             <Locations>
@@ -590,8 +510,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -606,8 +526,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -622,8 +542,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -670,8 +590,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -686,8 +606,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -702,8 +622,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "-tableView:heightForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -734,8 +654,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "-tableView:heightForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -750,8 +670,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "-getAllThumbnailUrlsFromArray:"
             landmarkType = "7">
          </BreakpointContent>
@@ -766,8 +686,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-tableView:heightForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -782,8 +702,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "-tableView:heightForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -862,8 +782,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "-tableView:heightForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -878,8 +798,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -894,8 +814,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "-updateSlider"
             landmarkType = "7">
          </BreakpointContent>
@@ -910,8 +830,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "-updateSlider"
             landmarkType = "7">
          </BreakpointContent>
@@ -926,8 +846,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "-scrollViewDidEndDecelerating:"
             landmarkType = "7">
          </BreakpointContent>
@@ -942,10 +862,10 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-scrollViewDidScroll:"
-            landmarkType = "7">
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "CostomScrollView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -958,8 +878,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "-scrollViewDidScroll:"
             landmarkType = "7">
          </BreakpointContent>
@@ -974,8 +894,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-selectedIndexDidChange:"
             landmarkType = "7">
          </BreakpointContent>
@@ -990,8 +910,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "-setSliderProgress:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1006,8 +926,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "-setSelectedIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1022,8 +942,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "-sliderProgressDidChange:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1038,8 +958,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "-updateSlider"
             landmarkType = "7">
          </BreakpointContent>
@@ -1054,8 +974,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "-updateLabels"
             landmarkType = "7">
          </BreakpointContent>
@@ -1070,8 +990,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-initWithFrame:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1086,8 +1006,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "-scrollViewDidScroll:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1102,8 +1022,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "-scrollViewDidScroll:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1118,8 +1038,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "-scrollViewDidScroll:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1153,22 +1073,6 @@
             startingLineNumber = "49"
             endingLineNumber = "49"
             landmarkName = "-sendWeiboWithText:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F750762E-74AB-44AE-BFAD-ED848D361E33"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1214,8 +1118,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "-refreshTableViewWithCompletion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1230,8 +1134,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/ScrollableWithTitleViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "-loadNewData"
             landmarkType = "7">
          </BreakpointContent>
@@ -1246,8 +1150,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/rootViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1262,8 +1166,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/HomePageTableViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-handleTapOnTextLabel:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1278,8 +1182,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1294,8 +1198,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "-updateSlider"
             landmarkType = "7">
          </BreakpointContent>
@@ -1310,8 +1214,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "-sliderProgressDidChange:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1326,8 +1230,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "-sliderProgressDidChange:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1342,8 +1246,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "-sliderProgressDidChange:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1358,8 +1262,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/CostomScrollViewBar.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "-sliderProgressDidChange:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1406,8 +1310,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/ScrollableWithTitleViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
             <Locations>
@@ -1454,8 +1358,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/ScrollableWithTitleViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1470,8 +1374,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/ScrollableWithTitleViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1486,8 +1390,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/ScrollableWithTitleViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "-loadMoreData"
             landmarkType = "7">
          </BreakpointContent>
@@ -1635,70 +1539,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "35874523-E5E2-48DA-B1A1-FA6288A0CAC3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/view/HomePageTableViewCell.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "-layoutSubViewWith:andWith:andWith:andWith:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "35874523-E5E2-48DA-B1A1-FA6288A0CAC3 - b3a053521fdeb9e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HomePageTableViewCell layoutSubViewWith:andwith:andwith:andwith:]"
-                  moduleName = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jimmy/Documents/github%E9%A1%B9%E7%9B%AE/%E4%BA%8C%E8%BD%AE%E8%80%83%E6%A0%B8/iOSapp_TV/%E8%80%83%E6%A0%B8%E6%96%87%E4%BB%B6/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/view/HomePageTableViewCell.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "167"
-                  endingLineNumber = "167"
-                  offsetFromSymbolStart = "4208">
-               </Location>
-               <Location
-                  uuid = "35874523-E5E2-48DA-B1A1-FA6288A0CAC3 - b3a053521fdeb9e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HomePageTableViewCell layoutSubViewWith:andwith:andwith:andwith:]"
-                  moduleName = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jimmy/Documents/github%E9%A1%B9%E7%9B%AE/%E4%BA%8C%E8%BD%AE%E8%80%83%E6%A0%B8/iOSapp_TV/%E8%80%83%E6%A0%B8%E6%96%87%E4%BB%B6/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/view/HomePageTableViewCell.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "167"
-                  endingLineNumber = "167"
-                  offsetFromSymbolStart = "4236">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "730C812C-A46B-4BA3-81C2-26CA23BF9C3E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/ScrollableWithTitleViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "-presentWeiboDetailWith:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "4C56AA71-821E-41BB-B60C-31B6B6472366"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1706,8 +1546,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/WeiboWebViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "-loadWebViewWithURL:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1722,8 +1562,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/WeiboWebViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "-loadWebViewWithURL:"
             landmarkType = "7">
             <Locations>
@@ -1786,8 +1626,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HistoryTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1818,8 +1658,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "-refreshTableViewWithCompletion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1834,8 +1674,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-refreshTableViewWithCompletion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1882,8 +1722,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "-scrollViewDidEndDragging:willDecelerate:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1898,8 +1738,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "-scrollViewDidEndDragging:willDecelerate:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1914,8 +1754,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "-scrollViewDidEndDragging:willDecelerate:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1930,8 +1770,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
             landmarkName = "-startRefreshing"
             landmarkType = "7">
             <Locations>
@@ -1978,8 +1818,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "-scrollViewDidEndDecelerating:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1994,25 +1834,9 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "-scrollViewWillBeginDragging:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "63F0A4CC-CCC1-4562-8197-BD2B33D813EF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
-            landmarkName = "-scrollViewDidEndDragging:willDecelerate:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2026,8 +1850,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
             landmarkName = "-startRefreshing"
             landmarkType = "7">
          </BreakpointContent>
@@ -2058,8 +1882,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "-endRefreshing"
             landmarkType = "7">
          </BreakpointContent>
@@ -2074,25 +1898,9 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/CostomScrollView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "-startLoadingMore"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "32F63B18-69FA-4969-AC7C-37B1E50846B2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2106,8 +1914,8 @@
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/model/ShoucangManager.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "-saveShoucangData:"
             landmarkType = "7">
          </BreakpointContent>

@@ -25,10 +25,8 @@
 }
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.webView = [[WKWebView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     [self loadWebViewWithURL:self.url];
@@ -36,11 +34,11 @@
 
 - (void)loadWebViewWithURL:(NSURL *)url {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-        [request setHTTPMethod:@"GET"];
-//        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+//        [request setHTTPMethod:@"GET"];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
         dispatch_async(dispatch_get_main_queue(), ^{
-            // 在这里执行需要更新UI的代码、
+            // 显示网页内容
             [self.webView loadRequest:request];
             [self.view addSubview:self.webView];
         });

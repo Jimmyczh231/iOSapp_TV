@@ -5,6 +5,12 @@
 //  Created by jimmy on 5/11/23.
 //
 
+/*
+ 这个单纯是用来测试的不重要！！！
+ 这个单纯是用来测试的不重要！！！
+ 这个单纯是用来测试的不重要！！！
+ */
+
 #import "testviewcontroller.h"
 #import "WeiboOAuthViewController.h"
 #import "WeiboOAuthHelper.h"
@@ -36,17 +42,7 @@
     oauthHelper.redirectURI = @"http://localhost/com.jimmyczh.jimmy";
     oauthHelper.pushViewController = self;
     [self.navigationController pushViewController:oauthHelper animated:YES];
-//    [oauthHelper authorize];
-    
-//    self.webView = [[WKWebView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.webView.navigationDelegate = self;
-//
-//
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&response_type=code&redirect_uri=%@", oauthHelper.clientID, oauthHelper.redirectURI]];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    [self.webView loadRequest:request];
-//    self.navigationController pushViewController:<#(nonnull UIViewController *)#> animated:<#(BOOL)#>;
-    
+
 
 }
 - (void)viewDidAppear:(BOOL)animated{

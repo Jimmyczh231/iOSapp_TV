@@ -23,80 +23,21 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andwith:(NSString*)text andwith:(NSString*)name andwith:(NSMutableArray*)picUrlArray{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-//        self.nameLabel = [[UILabel alloc] init];
-//        self.nameLabel.font = [UIFont systemFontOfSize:14.0];
-//        [self.contentView addSubview:self.nameLabel];
-//        [self.nameLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-//        NSLayoutConstraint *nameLabelLeft = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-//        NSLayoutConstraint *nameLabelTop = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:10];
-//        [self.contentView addConstraints:@[nameLabelLeft, nameLabelTop]];
-////        [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-////            make.left.top.equalTo(self.contentView).offset(10);
-////        }];
-//
-//        self.textContentLabel = [[UILabel alloc] init];
-//        self.textContentLabel.numberOfLines = 0;
-//        self.textContentLabel.font = [UIFont systemFontOfSize:14.0];
-//        [self.contentView addSubview:self.textContentLabel];
-//        self.textContentLabel.translatesAutoresizingMaskIntoConstraints = NO;
-//        [self.textContentLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-//        NSLayoutConstraint *textLabelLeft = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-//        NSLayoutConstraint *textLabelRight = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
-//        NSLayoutConstraint *textLabelTop = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
-//        [self.contentView addConstraints:@[textLabelLeft, textLabelRight, textLabelTop]];
-//
-////        [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-////            make.left.equalTo(self.contentView).offset(10);
-////            make.right.equalTo(self.contentView).offset(-10);
-////            make.top.equalTo(self.nameLabel.mas_bottom).offset(10);
-////        }];
-//        self.imagesUrl = picUrlArray;
-//        self.imageViews = [NSMutableArray array];
-//        for (int i = 0; i < self.imagesUrl.count; i++) {
-//            UIImageView *imageView = [[UIImageView alloc] init];
-//            imageView.contentMode = UIViewContentModeScaleAspectFill;
-//            imageView.clipsToBounds = YES;
-//            [self.contentView addSubview:imageView];
-//            [self.imageViews addObject:imageView];
-//        }
-//
-////        UILabel *countLabel = [[UILabel alloc] init];
-////        countLabel.font = [UIFont systemFontOfSize:12.0];
-////        countLabel.textColor = [UIColor whiteColor];
-////        countLabel.textAlignment = NSTextAlignmentCenter;
-////        countLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-////        countLabel.layer.cornerRadius = 10;
-////        countLabel.layer.masksToBounds = YES;
-////        [self.contentView addSubview:countLabel];
-////        [countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-////            make.centerX.equalTo(self.contentView);
-////            make.bottom.equalTo(self.contentView).offset(-10);
-////            make.width.height.mas_equalTo(20);
-////        }];
-//        [self setImageViewWithImageUrls:self.imagesUrl];
-////        CGFloat margin = 10.0;
-////        CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
-////        CGFloat imageSize = (screenWidth - margin * 4) / 3;
-////        for (int i = 0; i < 9; i++) {
-////            CGFloat x = margin + (imageSize + margin) * (i % 3);
-////            CGFloat y = margin + (imageSize + margin) * (i / 3 + 1);
-////            UIImageView *imageView = self.imageViews[i];
-////            [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-////                make.left.equalTo(self.contentView).offset(x);
-////                make.top.equalTo(self.textLabel.mas_bottom).offset(y);
-////                make.width.height.mas_equalTo(imageSize);
-////            }];
-////        }
+        // 传了个寂寞
     }
     return self;
 }
 
+// 布置cell的显示
 - (void)layoutSubViewWith:(NSString*)text andWith:(NSString *)name andWith:(NSMutableArray*)picUrlArray andWith:(NSURL*)profileImageUrl{
+    // 先将原先的所有subview移除
     for (UIView *subview in self.contentView.subviews) {
         [subview removeFromSuperview];
     }
     [super layoutSubviews];
     
+    
+    // 头像的初始化
     self.profileImageUrl = profileImageUrl;
     self.userProfileImageView = [[UIImageView alloc] init];
     [[ImageLoader sharedInstance] loadImageWithURL:self.profileImageUrl completion:^(UIImage * _Nonnull image) {
@@ -112,6 +53,8 @@
     self.userProfileImageView.layer.cornerRadius = 20.0;
     self.userProfileImageView.layer.masksToBounds = YES;
     
+    
+    // 头像的布局
     NSLayoutConstraint *profileImageLeft = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:13];
     NSLayoutConstraint *profileImageTop = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:13];
     NSLayoutConstraint *profileImagewidth = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:40];
@@ -121,7 +64,7 @@
     [ self.userProfileImageView addConstraints:@[profileImagewidth, profileImageheight]];
     
     
-    
+    // 用户名的初始化和布局
     self.nameLabel = [[UILabel alloc] init];
     self.nameLabel.text = name;
     self.nameLabel.font = [UIFont systemFontOfSize:14.0];
@@ -130,10 +73,8 @@
     NSLayoutConstraint *nameLabelLeft = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.userProfileImageView attribute:NSLayoutAttributeRight multiplier:1 constant:13];
     NSLayoutConstraint *nameLabelTop = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:15];
     [self.contentView addConstraints:@[nameLabelLeft, nameLabelTop]];
-//        [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.top.equalTo(self.contentView).offset(10);
-//        }];
 
+    // 微博文字信息的初始化和布局
     self.textContentLabel = [[UILabel alloc] init];
     self.textContentLabel.text = text;
     self.orignalText = text;
@@ -147,54 +88,44 @@
     NSLayoutConstraint *textLabelTop = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:35];
     [self.contentView addConstraints:@[textLabelLeft, textLabelRight, textLabelTop]];
     
+    // 添加点击事件，进入文末链接
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnTextLabel:)];
     [self.textContentLabel addGestureRecognizer:tapGesture];
     
-    // 用正则表达式匹配URL
+    
+    // 用正则表达式匹配文末的 URL
     NSString *pattern = @"(http://|https://){0,1}[a-zA-Z0-9\\-.]+\\.[a-zA-Z]{2,3}(/\\S*){0,1}";
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
     NSArray *matches = [regex matchesInString:text options:0 range:NSMakeRange(0, [text length])];
     
-    // 用于记录长度的偏差值
-    NSInteger lengthOffset = 0;
+    
+    NSInteger lengthOffset = 0;  // 用于记录长度的偏差值
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
     for (NSTextCheckingResult *match in matches) {
         NSRange matchRange = [match range];
-        // 减去偏差
+        // 计算位置的时候减去偏差
         matchRange.location -= lengthOffset;
         NSString *urlString = [text substringWithRange:matchRange];
         NSURL *url = [NSURL URLWithString:urlString];
         NSDictionary *linkAttributes = @{ NSForegroundColorAttributeName: [UIColor blueColor], NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle) };
         [attributedText addAttributes:linkAttributes range:matchRange];
+        // 将文字末尾的 URL 替换成“网络连接”
         [attributedText replaceCharactersInRange:matchRange withString:@"网络链接"];
         NSInteger lengthDifference = matchRange.length - [@"网络链接" length];
         // 加上偏差值
         lengthOffset += lengthDifference;
-//        [attributedText addAttribute:NSLinkAttributeName value:url range:NSMakeRange(matchRange.location, 4)];
     }
-
     self.textContentLabel.attributedText = attributedText;
     self.textContentLabel.userInteractionEnabled = YES;
-//        [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(self.contentView).offset(10);
-//            make.right.equalTo(self.contentView).offset(-10);
-//            make.top.equalTo(self.nameLabel.mas_bottom).offset(10);
-//        }];
 
-    self.imageViews = [NSMutableArray array];
-    for (int i = 0; i < self.imagesUrl.count; i++) {
-        UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
-        imageView.clipsToBounds = YES;
-        [self.contentView addSubview:imageView];
-        [self.imageViews addObject:imageView];
-    }
     
-    
+    // 点赞按钮的初始化
     self.dinazanButton = [[UIButton alloc]init];
     self.dinazanButton.frame = CGRectMake((self.contentView.bounds.size.width) * 3 / 4 - 10, self.contentView.bounds.size.height-25, 20, 20);
     self.dinazanButton.backgroundColor = [UIColor whiteColor];
+
+    // 判断点赞图标
     self.isShoucanged = [[ShoucangManager sharedManager] isDataShoucangedWith:self.status];
     UIImage *dinazan = [UIImage imageNamed:@"dianzan-2.png"];
     UIImage *dinazaned = [UIImage imageNamed:@"dianzan_kuai.png"];
@@ -203,8 +134,9 @@
     } else {
         [self.dinazanButton setImage:dinazan forState:UIControlStateNormal];
     }
-   
     [self.dinazanButton addTarget:self action:@selector(dinazanButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 点赞按钮的布局
     [self.dinazanButton setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:(self.contentView.bounds.size.width) * 3 / 4 - 10];
     NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:-10];
@@ -214,13 +146,24 @@
     [self.contentView addConstraints:@[left, top]];
     [self.dinazanButton addConstraints:@[width, height]];
 
-
-
+    
+    // 初始化所需的 ImageView
+    self.imageViews = [NSMutableArray array];
+    for (int i = 0; i < self.imagesUrl.count; i++) {
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = YES;
+        [self.contentView addSubview:imageView];
+        [self.imageViews addObject:imageView];
+    }
+    
+    // 根据图片 URL 添加图片和布局
     [self setImageViewWithImageUrls:self.imagesUrl];
     
 
 }
 
+// 文字的点击响应
 - (void)handleTapOnTextLabel:(UITapGestureRecognizer *)gesture {
     UILabel *label = (UILabel *)gesture.view;
     NSString *text = self.orignalText;
@@ -230,11 +173,13 @@
         NSURL *url = [NSURL URLWithString:[text substringWithRange:match.range]];
         if ([[UIApplication sharedApplication] canOpenURL:url]) {
             NSDictionary *userInfo = @{@"url": url};
+            // 发送匹配到的 URL 到页面Controller
             [[NSNotificationCenter defaultCenter] postNotificationName:@"OpenURLNotification" object:nil userInfo:userInfo];
         }
     }
 }
 
+// 点赞按钮的点击响应
 - (void)dinazanButtonClicked:(UIButton *)sender{
     self.isShoucanged = [[ShoucangManager sharedManager] isDataShoucangedWith:self.status];
     UIImage *dinazan = [UIImage imageNamed:@"dianzan-2.png"];
@@ -244,11 +189,13 @@
     } else {
         [self.dinazanButton setImage:dinazaned forState:UIControlStateNormal];
     }
+    // 发送微博信息到收藏
     [[NSNotificationCenter defaultCenter] postNotificationName:@"AddShoucangData" object:nil userInfo:self.status];
 }
 
 // 排版图片
 - (void)setImageViewWithImageUrls:(NSArray *)imagesUrl {
+    // 隐藏不需要的 ImageView
     NSInteger count = imagesUrl.count;
     if (imagesUrl == nil||count == 0) {
         for (UIImageView *imageView in self.imageViews) {
@@ -256,10 +203,12 @@
         }
         return;
     }
+    // 添加图片
     for (int i = 0; i < self.imagesUrl.count; i++) {
         UIImageView *imageView = self.imageViews[i];
         if (i < count) {
             imageView.hidden = NO;
+            // 默认加载图
             imageView.image = [UIImage imageNamed:@"loading-icon.jpg"];
             [[ImageLoader sharedInstance] loadImageWithURL:imagesUrl[i] completion:^(UIImage * _Nonnull image) {
                 if (image) {
@@ -274,7 +223,9 @@
             imageView.hidden = YES;
         }
     }
+    
     if (count == 1) {
+        // 一张图片时根据边框缩放图片到合适的大小
         [[ImageLoader sharedInstance] loadImageWithURL:imagesUrl[0] completion:^(UIImage * _Nonnull imageLoaded) {
             if (imageLoaded) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -290,6 +241,7 @@
 //                    }
                     UIImageView *imageView = self.imageViews.firstObject;
                     [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+                    // 单图时的页面布局
                     NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
                     NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:15];
                     NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageWidth];
@@ -299,12 +251,11 @@
                     [imageView addConstraints:@[width, height]];
                 });
             } else {
-#warning 如果没有图片设置个默认图片
                 NSLog(@"Failed to load image");
             }
         }];
-        
-    } else if (count == 2 || count == 4 || count == 3) {
+        // 二到四图的情况，直接进行页面布局
+    } else if (count >= 2 && count <= 4) {
         CGFloat margin = 10.0;
         CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
         CGFloat imageSize = (screenWidth - margin * 4) / 3;
@@ -320,13 +271,8 @@
             [self.contentView addSubview:imageView];
             [imageView addConstraints:@[width, height]];
             [self.contentView addConstraints:@[left, top]];
-//            [imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.left.equalTo(self.contentView).offset(x);
-//                make.top.equalTo(self.textLabel.mas_bottom).offset(y);
-//                make.width.height.mas_equalTo(imageSize);
-//            }];
         }
-        
+        // 五到九图的情况，直接进行页面布局
     } else if (self.imageNumber >= 5 && self.imageNumber <= 9) {
         CGFloat margin = 10.0;
         CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
@@ -342,10 +288,9 @@
             NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
             [self.contentView addSubview:imageView];
             [imageView addConstraints:@[width, height]];
-
             [self.contentView addConstraints:@[left, top]];
-
         }
+        // 超过九张图将最后一张图模糊并告知还有多少张图
     } else {
         CGFloat margin = 10.0;
         CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
@@ -371,20 +316,20 @@
                     CIImage *outputImage = [blurFilter valueForKey:kCIOutputImageKey];
                     UIImage *blurredImage = [[UIImage alloc] initWithCIImage:outputImage];
                     imageView.image = blurredImage;
+                    // 在中间添加数字
                     UILabel *countLabel = [[UILabel alloc] init];
-                     countLabel.text = [NSString stringWithFormat:@"+%d", self.imageNumber - 9];
-                     countLabel.textColor = [UIColor whiteColor];
-                     countLabel.font = [UIFont systemFontOfSize:25];
-                     countLabel.textAlignment = NSTextAlignmentCenter;
-                     countLabel.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
-                     [countLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-                     [imageView addSubview:countLabel];
-                     NSLayoutConstraint *countLeft = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
-                     NSLayoutConstraint *countTop = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeTop multiplier:1 constant:0];
-                     NSLayoutConstraint *countWidth = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
-                     NSLayoutConstraint *countHeight = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
-                     [imageView addConstraints:@[countLeft, countTop, countWidth, countHeight]];
-//                    imageView.image = [imageView.image applyBlurWithRadius:5 tintColor:nil saturationDeltaFactor:1.0 maskImage:nil];
+                    countLabel.text = [NSString stringWithFormat:@"+%d", self.imageNumber - 9];
+                    countLabel.textColor = [UIColor whiteColor];
+                    countLabel.font = [UIFont systemFontOfSize:25];
+                    countLabel.textAlignment = NSTextAlignmentCenter;
+                    countLabel.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+                    [countLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+                    [imageView addSubview:countLabel];
+                    NSLayoutConstraint *countLeft = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
+                    NSLayoutConstraint *countTop = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+                    NSLayoutConstraint *countWidth = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
+                    NSLayoutConstraint *countHeight = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
+                    [imageView addConstraints:@[countLeft, countTop, countWidth, countHeight]];
                 }
             }
         }

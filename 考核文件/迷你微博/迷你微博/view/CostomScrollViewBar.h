@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol CostomScrollViewBarDelegate <NSObject>
 
-- (void)WeiboSenderPush;
+- (void)WeiboSenderPush; // 推出发送微博的页面
 
 @end
 

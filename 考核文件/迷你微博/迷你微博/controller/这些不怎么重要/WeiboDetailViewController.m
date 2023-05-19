@@ -34,10 +34,7 @@
     self.manager = [[WeiboDetailViewManager alloc]init];
     [self.manager loadWeiboDetailPageDataWith:self.weiboId andWithCompletion:^(BOOL success, NSDictionary * _Nonnull weiboDataDictionary) {
         self.weiboDataDictionary = weiboDataDictionary;
-        
-        
-        
-        
+    
     }];
     // Do any additional setup after loading the view.
 }

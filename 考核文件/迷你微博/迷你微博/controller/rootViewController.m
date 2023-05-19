@@ -11,6 +11,10 @@
 #import "HomePageTableViewController.h"
 #import "MyWeiboViewController.h"
 
+/*
+这个是底层的 viewcontroller 主要是初始化 tabbar
+ */
+
 @interface rootViewController ()
 
 @end

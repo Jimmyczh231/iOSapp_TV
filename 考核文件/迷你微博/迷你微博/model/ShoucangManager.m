@@ -45,6 +45,7 @@
 }
 
 - (void)saveShoucangData:(NSDictionary *)data {
+    // 如果数据已存在，将其删除
     BOOL isShoucanged = NO;
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:self.shoucangArray];
     for (NSDictionary *existingData in mutableArray) {
@@ -54,6 +55,8 @@
             break;
         }
     }
+    
+    //数据不存在，添加到收藏列表
     if (!isShoucanged) {
         [mutableArray insertObject:data atIndex:0];
     }
@@ -104,7 +107,7 @@
     [self saveShoucangData:data];
 }
 
-// 使用block获取数据的方法
+
 - (void)loadShoucangDataWithCompletion:(ShoucangDataCompletionBlock)completion {
     if (completion) {
         completion(self.shoucangArray);

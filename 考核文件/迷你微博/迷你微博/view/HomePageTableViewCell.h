@@ -11,14 +11,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomePageTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong ,readwrite) UILabel *textContentLabel;
-@property (nonatomic, strong ,readwrite) NSString *orignalText;
-@property (nonatomic, strong) NSDictionary *status;
-@property (nonatomic, strong) NSMutableArray<UIImageView *> *imageViews;
-@property (nonatomic, strong) NSMutableArray *imagesUrl;
-@property (nonatomic, strong) NSURL *profileImageUrl;
-@property (nonatomic, readwrite) int imageNumber;
+@property (nonatomic, strong) UILabel *nameLabel;   // 用户名
+@property (nonatomic, strong ,readwrite) UILabel *textContentLabel; //微博的文字Label
+@property (nonatomic, strong ,readwrite) NSString *orignalText; // 文字信息
+@property (nonatomic, strong) NSDictionary *status; //这条微博的所有信息
+@property (nonatomic, strong) NSMutableArray<UIImageView *> *imageViews; //用于存所有的imageview
+@property (nonatomic, strong) NSMutableArray *imagesUrl; //图片的URL
+@property (nonatomic, strong) NSURL *profileImageUrl; // 头像URL
+@property (nonatomic, readwrite) int imageNumber; // 真实的图片数量
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andwith:(NSString*)text andwith:(NSString*)name andwith:(NSMutableArray*)picUrlArray;
 

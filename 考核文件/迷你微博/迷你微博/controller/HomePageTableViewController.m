@@ -31,6 +31,7 @@
     self.needToRefresh = YES;
     self.canLoadMoreData = YES;
     self.manager = [[WeiboHomePageManager alloc] initWithAccessToken:[AccessToken sharedInstance].accessToken];
+    // 加载数据
     [self.manager refreshHomePageDataWithCompletion:^(BOOL success, NSArray *weiboDataArray) {
         if (success) {
             // 加载成功，更新界面
@@ -40,24 +41,13 @@
             });
 
         } else {
-            // 加载失败，处理错误
             self.needToRefresh = YES;
         }
     }];
     
-    self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:300.0
-                                                      target:self
-                                                       selector:@selector(timeToRefresh:)
-                                                    userInfo:nil
-                                                     repeats:YES];
+    // 设置 Timer 计时刷新
+    self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:300.0 target:self selector:@selector(timeToRefresh:) userInfo:nil repeats:YES];
     
-
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.tableView reloadData];
 }
 
@@ -65,7 +55,10 @@
     self.needToRefresh = YES;
 }
 
+#pragma mark - 数据刷新和加载
+// 刷新数据
 - (void)refreshTableViewWithCompletion:(void (^)(BOOL))completion{
+    // 如果允许刷新数据，刷新数据
     if(self.needToRefresh){
         self.canLoadMoreData = NO;
         __weak typeof(self) weakSelf = self;
@@ -80,19 +73,18 @@
                     self.canLoadMoreData = YES;
                     completion(YES);
                 });
-                
             } else {
-                // 加载失败，处理错误
                 strongself.needToRefresh = YES;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completion(NO);
                 });
-                
             }
         }];
     }
     self.needToRefresh = NO;
 }
+
+// 加载更多
 - (void)loadMoreDataOnTableViewWithCompletion:(void (^)(BOOL))completion{
     if(self.canLoadMoreData){
         self.canLoadMoreData = NO;
@@ -127,11 +119,6 @@
 }
 
 
-- (void)sliderProgressDidChange:(NSNotification *)notification {
-    // 获取滑动的进度值
-    NSInteger selectedIndex = [notification.userInfo[@"currentPage"] integerValue];
-
-}
 
 
 #pragma mark - Table view data source
@@ -153,33 +140,30 @@
     if (cell == nil) {
         cell = [[HomePageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier andwith:[status objectForKey:@"text"] andwith:[[status objectForKey:@"user"] objectForKey:@"name"] andwith:[self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]]];
     }
+
+//    cell.textContentLabel.text = [status objectForKey:@"text"];
+//    cell.nameLabel.text = [[status objectForKey:@"user"] objectForKey:@"name"];
+//    cell.imagesUrl = [self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]];
     
-//    if([[status objectForKey:@"id"] isKindOfClass:[NSNumber class]]){
-//        NSLog(@"is");
-//    }
+    // 设置cell的内容
     NSNumber *picNum = [status objectForKey:@"pic_num"];
     cell.imageNumber = picNum.intValue;
-    cell.textContentLabel.text = [status objectForKey:@"text"];
-    cell.nameLabel.text = [[status objectForKey:@"user"] objectForKey:@"name"];
-    cell.imagesUrl = [self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]];
     cell.status = status;
-    [cell layoutSubViewWith:[status objectForKey:@"text"] andWith:[[status objectForKey:@"user"] objectForKey:@"name"] andWith:cell.imagesUrl andWith:[NSURL URLWithString:[[status objectForKey:@"user"] objectForKey:@"profile_image_url"]]];
+    [cell layoutSubViewWith:[status objectForKey:@"text"] andWith:[[status objectForKey:@"user"] objectForKey:@"name"] andWith:[self getAllThumbnailUrlsFromArray:[status objectForKey:@"pic_urls"]] andWith:[NSURL URLWithString:[[status objectForKey:@"user"] objectForKey:@"profile_image_url"]]];
     return cell;
 }
 
+// 获取图片 URL
 - (NSMutableArray *)getAllThumbnailUrlsFromArray:(NSArray *)array {
     NSMutableArray *thumbnailUrls = [NSMutableArray array];
     for (NSDictionary *dict in array) {
-        // 判断字典中是否包含key为"thumbnail_pic"的值
-//        if ([dict objectForKey:@"thumbnail_pic"]) {
-            // 获取 key 为 "thumbnail_pic" 的 NSURL 对象
             NSURL *thumbnailUrl = [NSURL URLWithString:[dict objectForKey:@"thumbnail_pic"]];
             [thumbnailUrls addObject:thumbnailUrl];
-//        }
     }
     return thumbnailUrls;
 }
 
+// 根据数据计算cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableDictionary *status = self.DataArray[indexPath.row];
     CGFloat height = 50.0;
@@ -216,8 +200,8 @@
     CGSize size = [label sizeThatFits:CGSizeMake(labelWidth, CGFLOAT_MAX)];
     return MAX(size.height, minHeight);
 }
-
-
+    
+#pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSMutableDictionary *status = self.DataArray[indexPath.row];
     
@@ -230,8 +214,6 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-
-
 }
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
