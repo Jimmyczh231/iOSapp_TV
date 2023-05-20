@@ -148,8 +148,9 @@
 
     
     // 初始化所需的 ImageView
+    self.imagesUrl = picUrlArray;
     self.imageViews = [NSMutableArray array];
-    for (int i = 0; i < self.imagesUrl.count; i++) {
+    for (int i = 0; i < 9; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;

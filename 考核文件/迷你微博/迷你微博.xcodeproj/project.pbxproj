@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF09C01D2A18709E00063A41 /* shouye.png in Resources */ = {isa = PBXBuildFile; fileRef = BF09C01C2A18709E00063A41 /* shouye.png */; };
+		BF09C01F2A1870A600063A41 /* wo.png in Resources */ = {isa = PBXBuildFile; fileRef = BF09C01E2A1870A600063A41 /* wo.png */; };
 		BF0A86962A0A6CDC00FD4EB2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86952A0A6CDC00FD4EB2 /* AppDelegate.m */; };
 		BF0A86992A0A6CDC00FD4EB2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A86982A0A6CDC00FD4EB2 /* SceneDelegate.m */; };
 		BF0A869C2A0A6CDC00FD4EB2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0A869B2A0A6CDC00FD4EB2 /* ViewController.m */; };
@@ -69,6 +71,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF09C01C2A18709E00063A41 /* shouye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shouye.png; sourceTree = "<group>"; };
+		BF09C01E2A1870A600063A41 /* wo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wo.png; sourceTree = "<group>"; };
 		BF0A86912A0A6CDC00FD4EB2 /* 迷你微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "迷你微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF0A86942A0A6CDC00FD4EB2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF0A86952A0A6CDC00FD4EB2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -285,7 +289,6 @@
 				BFA3B5BF2A13A66E008E23E4 /* HistoryManager.m */,
 				BFA3B5CB2A1465DB008E23E4 /* ShoucangManager.h */,
 				BFA3B5CC2A1465DB008E23E4 /* ShoucangManager.m */,
-				BF4FA4252A0D43E8007098E1 /* ImageLoader.m */,
 				BFE8800F2A0F70EB000676EF /* WeiboSender.h */,
 				BFE880102A0F70EB000676EF /* WeiboSender.m */,
 				BF4FA4272A0D4BAE007098E1 /* WeiboHomePageManager.h */,
@@ -293,6 +296,7 @@
 				BFA3B5B92A120F88008E23E4 /* MyWeiboViewManager.h */,
 				BFA3B5BA2A120F88008E23E4 /* MyWeiboViewManager.m */,
 				BF4FA4242A0D43E8007098E1 /* ImageLoader.h */,
+				BF4FA4252A0D43E8007098E1 /* ImageLoader.m */,
 				BF09C01B2A17F1A500063A41 /* 这些不怎么重要 */,
 			);
 			path = model;
@@ -329,6 +333,8 @@
 				BFE8801C2A0FE41A000676EF /* jiahao-2.png */,
 				BFA3B5BC2A12A93F008E23E4 /* loading-icon.jpg */,
 				BFE880192A0FE17F000676EF /* jiahao.png */,
+				BF09C01C2A18709E00063A41 /* shouye.png */,
+				BF09C01E2A1870A600063A41 /* wo.png */,
 				BFA3B5C92A1463C7008E23E4 /* dianzan-2.png */,
 			);
 			path = icon;
@@ -438,8 +444,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE8801D2A0FE41A000676EF /* jiahao-2.png in Resources */,
+				BF09C01F2A1870A600063A41 /* wo.png in Resources */,
 				BF54C0FD2A1780650010FE24 /* dianzan_kuai.png in Resources */,
 				BFA3B5C82A13FFB9008E23E4 /* shoucang.png in Resources */,
+				BF09C01D2A18709E00063A41 /* shouye.png in Resources */,
 				BF0A86A42A0A6CDD00FD4EB2 /* LaunchScreen.storyboard in Resources */,
 				BFE8801A2A0FE17F000676EF /* jiahao.png in Resources */,
 				BFA3B5BD2A12A93F008E23E4 /* loading-icon.jpg in Resources */,

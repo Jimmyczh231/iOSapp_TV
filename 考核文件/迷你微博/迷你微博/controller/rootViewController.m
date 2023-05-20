@@ -32,8 +32,8 @@
 
     // 创建 ViewController1
 
-    viewController1.tabBarItem.title = @"图标1";
-    viewController1.tabBarItem.image = [UIImage imageNamed:@"图标1"];
+    viewController1.tabBarItem.title = @"首页";
+    viewController1.tabBarItem.image = [UIImage imageNamed:@"shouye.png"];
 
     // 创建 ViewController2
 
@@ -44,6 +44,7 @@
     UIViewController *viewController3 = [[UIViewController alloc] init];
     viewController3.tabBarItem.title = @"图标3";
     viewController3.tabBarItem.image = [UIImage imageNamed:@"图标3"];
+    
 
     // 创建 ViewController4
 
@@ -51,8 +52,8 @@
     viewController4.tabBarItem.image = [UIImage imageNamed:@"图标4"];
 
     // 创建 ViewController5
-    viewController5.tabBarItem.title = @"图标5";
-    viewController5.tabBarItem.image = [UIImage imageNamed:@"图标5"];
+    viewController5.tabBarItem.title = @"我";
+    viewController5.tabBarItem.image = [UIImage imageNamed:@"wo.png"];
 
     // 将 ViewController1 到 ViewController5 添加到 TabBarController 中
     self.rootTabbar.viewControllers = @[viewController1, viewController2, viewController3, viewController4, viewController5];

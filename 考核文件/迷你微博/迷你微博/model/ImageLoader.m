@@ -31,6 +31,7 @@
 }
 
 - (void)loadImageWithURL:(NSURL *)url completion:(void (^)(UIImage *image))completion {
+    // 先从本地获取图片，如果不存在再从网络请求
     [self loadImageFromCacheWithURL:url completion:^(UIImage *cachedImage) {
         if (cachedImage) {
             completion(cachedImage);
@@ -46,6 +47,7 @@
                     UIImage *image = [UIImage imageWithData:data];
                     
                     if (image) {
+                        // 如果超过缓存阈值，删除 dictionary 中最早的图片
                         if(self.imageCache.count >= imageThreshold){
                             [self.imageCache removeObjectForKey: [self.imageThresholdArrary firstObject]];
                             [self.imageThresholdArrary removeObjectAtIndex:0];
@@ -70,6 +72,7 @@
 
 
 - (void)saveImage:(UIImage *)image withURL:(NSURL *)url {
+    // 保存图片到本地，key 为图片的URL
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *filename = url.absoluteString;
         NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
@@ -85,18 +88,19 @@
     NSString *filename = url.absoluteString;
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
     NSString *filePath = [path stringByAppendingPathComponent:filename];
-    
+    // 检查 dictionary 是否有这张图片
     UIImage *cachedImage = [self.imageCache objectForKey:url.absoluteString];
     if (cachedImage) {
         completion(cachedImage);
         return;
     }
-    
+    // dictionary中不存在，就从文件夹中获取
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSData *imageData = [NSData dataWithContentsOfFile:filePath];
             UIImage *image = [UIImage imageWithData:imageData];
             if (image) {
+                // 如果超过缓存阈值，删除 dictionary 中最早的图片
                 if(self.imageCache.count >= imageThreshold){
                     [self.imageCache removeObjectForKey: [self.imageThresholdArrary firstObject]];
                     [self.imageThresholdArrary removeObjectAtIndex:0];
