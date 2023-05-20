@@ -257,8 +257,6 @@
 		BF0A86D82A0A71BF00FD4EB2 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				BF0A86E72A0AB78200FD4EB2 /* CostomScrollView.h */,
-				BF0A86E82A0AB78200FD4EB2 /* CostomScrollView.m */,
 				BF4FA42A2A0D55A5007098E1 /* HomePageTableViewController.h */,
 				BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */,
 				BF0A86E42A0AB74800FD4EB2 /* ScrollableWithTitleViewController.h */,
@@ -318,6 +316,8 @@
 				BFB053522A0DE01D00AC5DA1 /* HomePageTableViewCell.m */,
 				BFE880162A0FBB58000676EF /* CostomScrollViewBar.h */,
 				BFE880172A0FBB58000676EF /* CostomScrollViewBar.m */,
+				BF0A86E72A0AB78200FD4EB2 /* CostomScrollView.h */,
+				BF0A86E82A0AB78200FD4EB2 /* CostomScrollView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
