@@ -16,36 +16,6 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
-//    // 创建 TabBarController
-//    self.rootTabbar = [[UITabBarController alloc] init];
-//
-//    // 创建 ViewController1
-//    UIViewController *viewController1 = [[UIViewController alloc] init];
-//    viewController1.tabBarItem.title = @"图标1";
-//    viewController1.tabBarItem.image = [UIImage imageNamed:@"图标1"];
-//
-//    // 创建 ViewController2
-//    UIViewController *viewController2 = [[UIViewController alloc] init];
-//    viewController2.tabBarItem.title = @"图标2";
-//    viewController2.tabBarItem.image = [UIImage imageNamed:@"图标2"];
-//
-//    // 创建 ViewController3
-//    UIViewController *viewController3 = [[UIViewController alloc] init];
-//    viewController3.tabBarItem.title = @"图标3";
-//    viewController3.tabBarItem.image = [UIImage imageNamed:@"图标3"];
-//
-//    // 创建 ViewController4
-//    UIViewController *viewController4 = [[UIViewController alloc] init];
-//    viewController4.tabBarItem.title = @"图标4";
-//    viewController4.tabBarItem.image = [UIImage imageNamed:@"图标4"];
-//
-//    // 创建 ViewController5
-//    UIViewController *viewController5 = [[UIViewController alloc] init];
-//    viewController5.tabBarItem.title = @"图标5";
-//    viewController5.tabBarItem.image = [UIImage imageNamed:@"图标5"];
-//
-//    // 将 ViewController1 到 ViewController5 添加到 TabBarController 中
-//    self.rootTabbar.viewControllers = @[viewController1, viewController2, viewController3, viewController4, viewController5];
     rootViewController *root = [[rootViewController alloc]init];
     UINavigationController * RootNavigation = [[UINavigationController alloc] initWithRootViewController:root];;
     self.window.rootViewController = RootNavigation;
