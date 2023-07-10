@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ADCA6652594605FC109FBBBEB38D4AA3"
-               BuildableName = "Pods_____Tests.framework"
-               BlueprintName = "Pods-迷你微博Tests"
+               BuildableName = "Pods_&#x8ff7;&#x4f60;&#x5fae;&#x535a;Tests.framework"
+               BlueprintName = "Pods-&#x8ff7;&#x4f60;&#x5fae;&#x535a;Tests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

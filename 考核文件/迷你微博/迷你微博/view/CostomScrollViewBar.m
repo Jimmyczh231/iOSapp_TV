@@ -135,8 +135,11 @@ static CGFloat const kSliderToBarDistance = 10.0;
 - (void)updateSlider {
     // 根据滑动进度更新滑块的位置和大小
     UILabel *currentLabel = self.allLabels[self.selectedIndex];
-    NSInteger objetiveLablelIndex = self.selectedIndex + (self.sliderProgress < 0 ? -1 : 1 ) ;
-    UILabel *objetiveLabel = self.allLabels[(objetiveLablelIndex + 1) < self.allLabels.count ? objetiveLablelIndex : self.allLabels.count - 1 ];
+    NSInteger objetiveLablelIndex = self.selectedIndex + (self.sliderProgress < 0 ? -1 : 1 );
+    if(objetiveLablelIndex < 0){
+        objetiveLablelIndex = 0;
+    }
+    UILabel *objetiveLabel = self.allLabels[(objetiveLablelIndex + 1) < self.allLabels.count ? objetiveLablelIndex : self.allLabels.count - 1];
     CGFloat x;
     CGFloat width;
     // 计算滑动的位置和长度

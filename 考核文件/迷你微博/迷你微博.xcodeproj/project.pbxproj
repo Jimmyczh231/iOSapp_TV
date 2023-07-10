@@ -52,7 +52,6 @@
 		BFE8801A2A0FE17F000676EF /* jiahao.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE880192A0FE17F000676EF /* jiahao.png */; };
 		BFE8801D2A0FE41A000676EF /* jiahao-2.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE8801C2A0FE41A000676EF /* jiahao-2.png */; };
 		BFE880202A101139000676EF /* WeiboWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE8801F2A101139000676EF /* WeiboWebViewController.m */; };
-		ECB4EFA37EC5A965A7F677FC /* Pods_____.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97002FF4EE4CC3305AB4BD2B /* Pods_____.framework */; };
 		EF01C9D27DC7B438D8DC8727 /* Pods__________UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF6BFCBBE412D9258940228 /* Pods__________UITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,9 +77,9 @@
 		5945BF52B4F422C41285D9E5 /* Pods-迷你微博-迷你微博UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-迷你微博-迷你微博UITests.release.xcconfig"; path = "Target Support Files/Pods-迷你微博-迷你微博UITests/Pods-迷你微博-迷你微博UITests.release.xcconfig"; sourceTree = "<group>"; };
 		6CE944641A58D0BB5D9CA853 /* Pods-迷你微博Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-迷你微博Tests.debug.xcconfig"; path = "Target Support Files/Pods-迷你微博Tests/Pods-迷你微博Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6F23E3DB2FD30AF5113AC548 /* Pods-迷你微博.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-迷你微博.debug.xcconfig"; path = "Target Support Files/Pods-迷你微博/Pods-迷你微博.debug.xcconfig"; sourceTree = "<group>"; };
-		6F666645F1DB6BEA0F327963 /* Pods_____Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_____Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8EF6BFCBBE412D9258940228 /* Pods__________UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods__________UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		97002FF4EE4CC3305AB4BD2B /* Pods_____.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_____.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F666645F1DB6BEA0F327963 /* Pods_____Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_____Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EF6BFCBBE412D9258940228 /* Pods__________UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods__________UITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		97002FF4EE4CC3305AB4BD2B /* Pods_____.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_____.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF09C01C2A18709E00063A41 /* shouye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shouye.png; sourceTree = "<group>"; };
 		BF09C01E2A1870A600063A41 /* wo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wo.png; sourceTree = "<group>"; };
 		BF0A86912A0A6CDC00FD4EB2 /* 迷你微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "迷你微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,7 +163,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECB4EFA37EC5A965A7F677FC /* Pods_____.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +205,6 @@
 				6CE944641A58D0BB5D9CA853 /* Pods-迷你微博Tests.debug.xcconfig */,
 				CD28CC2C3889428B9F761C43 /* Pods-迷你微博Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
