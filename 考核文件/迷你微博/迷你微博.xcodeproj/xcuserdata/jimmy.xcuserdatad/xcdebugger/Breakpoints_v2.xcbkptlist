@@ -1431,54 +1431,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EC089F95-15A2-4040-B6FA-21C79236EFEB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/model/ImageLoader.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "-loadImageWithURL:completion:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EC089F95-15A2-4040-B6FA-21C79236EFEB - ba0281a23f546000"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__43-[ImageLoader loadImageWithURL:completion:]_block_invoke_2"
-                  moduleName = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jimmy/Documents/github%E9%A1%B9%E7%9B%AE/%E4%BA%8C%E8%BD%AE%E8%80%83%E6%A0%B8/iOSapp_TV/%E8%80%83%E6%A0%B8%E6%96%87%E4%BB%B6/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/model/ImageLoader.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56"
-                  offsetFromSymbolStart = "616">
-               </Location>
-               <Location
-                  uuid = "EC089F95-15A2-4040-B6FA-21C79236EFEB - ba0281a27f546026"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__43-[ImageLoader loadImageWithURL:completion:]_block_invoke_3"
-                  moduleName = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jimmy/Documents/github%E9%A1%B9%E7%9B%AE/%E4%BA%8C%E8%BD%AE%E8%80%83%E6%A0%B8/iOSapp_TV/%E8%80%83%E6%A0%B8%E6%96%87%E4%BB%B6/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/model/ImageLoader.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E904F7CB-6211-4510-AC07-2D9F229B0EAB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1505,22 +1457,6 @@
             startingLineNumber = "31"
             endingLineNumber = "31"
             landmarkName = "-init"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3C26D21C-AB8F-4771-B34B-17FFD0925780"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/model/ImageLoader.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "-loadImageWithURL:completion:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

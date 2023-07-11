@@ -8,6 +8,8 @@
 #define imageThreshold 200
 
 #import "ImageLoader.h"
+#import <AFNetworking/AFNetworking.h>
+
 
 @interface ImageLoader()
 
@@ -30,44 +32,80 @@
     return sharedInstance;
 }
 
+//- (void)loadImageWithURL:(NSURL *)url completion:(void (^)(UIImage *image))completion {
+//    // 先从本地获取图片，如果不存在再从网络请求
+//    [self loadImageFromCacheWithURL:url completion:^(UIImage *cachedImage) {
+//        if (cachedImage) {
+//            completion(cachedImage);
+//        } else {
+//            NSURLSession *session = [NSURLSession sharedSession];
+//            NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//                if (error) {
+//                    NSLog(@"Error: %@", error.localizedDescription);
+//                    return;
+//                }
+//
+//                if (data) {
+//                    UIImage *image = [UIImage imageWithData:data];
+//
+//                    if (image) {
+//                        // 如果超过缓存阈值，删除 dictionary 中最早的图片
+//                        if(self.imageCache.count >= imageThreshold){
+//                            [self.imageCache removeObjectForKey: [self.imageThresholdArrary firstObject]];
+//                            [self.imageThresholdArrary removeObjectAtIndex:0];
+//                        }
+//                        [self.imageCache setObject:image forKey:url.absoluteString];
+//                        [self.imageThresholdArrary addObject:url];
+//
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            completion(image);
+//                        });
+//
+//                        [self saveImage:image withURL:url];
+//                    }
+//                }
+//            }];
+//
+//            [task resume];
+//        }
+//    }];
+//}
+
 - (void)loadImageWithURL:(NSURL *)url completion:(void (^)(UIImage *image))completion {
     // 先从本地获取图片，如果不存在再从网络请求
-    [self loadImageFromCacheWithURL:url completion:^(UIImage *cachedImage) {
-        if (cachedImage) {
-            completion(cachedImage);
-        } else {
-            NSURLSession *session = [NSURLSession sharedSession];
-            NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                if (error) {
-                    NSLog(@"Error: %@", error.localizedDescription);
-                    return;
+    UIImage *cachedImage = [self.imageCache objectForKey:url.absoluteString];
+    if (cachedImage) {
+        completion(cachedImage);
+        
+    }else{
+        
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.responseSerializer = [AFImageResponseSerializer serializer];
+        
+        [manager GET:url.absoluteString parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            if (responseObject && [responseObject isKindOfClass:[UIImage class]]) {
+                UIImage *image = responseObject;
+                
+                // 如果超过缓存阈值，删除 dictionary 中最早的图片
+                if (self.imageCache.count >= imageThreshold) {
+                    [self.imageCache removeObjectForKey: [self.imageThresholdArrary firstObject]];
+                    [self.imageThresholdArrary removeObjectAtIndex:0];
                 }
                 
-                if (data) {
-                    UIImage *image = [UIImage imageWithData:data];
-                    
-                    if (image) {
-                        // 如果超过缓存阈值，删除 dictionary 中最早的图片
-                        if(self.imageCache.count >= imageThreshold){
-                            [self.imageCache removeObjectForKey: [self.imageThresholdArrary firstObject]];
-                            [self.imageThresholdArrary removeObjectAtIndex:0];
-                        }
-                        [self.imageCache setObject:image forKey:url.absoluteString];
-                        [self.imageThresholdArrary addObject:url];
-                        
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            completion(image);
-                        });
-                        
-                        [self saveImage:image withURL:url];
-                    }
-                }
-            }];
-
-            [task resume];
-        }
-    }];
+                [self.imageCache setObject:image forKey:url.absoluteString];
+                [self.imageThresholdArrary addObject:url.absoluteString];
+                
+                completion(image);
+                [self saveImage:image withURL:url];
+            } else {
+                NSLog(@"Not a picture");
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }];
+    }
 }
+
 
 
 
