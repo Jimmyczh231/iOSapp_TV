@@ -56,14 +56,20 @@
     
     
     // 头像的布局
-    NSLayoutConstraint *profileImageLeft = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:13];
-    NSLayoutConstraint *profileImageTop = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:13];
-    NSLayoutConstraint *profileImagewidth = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:40];
-    NSLayoutConstraint *profileImageheight = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:40];
-    [self.contentView addSubview:self.userProfileImageView];
-    [self.contentView addConstraints:@[profileImageLeft, profileImageTop]];
-    [ self.userProfileImageView addConstraints:@[profileImagewidth, profileImageheight]];
+//    NSLayoutConstraint *profileImageLeft = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:13];
+//    NSLayoutConstraint *profileImageTop = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:13];
+//    NSLayoutConstraint *profileImagewidth = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:40];
+//    NSLayoutConstraint *profileImageheight = [NSLayoutConstraint constraintWithItem:self.userProfileImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:40];
+//    [self.contentView addSubview:self.userProfileImageView];
+//    [self.contentView addConstraints:@[profileImageLeft, profileImageTop]];
+//    [ self.userProfileImageView addConstraints:@[profileImagewidth, profileImageheight]];
     
+    [self.contentView addSubview:self.userProfileImageView];
+    self.userProfileImageView.sd_layout
+        .leftSpaceToView(self.contentView, 13)
+        .topSpaceToView(self.contentView, 13)
+        .widthIs(40)
+        .heightIs(40);
     
     // 用户名的初始化和布局
     self.nameLabel = [[UILabel alloc] init];
@@ -71,9 +77,15 @@
     self.nameLabel.font = [UIFont systemFontOfSize:14.0];
     [self.contentView addSubview:self.nameLabel];
     [self.nameLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    NSLayoutConstraint *nameLabelLeft = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.userProfileImageView attribute:NSLayoutAttributeRight multiplier:1 constant:13];
-    NSLayoutConstraint *nameLabelTop = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:15];
-    [self.contentView addConstraints:@[nameLabelLeft, nameLabelTop]];
+    
+//    NSLayoutConstraint *nameLabelLeft = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.userProfileImageView attribute:NSLayoutAttributeRight multiplier:1 constant:13];
+//    NSLayoutConstraint *nameLabelTop = [NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:15];
+//    [self.contentView addConstraints:@[nameLabelLeft, nameLabelTop]];
+    self.nameLabel.sd_layout
+        .leftSpaceToView(self.userProfileImageView, 13)
+        .topSpaceToView(self.contentView, 15)
+        .autoHeightRatio(0);
+    
 
     // 微博文字信息的初始化和布局
     self.textContentLabel = [[UILabel alloc] init];
@@ -84,10 +96,16 @@
     [self.contentView addSubview:self.textContentLabel];
     self.textContentLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.textContentLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    NSLayoutConstraint *textLabelLeft = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-    NSLayoutConstraint *textLabelRight = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
-    NSLayoutConstraint *textLabelTop = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:35];
-    [self.contentView addConstraints:@[textLabelLeft, textLabelRight, textLabelTop]];
+    
+//    NSLayoutConstraint *textLabelLeft = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+//    NSLayoutConstraint *textLabelRight = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
+//    NSLayoutConstraint *textLabelTop = [NSLayoutConstraint constraintWithItem:self.textContentLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:35];
+//    [self.contentView addConstraints:@[textLabelLeft, textLabelRight, textLabelTop]];
+    self.textContentLabel.sd_layout
+        .leftSpaceToView(self.contentView, 10)
+        .rightSpaceToView(self.contentView, 10)
+        .topSpaceToView(self.nameLabel, 35)
+        .autoHeightRatio(0);
     
     // 添加点击事件，进入文末链接
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnTextLabel:)];
@@ -123,7 +141,7 @@
     
     // 点赞按钮的初始化
     self.dinazanButton = [[UIButton alloc]init];
-    self.dinazanButton.frame = CGRectMake((self.contentView.bounds.size.width) * 3 / 4 - 10, self.contentView.bounds.size.height-25, 20, 20);
+//    self.dinazanButton.frame = CGRectMake((self.contentView.bounds.size.width) * 3 / 4 - 10, self.contentView.bounds.size.height-25, 20, 20);
     self.dinazanButton.backgroundColor = [UIColor whiteColor];
 
     // 判断点赞图标
@@ -136,16 +154,22 @@
         [self.dinazanButton setImage:dinazan forState:UIControlStateNormal];
     }
     [self.dinazanButton addTarget:self action:@selector(dinazanButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
+    [self.contentView addSubview:self.dinazanButton];
+
     // 点赞按钮的布局
     [self.dinazanButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:(self.contentView.bounds.size.width) * 3 / 4 - 10];
-    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:-10];
-    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:20];
-    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:20];
-    [self.contentView addSubview:self.dinazanButton];
-    [self.contentView addConstraints:@[left, top]];
-    [self.dinazanButton addConstraints:@[width, height]];
+//    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:(self.contentView.bounds.size.width) * 3 / 4 - 10];
+//    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:-10];
+//    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:20];
+//    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.dinazanButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:20];
+//    [self.contentView addConstraints:@[left, top]];
+//    [self.dinazanButton addConstraints:@[width, height]];
+    
+    self.dinazanButton.sd_layout
+        .leftSpaceToView(self.contentView, ([UIScreen mainScreen].bounds.size.width) * 3 / 4 - 10)
+        .bottomSpaceToView(self.contentView, 10)
+        .widthIs(20)
+        .heightIs(20);
 
     
     // 初始化所需的 ImageView
@@ -161,7 +185,7 @@
     
     // 根据图片 URL 添加图片和布局
     [self setImageViewWithImageUrls:self.imagesUrl];
-    
+    [self.contentView layoutSubviews];
 
 }
 
@@ -243,14 +267,19 @@
 //                    }
                     UIImageView *imageView = self.imageViews.firstObject;
                     [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
-                    // 单图时的页面布局
-                    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-                    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:15];
-                    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageWidth];
-                    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageHeight];
                     [self.contentView addSubview:imageView];
-                    [self.contentView addConstraints:@[left, top]];
-                    [imageView addConstraints:@[width, height]];
+                    // 单图时的页面布局
+//                    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+//                    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:15];
+//                    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageWidth];
+//                    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageHeight];
+//                    [self.contentView addConstraints:@[left, top]];
+//                    [imageView addConstraints:@[width, height]];
+                    imageView.sd_layout
+                        .leftSpaceToView(self.contentView,10)
+                        .topSpaceToView(self.textContentLabel, 15)
+                        .widthIs(imageWidth)
+                        .heightIs(imageHeight);
                 });
             } else {
                 NSLog(@"Failed to load image");
@@ -265,14 +294,19 @@
             CGFloat x = margin + (imageSize + margin) * (i % 2);
             CGFloat y = margin + (imageSize + margin) * (i / 2);
             UIImageView *imageView = self.imageViews[i];
-            [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
-            NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:x];
-            NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant: y + 5];
-            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
-            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
             [self.contentView addSubview:imageView];
-            [imageView addConstraints:@[width, height]];
-            [self.contentView addConstraints:@[left, top]];
+            [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+//            NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:x];
+//            NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant: y + 5];
+//            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
+//            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
+//            [imageView addConstraints:@[width, height]];
+//            [self.contentView addConstraints:@[left, top]];
+            imageView.sd_layout
+                .leftSpaceToView(self.contentView, x)
+                .topSpaceToView(self.textContentLabel, y + 5)
+                .widthIs(imageSize)
+                .heightIs(imageSize);
         }
         // 五到九图的情况，直接进行页面布局
     } else if (self.imageNumber >= 5 && self.imageNumber <= 9) {
@@ -283,14 +317,21 @@
             CGFloat x = margin + (imageSize + margin) * (i % 3);
             CGFloat y = margin + (imageSize + margin) * (i / 3);
             UIImageView *imageView = self.imageViews[i];
-            [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
-            NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:x];
-            NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:y+5];
-            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
-            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
             [self.contentView addSubview:imageView];
-            [imageView addConstraints:@[width, height]];
-            [self.contentView addConstraints:@[left, top]];
+            [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+            
+//            NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:x];
+//            NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:y+5];
+//            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
+//            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
+//            [imageView addConstraints:@[width, height]];
+//            [self.contentView addConstraints:@[left, top]];
+            imageView.sd_layout
+                .leftSpaceToView(self.contentView, x)
+                .topSpaceToView(self.textContentLabel, y + 5)
+                .widthIs(imageSize)
+                .heightIs(imageSize);
+            
         }
         // 超过九张图将最后一张图模糊并告知还有多少张图
     } else {
@@ -301,14 +342,21 @@
             CGFloat x = margin + (imageSize + margin) * (i % 3);
             CGFloat y = margin + (imageSize + margin) * (i / 3);
             UIImageView *imageView = self.imageViews[i];
-            [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
-            NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:x];
-            NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:y+5];
-            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
-            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
             [self.contentView addSubview:imageView];
-            [imageView addConstraints:@[width, height]];
-            [self.contentView addConstraints:@[left, top]];
+            [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+            
+//            NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:x];
+//            NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textContentLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:y+5];
+//            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
+//            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:imageSize];
+//            [imageView addConstraints:@[width, height]];
+//            [self.contentView addConstraints:@[left, top]];
+            imageView.sd_layout
+                .leftSpaceToView(self.contentView, x)
+                .topSpaceToView(self.textContentLabel, y + 5)
+                .widthIs(imageSize)
+                .heightIs(imageSize);
+            
                 if (i == 8) {
                     // 模糊最后一张图片
                     CIImage *inputImage = [[CIImage alloc] initWithImage:imageView.image];
@@ -327,11 +375,17 @@
                     countLabel.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
                     [countLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
                     [imageView addSubview:countLabel];
-                    NSLayoutConstraint *countLeft = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
-                    NSLayoutConstraint *countTop = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeTop multiplier:1 constant:0];
-                    NSLayoutConstraint *countWidth = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
-                    NSLayoutConstraint *countHeight = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
-                    [imageView addConstraints:@[countLeft, countTop, countWidth, countHeight]];
+//                    NSLayoutConstraint *countLeft = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
+//                    NSLayoutConstraint *countTop = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+//                    NSLayoutConstraint *countWidth = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
+//                    NSLayoutConstraint *countHeight = [NSLayoutConstraint constraintWithItem:countLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
+//                    [imageView addConstraints:@[countLeft, countTop, countWidth, countHeight]];
+                    imageView.sd_layout
+                        .leftSpaceToView(self.contentView, 0)
+                        .topSpaceToView(self.textContentLabel, 0)
+                        .autoHeightRatio(0)
+                        .autoWidthRatio(0);
+                    
                 }
             }
         }

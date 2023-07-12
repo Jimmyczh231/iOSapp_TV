@@ -172,6 +172,7 @@
 //        completion(YES, self.weiboDataArray);
 //    }];
 //    [task resume];
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     [manager GET:urlHead parameters:parameter headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
