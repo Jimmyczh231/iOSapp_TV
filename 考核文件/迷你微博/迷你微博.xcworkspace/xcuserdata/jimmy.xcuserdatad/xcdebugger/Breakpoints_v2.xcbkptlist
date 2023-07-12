@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "139CBF11-D3EA-42D2-AA0F-A9FA3B57A70E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/model/ImageLoader.m"

@@ -8,6 +8,7 @@
 #import "HomePageTableViewCell.h"
 #import "ImageLoader.h"
 #import "ShoucangManager.h"
+#import <UIView+SDAutoLayout.h>
 
 @interface HomePageTableViewCell ()
 
