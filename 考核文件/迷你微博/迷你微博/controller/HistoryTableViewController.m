@@ -8,7 +8,7 @@
 #import "HistoryTableViewController.h"
 #import "HistoryManager.h"
 #import "HomePageTableViewCell.h"
-
+#import "MJRefresh.h"
 /*
  这个页面也和 homepage 几乎一样。
  但是添加了一个清空历史记录的方法
@@ -37,7 +37,7 @@
     self.title = @"历史记录";
     [self refreshHistoryTableView];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"清除记录" style:UIBarButtonItemStylePlain target:self action:@selector(deleteHistoryButtonTapped:)];
-    
+
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

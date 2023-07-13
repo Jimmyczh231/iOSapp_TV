@@ -10,7 +10,7 @@
 #import "WeiboHomePageManager.h"
 #import "AccessToken.h"
 #import "WeiboWebViewController.h"
-
+#import "MJRefresh.h"
 
 @interface HomePageTableViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -32,18 +32,21 @@
     self.canLoadMoreData = YES;
     self.manager = [[WeiboHomePageManager alloc] initWithAccessToken:[AccessToken sharedInstance].accessToken];
     // 加载数据
-    [self.manager refreshHomePageDataWithCompletion:^(BOOL success, NSArray *weiboDataArray) {
-        if (success) {
-            // 加载成功，更新界面
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.DataArray = [weiboDataArray mutableCopy];;
-                [self.tableView reloadData];
-            });
-
-        } else {
-            self.needToRefresh = YES;
-        }
-    }];
+//    [self.manager refreshHomePageDataWithCompletion:^(BOOL success, NSArray *weiboDataArray) {
+//        if (success) {
+//            // 加载成功，更新界面
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                self.DataArray = [weiboDataArray mutableCopy];;
+//                [self.tableView reloadData];
+//            });
+//
+//        } else {
+//            self.needToRefresh = YES;
+//        }
+//    }];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(mjRefreshTableView)];
+    [self.tableView.mj_header beginRefreshing];
+    
     
     // 设置 Timer 计时刷新
     self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:300.0 target:self selector:@selector(timeToRefresh:) userInfo:nil repeats:YES];
@@ -118,7 +121,32 @@
 
 }
 
-
+// 刷新数据2
+- (void)mjRefreshTableView{
+    // 如果允许刷新数据，刷新数据
+    if(self.needToRefresh){
+        self.canLoadMoreData = NO;
+        __weak typeof(self) weakSelf = self;
+        [self.manager refreshHomePageDataWithCompletion:^(BOOL success, NSArray *weiboDataArray) {
+            __strong typeof (self) strongself = weakSelf;
+            if (success) {
+                // 加载成功，更新界面
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    strongself.DataArray = [weiboDataArray mutableCopy];;
+                    [strongself.tableView reloadData];
+                    strongself.needToRefresh = NO;
+                    self.canLoadMoreData = YES;
+                });
+            } else {
+                strongself.needToRefresh = YES;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                });
+            }
+        }];
+    }
+    self.needToRefresh = NO;
+    [self.tableView.mj_header endRefreshing];
+}
 
 
 #pragma mark - Table view data source

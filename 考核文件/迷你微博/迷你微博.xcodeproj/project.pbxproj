@@ -31,6 +31,8 @@
 		BF4FA4292A0D4BAE007098E1 /* WeiboHomePageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA4282A0D4BAE007098E1 /* WeiboHomePageManager.m */; };
 		BF4FA42C2A0D55A5007098E1 /* HomePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */; };
 		BF54C0FD2A1780650010FE24 /* dianzan_kuai.png in Resources */ = {isa = PBXBuildFile; fileRef = BF54C0FC2A1780650010FE24 /* dianzan_kuai.png */; };
+		BF7D7AF82A5EFD2900E903CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7D7AF72A5EFD2900E903CF /* UIKit.framework */; };
+		BF7D7AFA2A5EFD3C00E903CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7D7AF92A5EFD3C00E903CF /* Foundation.framework */; };
 		BFA3B5B82A120F3F008E23E4 /* MyWeiboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5B72A120F3F008E23E4 /* MyWeiboViewController.m */; };
 		BFA3B5BB2A120F88008E23E4 /* MyWeiboViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3B5BA2A120F88008E23E4 /* MyWeiboViewManager.m */; };
 		BFA3B5BD2A12A93F008E23E4 /* loading-icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BFA3B5BC2A12A93F008E23E4 /* loading-icon.jpg */; };
@@ -120,6 +122,8 @@
 		BF4FA42A2A0D55A5007098E1 /* HomePageTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageTableViewController.h; sourceTree = "<group>"; };
 		BF4FA42B2A0D55A5007098E1 /* HomePageTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageTableViewController.m; sourceTree = "<group>"; };
 		BF54C0FC2A1780650010FE24 /* dianzan_kuai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dianzan_kuai.png; sourceTree = "<group>"; };
+		BF7D7AF72A5EFD2900E903CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BF7D7AF92A5EFD3C00E903CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BFA3B5B62A120F3F008E23E4 /* MyWeiboViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWeiboViewController.h; sourceTree = "<group>"; };
 		BFA3B5B72A120F3F008E23E4 /* MyWeiboViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWeiboViewController.m; sourceTree = "<group>"; };
 		BFA3B5B92A120F88008E23E4 /* MyWeiboViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWeiboViewManager.h; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF7D7AFA2A5EFD3C00E903CF /* Foundation.framework in Frameworks */,
+				BF7D7AF82A5EFD2900E903CF /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +194,8 @@
 		0D9A04710167084FE3E1B2C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF7D7AF92A5EFD3C00E903CF /* Foundation.framework */,
+				BF7D7AF72A5EFD2900E903CF /* UIKit.framework */,
 				97002FF4EE4CC3305AB4BD2B /* Pods_____.framework */,
 				8EF6BFCBBE412D9258940228 /* Pods__________UITests.framework */,
 				6F666645F1DB6BEA0F327963 /* Pods_____Tests.framework */,

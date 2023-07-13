@@ -47,32 +47,33 @@
         // 添加每一页的视图并设置frame
         for (NSInteger i = 0; i < pages.count; i++) {
             UIView *pageView = pages[i];
+
             pageView.frame = CGRectMake(i * frame.size.width, kRefreshControlHeight+30, frame.size.width, frame.size.height-kRefreshControlHeight-80);
             // 添加刷新条
-            UIView * refreshControls = [[UIView alloc] initWithFrame:CGRectMake(i * frame.size.width, 0, frame.size.width, kRefreshControlHeight)];
-            refreshControls.userInteractionEnabled = NO;
-            refreshControls.backgroundColor = [UIColor whiteColor];
-            UILabel *label = [[UILabel alloc] initWithFrame:refreshControls.bounds];
-            label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y + 60, label.frame.size.width, label.frame.size.height-30);
-            label.textAlignment = NSTextAlignmentCenter;
-            label.text = @"下拉刷新";
-            [self.refreshControllLabels addObject:label];
-            [refreshControls addSubview:self.refreshControllLabels[i]];
+//            UIView * refreshControls = [[UIView alloc] initWithFrame:CGRectMake(i * frame.size.width, 0, frame.size.width, kRefreshControlHeight)];
+//            refreshControls.userInteractionEnabled = NO;
+//            refreshControls.backgroundColor = [UIColor whiteColor];
+//            UILabel *label = [[UILabel alloc] initWithFrame:refreshControls.bounds];
+//            label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y + 60, label.frame.size.width, label.frame.size.height-30);
+//            label.textAlignment = NSTextAlignmentCenter;
+//            label.text = @"下拉刷新";
+//            [self.refreshControllLabels addObject:label];
+//            [refreshControls addSubview:self.refreshControllLabels[i]];
 
             // 添加加载更多条
-            UIView *loadMoreView = [[UIView alloc] initWithFrame:CGRectMake(i * frame.size.width, frame.size.height - 40, frame.size.width, 100)];
-            loadMoreView.backgroundColor = [UIColor whiteColor];
-            UILabel *loadMoreLabel = [[UILabel alloc] initWithFrame:loadMoreView.bounds];
-            loadMoreLabel.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y - 50, label.frame.size.width, label.frame.size.height-30);
-            loadMoreLabel.textAlignment = NSTextAlignmentCenter;
-            loadMoreLabel.text = @"加载更多";
-            loadMoreLabel.textColor = [UIColor orangeColor];
-            [self.loadMoreControllLabels addObject:loadMoreLabel];
-            [loadMoreView addSubview:loadMoreLabel];
+//            UIView *loadMoreView = [[UIView alloc] initWithFrame:CGRectMake(i * frame.size.width, frame.size.height - 40, frame.size.width, 100)];
+//            loadMoreView.backgroundColor = [UIColor whiteColor];
+//            UILabel *loadMoreLabel = [[UILabel alloc] initWithFrame:loadMoreView.bounds];
+//            loadMoreLabel.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y - 50, label.frame.size.width, label.frame.size.height-30);
+//            loadMoreLabel.textAlignment = NSTextAlignmentCenter;
+//            loadMoreLabel.text = @"加载更多";
+//            loadMoreLabel.textColor = [UIColor orangeColor];
+//            [self.loadMoreControllLabels addObject:loadMoreLabel];
+//            [loadMoreView addSubview:loadMoreLabel];
             
-            [self addSubview:refreshControls];
+//            [self addSubview:refreshControls];
             [self addSubview:pageView];
-            [self addSubview:loadMoreView];
+//            [self addSubview:loadMoreView];
             
         }
         
@@ -105,15 +106,22 @@
         scrollView.contentOffset = CGPointMake(self.beginContentOffset.x, currentContentOffset.y);
     }
     
+   
     // 判断是否滑动到边界，禁止继续滑动
+    CGPoint offset = scrollView.contentOffset;
     if (scrollView.contentOffset.x <= 0 || scrollView.contentOffset.x > scrollView.contentSize.width - scrollView.bounds.size.width) {
         // 禁止左右滑动
-        CGPoint offset = scrollView.contentOffset;
         if (scrollView.contentOffset.x <= 0) {
             offset.x = 0;
         } else {
             offset.x = scrollView.contentSize.width - scrollView.bounds.size.width;
         }
+        scrollView.contentOffset = offset;
+    }
+    
+    // 禁止上下滑动
+    if(scrollView.contentOffset.y != 0) {
+        offset.y = 0;
         scrollView.contentOffset = offset;
     }
     
@@ -140,18 +148,18 @@
 //    }
     
     // 下拉刷新的分段设置
-    if (scrollView.contentOffset.y <= -kRefreshControlHeight / 2 - 20  && self.shouldAllowRefresh && !self.isRefreshing) {
-        (self.refreshControllLabels[self.currentPage]).text = @"松开刷新";
-    } else if (scrollView.contentOffset.y > -kRefreshControlHeight / 2 - 20  && self.shouldAllowRefresh && !self.isRefreshing){
-        (self.refreshControllLabels[self.currentPage]).text = @"下拉刷新";
-    }
+//    if (scrollView.contentOffset.y <= -kRefreshControlHeight / 2 - 20  && self.shouldAllowRefresh && !self.isRefreshing) {
+//        (self.refreshControllLabels[self.currentPage]).text = @"松开刷新";
+//    } else if (scrollView.contentOffset.y > -kRefreshControlHeight / 2 - 20  && self.shouldAllowRefresh && !self.isRefreshing){
+//        (self.refreshControllLabels[self.currentPage]).text = @"下拉刷新";
+//    }
     
     // 上滑加载的分段设置
-    if (scrollView.contentOffset.y + scrollView.frame.size.height >= scrollView.contentSize.height + 65  && self.shouldAllowLoadMore && !self.isLoadingMore) {
-        (self.loadMoreControllLabels[self.currentPage]).text = @"松开加载";
-    } else if (scrollView.contentOffset.y + scrollView.frame.size.height < scrollView.contentSize.height + 65  && self.shouldAllowLoadMore && !self.isLoadingMore){
-        (self.loadMoreControllLabels[self.currentPage]).text = @"加载更多";
-    }
+//    if (scrollView.contentOffset.y + scrollView.frame.size.height >= scrollView.contentSize.height + 65  && self.shouldAllowLoadMore && !self.isLoadingMore) {
+//        (self.loadMoreControllLabels[self.currentPage]).text = @"松开加载";
+//    } else if (scrollView.contentOffset.y + scrollView.frame.size.height < scrollView.contentSize.height + 65  && self.shouldAllowLoadMore && !self.isLoadingMore){
+//        (self.loadMoreControllLabels[self.currentPage]).text = @"加载更多";
+//    }
 
     NSLog(@"%lf",scrollView.contentOffset.y);
 }
@@ -250,32 +258,32 @@
 }
 
 - (void)startRefreshing {
-    // 设置控件文字
-    (self.refreshControllLabels[self.currentPage]).text = @"正在刷新";
-    // 如果任然在滑动，就不刷新
-    if (self.isDragging) {
-        return;
-    }
-    self.isRefreshing = YES;
-    // 显示出完整的控件
-    [self setContentOffset:CGPointMake(self.contentOffset.x, -kRefreshControlHeight) animated:YES];
-    // 调用 block 刷新数据
-    if (self.refreshBlock) {
-        self.refreshBlock();
-    }
+//    // 设置控件文字
+//    (self.refreshControllLabels[self.currentPage]).text = @"正在刷新";
+//    // 如果任然在滑动，就不刷新
+//    if (self.isDragging) {
+//        return;
+//    }
+//    self.isRefreshing = YES;
+//    // 显示出完整的控件
+//    [self setContentOffset:CGPointMake(self.contentOffset.x, -kRefreshControlHeight) animated:YES];
+//    // 调用 block 刷新数据
+//    if (self.refreshBlock) {
+//        self.refreshBlock();
+//    }
 
 }
 
 - (void)endRefreshing {
-    CGFloat pageWidth = self.frame.size.width;
-    // 根据scrollView的contentOffset计算当前页面
-    self.currentPage = floor((self.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    // 迅速移动到最近的页面
-    if (self.isRefreshing) {
-    [self setContentOffset:CGPointMake(self.currentPage * pageWidth, 0) animated:YES];
-    self.isRefreshing = NO;
-    }
-    
+//    CGFloat pageWidth = self.frame.size.width;
+//    // 根据scrollView的contentOffset计算当前页面
+//    self.currentPage = floor((self.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+//    // 迅速移动到最近的页面
+//    if (self.isRefreshing) {
+//    [self setContentOffset:CGPointMake(self.currentPage * pageWidth, 0) animated:YES];
+//    self.isRefreshing = NO;
+//    }
+//
 }
 
 - (void)startLoadingMore {
