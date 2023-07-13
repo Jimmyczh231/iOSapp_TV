@@ -40,19 +40,19 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "036F31F0-3640-4757-8A2A-2E1838978FCB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "-mjRefreshTableView"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "036F31F0-3640-4757-8A2A-2E1838978FCB - a000f88258e2095f"
+                  uuid = "036F31F0-3640-4757-8A2A-2E1838978FCB - a000f88258e20819"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -62,12 +62,12 @@
                   urlString = "file:///Users/jimmy/Documents/github%E9%A1%B9%E7%9B%AE/%E4%BA%8C%E8%BD%AE%E8%80%83%E6%A0%B8/iOSapp_TV/%E8%80%83%E6%A0%B8%E6%96%87%E4%BB%B6/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/controller/HomePageTableViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
                   offsetFromSymbolStart = "76">
                </Location>
                <Location
-                  uuid = "036F31F0-3640-4757-8A2A-2E1838978FCB - 1c7798148f19b163"
+                  uuid = "036F31F0-3640-4757-8A2A-2E1838978FCB - 1c7798148f19b025"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -77,11 +77,59 @@
                   urlString = "file:///Users/jimmy/Documents/github%E9%A1%B9%E7%9B%AE/%E4%BA%8C%E8%BD%AE%E8%80%83%E6%A0%B8/iOSapp_TV/%E8%80%83%E6%A0%B8%E6%96%87%E4%BB%B6/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/%E8%BF%B7%E4%BD%A0%E5%BE%AE%E5%8D%9A/controller/HomePageTableViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "131"
-                  endingLineNumber = "131"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
                   offsetFromSymbolStart = "64">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "72BF5271-8541-43B3-9682-A3B94396CCDF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "-mjRefreshTableView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "027F645C-9A9F-461F-8E7C-4494FCD6310F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-mjRefreshTableView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8BC5EEB5-2567-476C-8FD6-F837EC66F106"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x8ff7;&#x4f60;&#x5fae;&#x535a;/controller/HomePageTableViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-autorefresh"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

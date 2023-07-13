@@ -48,7 +48,7 @@
         for (NSInteger i = 0; i < pages.count; i++) {
             UIView *pageView = pages[i];
 
-            pageView.frame = CGRectMake(i * frame.size.width, kRefreshControlHeight+30, frame.size.width, frame.size.height-kRefreshControlHeight-80);
+            pageView.frame = CGRectMake(i * frame.size.width, kRefreshControlHeight+50, frame.size.width, frame.size.height-kRefreshControlHeight-100);
             // 添加刷新条
 //            UIView * refreshControls = [[UIView alloc] initWithFrame:CGRectMake(i * frame.size.width, 0, frame.size.width, kRefreshControlHeight)];
 //            refreshControls.userInteractionEnabled = NO;

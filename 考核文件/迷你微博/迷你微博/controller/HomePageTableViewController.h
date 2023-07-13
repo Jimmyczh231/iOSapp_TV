@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)loadMoreDataOnTableViewWithCompletion:(void (^)(BOOL))completion;
 - (void)refreshTableViewWithCompletion:(void (^)(BOOL))completion;
-
+- (void)autorefresh;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -19,6 +19,7 @@
 @property (nonatomic, strong, readwrite) WeiboWebViewController *webViewController;
 @property (nonatomic, strong, readwrite) WeiboHomePageManager *manager;
 @property (nonatomic, strong, readwrite) NSTimer *refreshTimer;
+@property (nonatomic, readwrite) BOOL timeToRefresh;
 
 
 
@@ -44,9 +45,16 @@
 //            self.needToRefresh = YES;
 //        }
 //    }];
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(mjRefreshTableView)];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(mjRefreshTableView)];
+    [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
+    [header setTitle:@"释放以刷新" forState:MJRefreshStatePulling];
+    [header setTitle:@"正在刷新..." forState:MJRefreshStateRefreshing];
+    [header setTitle:@"刷新完成" forState:MJRefreshStateNoMoreData];
+    header.ignoredScrollViewContentInsetTop = 30;
+    self.tableView.mj_header = header;
+
     [self.tableView.mj_header beginRefreshing];
-    
+    self.timeToRefresh = YES;
     
     // 设置 Timer 计时刷新
     self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:300.0 target:self selector:@selector(timeToRefresh:) userInfo:nil repeats:YES];
@@ -54,8 +62,17 @@
     [self.tableView reloadData];
 }
 
+ // 自动刷新
+- (void)autorefresh {
+    if(self.timeToRefresh){
+        [self mjRefreshTableView];
+        self.timeToRefresh = NO;
+    }
+}
+
 - (void)timeToRefresh:(NSTimer *)timer {
     self.needToRefresh = YES;
+    self.timeToRefresh = YES;
 }
 
 #pragma mark - 数据刷新和加载
@@ -125,6 +142,7 @@
 - (void)mjRefreshTableView{
     // 如果允许刷新数据，刷新数据
     if(self.needToRefresh){
+        self.needToRefresh = NO;
         self.canLoadMoreData = NO;
         __weak typeof(self) weakSelf = self;
         [self.manager refreshHomePageDataWithCompletion:^(BOOL success, NSArray *weiboDataArray) {
@@ -134,18 +152,19 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     strongself.DataArray = [weiboDataArray mutableCopy];;
                     [strongself.tableView reloadData];
-                    strongself.needToRefresh = NO;
+                    
                     self.canLoadMoreData = YES;
                 });
-            } else {
                 strongself.needToRefresh = YES;
+            } else {
                 dispatch_async(dispatch_get_main_queue(), ^{
+
                 });
+                strongself.needToRefresh = YES;
             }
+            [strongself.tableView.mj_header endRefreshing];
         }];
     }
-    self.needToRefresh = NO;
-    [self.tableView.mj_header endRefreshing];
 }
 
 

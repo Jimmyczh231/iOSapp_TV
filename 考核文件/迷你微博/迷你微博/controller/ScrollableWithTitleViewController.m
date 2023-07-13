@@ -66,10 +66,11 @@
             if (currentPage == 1) {
                 strongself.currnetPage = currentPage;
                 strongself.progress = progress;
-                [strongself.homePageTable refreshTableViewWithCompletion:^(BOOL finished) {
-                    // 刷新结束后调用endRefreshing方法停止下拉刷新，并返回正常状态
-                    [strongself.pagingScrollView endRefreshing];
-                }];
+//                [strongself.homePageTable refreshTableViewWithCompletion:^(BOOL finished) {
+//                    // 刷新结束后调用endRefreshing方法停止下拉刷新，并返回正常状态
+//                    [strongself.pagingScrollView endRefreshing];
+//                }];
+                [strongself.homePageTable autorefresh];
             }
         }
         // 发送滑动状态
